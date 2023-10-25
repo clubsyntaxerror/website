@@ -4,53 +4,97 @@
 
 :root {
   --foreground-rgb: 255, 255, 255;
-  --background-start-rgb: 0, 0, 0;
-  --background-end-rgb: 44, 44, 44;
+  --background-rgb: 0, 0, 0;
 }
 
 @media (prefers-color-scheme: light) {
   :root {
     --foreground-rgb: 0, 0, 0;
-    --background-start-rgb: 214, 219, 220;
-    --background-end-rgb: 255, 255, 255;
+    --background-rgb: 255, 255, 255;
   }
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
   color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  background: rgb(var(--background-rgb));
+  font-size: 1rem;
 }
 
 h1 {
-  font-size: 5vw;
+  font-size: 6vw;
   margin: 1rem 0rem;
+  line-height: 6vw;
 }
 
-@media screen and (max-width: 640px) {
-  h1 {
-    font-size: 2rem;
-    margin: 1rem 0rem;
-  }
+h2 {
+  font-size: 1rem;
+  color: #ffa500;
 }
 
-button {
-  background-color: white;
-  color: black;
-  border: 1px solid black;
+h3 {
+  font-size: 1.6rem;
+}
+
+p {
+  margin-bottom: 1rem;
+}
+
+.button {
+  color: white;
+  border: 1px solid white;
   padding: 0.5rem 2rem;
   margin: 2rem 0;
   display: inline-block;
   font-size: 1.5rem;
 }
 
-button.more {
-  background-color: black;
+.smallbutton {
+  color: white;
+  border: 1px solid white;
+  padding: 0.2rem 1rem;
+}
+
+.button.more {
   border: 1px solid white;
   color: white;
   margin-left: 1rem;
 }
+
+/* https://css-generators.com/custom-borders/ */
+.zigzag {
+  background: repeating-linear-gradient(135deg,#000000 0 15px,#000000 0 30px);
+  --mask: conic-gradient(from -45deg at bottom,#0000,#000 1deg 89deg,#0000 90deg) 50%/100.00px 100%;
+  -webkit-mask: var(--mask);
+          mask: var(--mask);
+}
+
+@media screen and (max-width: 640px) {
+  h1 {
+    font-size: 3.2rem;
+    margin: 1rem 0rem;
+    line-height: 3rem;
+  }
+
+  h2 {
+    font-size: 1rem;
+  }
+
+  h3 {
+    font-size: 1.6rem;
+  }
+
+  .button {
+    font-size: 1rem;
+  }
+
+  .zigzag {
+  --mask: conic-gradient(from -45deg at bottom,#0000,#000 1deg 89deg,#0000 90deg) 50%/50.00px 100%;
+    -webkit-mask: var(--mask);
+            mask: var(--mask);
+  }
+}
+
