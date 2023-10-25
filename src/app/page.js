@@ -1,15 +1,18 @@
 import Image from 'next/image'
-import localFont from 'next/font/local'
-import Link from 'next/link';
+import Link from 'next/link'
+import { getEvents } from './events.js'
 
-export default function Home() {
+export default async function Home() {
+  const events = await (await getEvents()).slice(1)
+  console.log(events)
+
   return (
     <main className="flex min-h-screen flex-col items-center justify-between">
       <video autoPlay muted loop playsInline className="object-cover w-full h-screen -z-10 zigzag" poster="/video-poster.jpg">         
           <source src="/video.mp4" type="video/mp4"/>       
       </video>            
       <section className='p-6 min-h-screen w-full md:w-2/3 absolute flex flex-col justify-around items-center'>
-        <img src="/images/invader-logo.png"></img>
+        <img src="/images/invader-logo.png" className='logo'></img>
         <div>
           <h1>Syntax Error Halloween Special</h1>
           <p>It's finally Halloween time! All the artists, all the video games and all the cosplay you'd expect is right here! </p>

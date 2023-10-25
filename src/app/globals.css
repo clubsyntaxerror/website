@@ -43,6 +43,10 @@ p {
   margin-bottom: 1rem;
 }
 
+.logo {
+  max-width: 50vh;
+}
+
 .button {
   color: white;
   border: 1px solid white;
