@@ -20,7 +20,7 @@ export default async function Home() {
               {events[0].optionalCallToActionTitle && events[0].optionalCallToActionUrl && (
                 <Link href={events[0].optionalCallToActionUrl} target="_blank" className='button bg-purple-800'>{events[0].optionalCallToActionTitle}</Link>
               )}
-              <Link href='#events' className='button more bg-black'>Find out more!</Link>
+              <Link href='#events' className='button more bg-black'>Find out more</Link>
             </div>
           </div>
         )}
@@ -83,7 +83,7 @@ export default async function Home() {
         <p>Njursten, Toolsmonkey, Zaz</p>
       </section>
       <section className='p-6 w-full md:w-2/3'>
-        <h2>The board for Svenska Spelmusikfrämjandet</h2>
+        <h2>The board of Svenska Spelmusikfrämjandet</h2>
         <p>Hakushi, Weyland, Matti, MissStabby, Jor-el</p>
       </section>         
       <section className='p-6 w-full md:w-2/3'>
