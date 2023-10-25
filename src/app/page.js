@@ -1,4 +1,3 @@
-import Image from 'next/image'
 import Link from 'next/link'
 import { getEvents } from './events.js'
 
@@ -21,7 +20,7 @@ export default async function Home() {
               {events[0].optionalCallToActionTitle && events[0].optionalCallToActionUrl && (
                 <Link href={events[0].optionalCallToActionUrl} target="_blank" className='button bg-purple-800'>{events[0].optionalCallToActionTitle}</Link>
               )}
-              <Link href='#events' className='button more bg-black'>Find out more</Link>
+              <Link href='#events' className='button more bg-black'>Find out more!</Link>
             </div>
           </div>
         )}
