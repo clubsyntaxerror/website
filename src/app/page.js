@@ -4,7 +4,6 @@ import { getEvents } from './events.js'
 
 export default async function Home() {
   const events = await (await getEvents()).slice(1)
-  console.log(events)
 
   return (
     <main className="flex min-h-screen flex-col items-center justify-between">
@@ -13,28 +12,63 @@ export default async function Home() {
       </video>            
       <section className='p-6 min-h-screen w-full md:w-2/3 absolute flex flex-col justify-around items-center'>
         <img src="/images/invader-logo.png" className='logo'></img>
-        <div>
-          <h1>Syntax Error Halloween Special</h1>
-          <p>It's finally Halloween time! All the artists, all the video games and all the cosplay you'd expect is right here! </p>
-          <p>28th October at Bryggarsalen</p>
-          <div className='flex justify-center'>
-            <Link href='' className='button bg-purple-800'>Book now!</Link>
-            <Link href='#about' className='button more bg-black'>Find out more</Link>
+        { events[0] && (
+          <div>
+            <h1>{events[0].optionalEventName ? events[0].optionalEventName : "Syntax Error "}</h1>
+            <p>{events[0].optionalEventDescription ? events[0].optionalEventDescription : "Welcome to Sweden's most magical chipmusic party!"}</p>
+            <p>{events[0].startDate} at {events[0].venueName}</p>
+            <div className='flex justify-center'>
+              {events[0].optionalCallToActionTitle && events[0].optionalCallToActionUrl && (
+                <Link href={events[0].optionalCallToActionUrl} target="_blank" className='button bg-purple-800'>{events[0].optionalCallToActionTitle}</Link>
+              )}
+              <Link href='#events' className='button more bg-black'>Find out more</Link>
+            </div>
           </div>
-        </div>
+        )}
       </section>
-      <section id='about' className='p-6 w-full md:w-2/3'>
-        <h2>Next up</h2>
-        <h3>Syntax Error Halloween Special</h3>
-        <p className='mb-4'>28th October, 20:00-03:00, Bryggarsalen</p>
-        <p>
-          <Link href='' className='smallbutton bg-purple-800'>Book now!</Link>
-        </p>
-        <h2 className='mt-12'>Future events</h2>
-        <h3>Syntax Error 25/11</h3>
-        <p>25th November, 21:00-03:00, H62</p>
-        <h3>Syntax Error New Years Eve Special</h3>
-        <p>31st December, 21:00-03:00, H62</p>
+      <section id='events' className='p-6 w-full md:w-2/3'>
+      {events.map((event, index) => {
+        const eventName = event.optionalEventName ? event.optionalEventName : 'Syntax Error ' // and date
+        if(index === 0) {
+          return (
+            <>
+              <h2>Next up</h2>
+              <h3>{eventName}</h3>
+              <p>{event.startDate} at {event.venueName}</p>
+              {event.optionalCallToActionTitle && event.optionalCallToActionUrl && (
+                <p>
+                <Link href={event.optionalCallToActionUrl} target="_blank" className='smallbutton bg-purple-800'>{event.optionalCallToActionTitle}</Link>
+                </p>
+              )}
+            </>
+          )
+        } else if(index === 1) {
+          return (
+            <>
+              <h2 className='mt-12'>Future events</h2>
+              <h3>{eventName}</h3>
+              <p>{event.startDate} at {event.venueName}</p>
+              {event.optionalCallToActionTitle && event.optionalCallToActionUrl && (
+                <p>
+                <Link href={event.optionalCallToActionUrl} target="_blank" className='smallbutton bg-purple-800'>{event.optionalCallToActionTitle}</Link>
+                </p>
+              )}            
+            </>
+          )
+        } else {
+          return (
+            <>
+              <h3>{eventName}</h3>
+              <p>{event.startDate} at {event.venueName}</p>
+              {event.optionalCallToActionTitle && event.optionalCallToActionUrl && (
+                <p>
+                <Link href={event.optionalCallToActionUrl} target="_blank" className='smallbutton bg-purple-800'>{event.optionalCallToActionTitle}</Link>
+                </p>
+              )}
+            </>
+          )
+        }
+      })}
       </section>
       <section className='w-full bg-purple-800 flex flex-col md:items-center'>
         <div className='p-6 md:py-12 md:w-2/3'>
@@ -42,9 +76,17 @@ export default async function Home() {
         </div>
       </section>         
       <section className='p-6 w-full md:w-2/3'>
-        <h2>Our DJs</h2>
+        <h2>Our DJ crew</h2>
         <p>Hakushi, Ventura, Velo, Fastbom, Weyland, Kim, MissStabby, Jor-el</p>
       </section>
+      <section className='p-6 w-full md:w-2/3'>
+        <h2>Our crew</h2>
+        <p>Njursten, Toolsmonkey, Zaz</p>
+      </section>
+      <section className='p-6 w-full md:w-2/3'>
+        <h2>The board for Svenska Spelmusikfrämjandet</h2>
+        <p>Hakushi, Weyland, Matti, MissStabby, Jor-el</p>
+      </section>         
       <section className='p-6 w-full md:w-2/3'>
         <h2>Live-acts so far</h2>
         <p>047, Algar, Blastromen, Bossfight, Brandon Walsh, Chipzel, Dubmood, Dunderpatrullen, DJ Diskmachine, FantomenK, Fastbom, Goto80, Hello World, Instant Remedy, Irving Force, Maktone, MegaNeko, Moogen, Nordloef, Powerplay, RoccoW, Rymdkraft, SabrePulse, Savlonic, Shirobon, Starchild, Tekmann, Thermostatic, Ultrasyd, USK, Wiklund, Zabutom, Zalza</p>
@@ -76,10 +118,10 @@ export default async function Home() {
           With that said, we in the Syntax Error crew hope that you will have a most awesome time at our events, and if you're not, please let us know.
         </p>
       </section>
-      <footer className='p-6 flex flex-col w-full md:w-2/3'>
+      {/* <footer className='p-6 flex flex-col w-full md:w-2/3'>
         <h2>Links</h2>
         <p>bla bla</p>
-      </footer>       
+      </footer>        */}
     </main>
   )
 }
