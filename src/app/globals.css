@@ -54,12 +54,14 @@ p {
   margin: 2rem 0;
   display: inline-block;
   font-size: 1.5rem;
+  text-decoration: none;
 }
 
 .smallbutton {
   color: white;
   border: 1px solid white;
   padding: 0.2rem 1rem;
+  text-decoration: none;
 }
 
 .button.more {
@@ -74,6 +76,10 @@ p {
   --mask: conic-gradient(from -45deg at bottom,#0000,#000 1deg 89deg,#0000 90deg) 50%/100.00px 100%;
   -webkit-mask: var(--mask);
           mask: var(--mask);
+}
+
+a {
+  text-decoration: underline;
 }
 
 @media screen and (max-width: 640px) {

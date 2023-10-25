@@ -117,10 +117,22 @@ export default async function Home() {
           With that said, we in the Syntax Error crew hope that you will have a most awesome time at our events, and if you're not, please let us know.
         </p>
       </section>
-      {/* <footer className='p-6 flex flex-col w-full md:w-2/3'>
+      <footer className='p-6 flex flex-col w-full md:w-2/3'>
         <h2>Links</h2>
-        <p>bla bla</p>
-      </footer>        */}
+        <ul className='list-disc list-inside'>
+          <li><Link href='https://shop.spreadshirt.se/syntax-error/'>Buy t-shirts & warez</Link></li>
+          <li><Link href='https://www.facebook.com/SyntaxErrorSthlm/'>Facebook Page</Link></li>
+          <li><Link href='https://discord.gg/URhqp3x'>Discord Server</Link></li>
+          <li><Link href='https://www.instagram.com/syntaxerrorsthlm/'>Instagram</Link></li>
+          <li><Link href='https://www.twitch.tv/syntaxerrorsthlm/videos/'>Twitch</Link></li>
+          <li><Link href='https://www.youtube.com/channel/UCitAIsd8SDH4omDTLpf5upg'>YpuTube</Link></li>
+          <li><Link href='https://www.twitter.com/syntaxsthlm/'>X</Link></li>
+        </ul>
+        <br />
+        <p>
+          Svenska Spelmusikfrämjandet © 2002-{new Date().getFullYear()} - Message us on Facebook for questions, ideas, corporate and co-op events
+        </p>
+      </footer>       
     </main>
   )
 }
