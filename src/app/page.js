@@ -2,7 +2,7 @@ import Link from 'next/link'
 import { getEvents } from './events.js'
 
 export default async function Home() {
-  const events = await (await getEvents()).slice(1)
+  const events = (await getEvents()).slice(1)
 
   return (
     <main className="flex min-h-screen flex-col items-center justify-between">
