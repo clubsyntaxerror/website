@@ -33,8 +33,8 @@ export default async function Home() {
           return (
             <>
               <h2>Next up</h2>
-              <h3>{event.eventName}</h3>
-              <p>{event.shortDate} {event.openingHours} at {event.venueName}</p>
+              <h3 className='rainbow_text_animated'>{event.eventName}</h3>
+              <p className='rainbow_text_animated'>{event.shortDate} {event.openingHours} at {event.venueName}</p>
               {event.optionalCallToActionTitle && event.optionalCallToActionUrl && (
                 <p>
                 <Link href={event.optionalCallToActionUrl} target="_blank" className='smallbutton bg-purple-800'>{event.optionalCallToActionTitle}</Link>
@@ -71,8 +71,9 @@ export default async function Home() {
       })}
       </section>
       <section className='w-full bg-purple-800 flex flex-col md:items-center'>
-        <div className='p-6 md:py-12 md:w-2/3'>
+        <div className='p-6 md:py-12 md:w-2/3 text-lg'>
           <p>Welcome to Sweden's most magical chipmusic party! Dance the night away and play brand-new or retro video games – all in our uniquely warm and accepting atmosphere.</p>
+          <p>Syntax Error is a club night where you'll be in good company if you enjoy playing Street Fighter or Duck Hunt, dancing to video game music, Disney classics and C64 SIDs or simply hiding in the back room playing Magic or any of our other boardgames all night.</p>
         </div>
       </section>         
       <section className='p-6 w-full md:w-2/3'>
