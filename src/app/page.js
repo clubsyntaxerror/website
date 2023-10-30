@@ -120,13 +120,13 @@ export default async function Home() {
       <footer className='p-6 flex flex-col w-full md:w-2/3'>
         <h2>Links</h2>
         <ul className='list-disc list-inside'>
-          <li><Link href='https://shop.spreadshirt.se/syntax-error/'>Buy t-shirts & warez</Link></li>
-          <li><Link href='https://www.facebook.com/SyntaxErrorSthlm/'>Facebook Page</Link></li>
-          <li><Link href='https://discord.gg/URhqp3x'>Discord Server</Link></li>
-          <li><Link href='https://www.instagram.com/syntaxerrorsthlm/'>Instagram</Link></li>
-          <li><Link href='https://www.twitch.tv/syntaxerrorsthlm/videos/'>Twitch</Link></li>
-          <li><Link href='https://www.youtube.com/channel/UCitAIsd8SDH4omDTLpf5upg'>YpuTube</Link></li>
-          <li><Link href='https://www.twitter.com/syntaxsthlm/'>X</Link></li>
+          <li><Link href='https://shop.spreadshirt.se/syntax-error/' target='_blank'>Buy t-shirts & warez</Link></li>
+          <li><Link href='https://www.facebook.com/SyntaxErrorSthlm/' target='_blank'>Facebook Page</Link></li>
+          <li><Link href='https://discord.gg/URhqp3x' target='_blank'>Discord Server</Link></li>
+          <li><Link href='https://www.instagram.com/syntaxerrorsthlm/' target='_blank'>Instagram</Link></li>
+          <li><Link href='https://www.twitch.tv/syntaxerrorsthlm/videos/' target='_blank'>Twitch</Link></li>
+          <li><Link href='https://www.youtube.com/channel/UCitAIsd8SDH4omDTLpf5upg' target='_blank'>YpuTube</Link></li>
+          <li><Link href='https://www.twitter.com/syntaxsthlm/' target='_blank'>X</Link></li>
         </ul>
         <br />
         <p>
