@@ -22,10 +22,13 @@ export async function getEvents() {
         startDate: event[0],
         endDate: event[1],
         venueName: event[2],
-        optionalEventName: event[3],
-        optionalEventDescription: event[4],
-        optionalCallToActionTitle: event[5],
-        optionalCallToActionUrl: event[6]
+        optionalCoverFee: event[3],
+        eventName: event[4] ? event[4] : 'Syntax Error ' + new Date(event[0]).getUTCDate() + '/' + (new Date(event[0]).getMonth()+1),
+        shortDate: new Date(event[0]).getUTCDate() + '/' + (new Date(event[0]).getMonth()+1),
+        openingHours: (new Date(event[0]).getHours()).toString().padStart(2,'0') + ':' + (new Date(event[0]).getMinutes()).toString().padStart(2,'0') + '-' + (new Date(event[1]).getHours()).toString().padStart(2,'0') + ':' + (new Date(event[1]).getMinutes()).toString().padStart(2,'0'),
+        optionalEventDescription: event[5],
+        optionalCallToActionTitle: event[6],
+        optionalCallToActionUrl: event[7]
       }));
     }
   } catch (err) {

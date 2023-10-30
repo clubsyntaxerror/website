@@ -15,9 +15,9 @@ export default async function Home() {
         <img src="/images/invader-logo.png" className='logo'></img>
         { events[0] && (
           <div>
-            <h1>{events[0].optionalEventName ? events[0].optionalEventName : "Syntax Error "}</h1>
+            <h1>{events[0].eventName}</h1>
             <p>{events[0].optionalEventDescription ? events[0].optionalEventDescription : "Welcome to Sweden's most magical chipmusic party!"}</p>
-            <p>{events[0].startDate} at {events[0].venueName}</p>
+            <p>{events[0].shortDate} {events[0].openingHours} at {events[0].venueName}{events[0].optionalCoverFee ? ', ' + events[0].optionalCoverFee + ' SEK' : ''} </p>
             <div className='flex justify-center'>
               {events[0].optionalCallToActionTitle && events[0].optionalCallToActionUrl && (
                 <Link href={events[0].optionalCallToActionUrl} target="_blank" className='button bg-purple-800'>{events[0].optionalCallToActionTitle}</Link>
@@ -29,13 +29,12 @@ export default async function Home() {
       </section>
       <section id='events' className='p-6 w-full md:w-2/3'>
       {events.map((event, index) => {
-        const eventName = event.optionalEventName ? event.optionalEventName : 'Syntax Error ' // and date
         if(index === 0) {
           return (
             <>
               <h2>Next up</h2>
-              <h3>{eventName}</h3>
-              <p>{event.startDate} at {event.venueName}</p>
+              <h3>{event.eventName}</h3>
+              <p>{event.shortDate} {event.openingHours} at {event.venueName}</p>
               {event.optionalCallToActionTitle && event.optionalCallToActionUrl && (
                 <p>
                 <Link href={event.optionalCallToActionUrl} target="_blank" className='smallbutton bg-purple-800'>{event.optionalCallToActionTitle}</Link>
@@ -47,8 +46,8 @@ export default async function Home() {
           return (
             <>
               <h2 className='mt-12'>Future events</h2>
-              <h3>{eventName}</h3>
-              <p>{event.startDate} at {event.venueName}</p>
+              <h3>{event.eventName}</h3>
+              <p>{event.shortDate} {event.openingHours} at {event.venueName}</p>
               {event.optionalCallToActionTitle && event.optionalCallToActionUrl && (
                 <p>
                 <Link href={event.optionalCallToActionUrl} target="_blank" className='smallbutton bg-purple-800'>{event.optionalCallToActionTitle}</Link>
@@ -59,8 +58,8 @@ export default async function Home() {
         } else {
           return (
             <>
-              <h3>{eventName}</h3>
-              <p>{event.startDate} at {event.venueName}</p>
+              <h3>{event.eventName}</h3>
+              <p>{event.shortDate} {event.openingHours} at {event.venueName}</p>
               {event.optionalCallToActionTitle && event.optionalCallToActionUrl && (
                 <p>
                 <Link href={event.optionalCallToActionUrl} target="_blank" className='smallbutton bg-purple-800'>{event.optionalCallToActionTitle}</Link>
