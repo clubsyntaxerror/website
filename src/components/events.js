@@ -21,6 +21,7 @@ export default function Events({events}) {
                                             <p>{event.eventDescription}</p>
                                             <div className="pl-6 relative">
                                                 <div className='ping'></div>
+                                                <div className='ball -ml-6'></div>
                                                 <p className='mb-0'>{event.longDate}</p>
                                                 <p className='mb-0'>{event.venueName}{event.venueAddress ? ', ' + event.venueAddress : ''}</p>
                                                 <p className='mb-0'>Doors open {event.openingHours} </p>
@@ -42,6 +43,7 @@ export default function Events({events}) {
                                         <p>{event.eventDescription}</p>
                                         <div className="pl-6 relative">
                                             <div className='ping'></div>
+                                            <div className='ball -ml-6'></div>
                                             <p className='mb-0'>{event.longDate}</p>
                                             <p className='mb-0'>{event.venueName}{event.venueAddress ? ', ' + event.venueAddress : ''}</p>
                                             <p className='mb-0'>Doors open {event.openingHours} </p>
@@ -63,6 +65,7 @@ export default function Events({events}) {
                                         <p>{event.eventDescription}</p>
                                         <div className="pl-6 relative">
                                             <div className='ping'></div>
+                                            <div className='ball -ml-6'></div>
                                             <p className='mb-0'>{event.longDate}</p>
                                             <p className='mb-0'>{event.venueName}{event.venueAddress ? ', ' + event.venueAddress : ''}</p>
                                             <p className='mb-0'>Doors open {event.openingHours} </p>
