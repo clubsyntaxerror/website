@@ -19,7 +19,7 @@ export default function Events({events}) {
                                         <h3 onClick={() => setExpanded(index)} className='cursor-pointer rainbow_text_animated mb-0'>{event.eventName}{expanded === index ? '' : ' ▾'}</h3>
                                         <SmoothCollapse expanded={expanded === index}>
                                             <p>{event.eventDescription}</p>
-                                            <div className="border-gray-500 border-l pl-6">
+                                            <div className="border-gray-500 border-l pl-6 ">
                                                 <p className='mb-0'>{event.longDate}</p>
                                                 <p className='mb-0'>{event.venueName}{event.venueAddress ? ', ' + event.venueAddress : ''}</p>
                                                 <p className='mb-0'>Doors open {event.openingHours} </p>

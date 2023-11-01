@@ -14,6 +14,7 @@ module.exports = {
       },
       fontFamily: {
         freepixel: ['var(--font-freepixel)'],
+        microknight: ['var(--font-microknight)'],
       },      
     },
   },
