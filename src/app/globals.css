@@ -20,7 +20,7 @@ h1 {
 
 h2 {
   font-size: 1rem;
-  color: #ffa500;
+  color: #ffffff;
 }
 
 h3 {
@@ -29,6 +29,17 @@ h3 {
 
 p {
   margin-bottom: 1rem;
+}
+
+fieldset {
+  border: 1px solid white;
+  display: inline-block;
+  padding: 1rem;
+}
+
+legend {
+  padding-left: 1rem;
+  padding-right: 1rem;
 }
 
 .logo {

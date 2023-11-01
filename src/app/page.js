@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import { getEvents } from './events.js'
+import Events from '../components/events.js'
 
 export const revalidate = 600;
 
@@ -28,47 +29,7 @@ export default async function Home() {
         )}
       </section>
       <section id='events' className='p-6 w-full md:w-2/3'>
-      {events.map((event, index) => {
-        if(index === 0) {
-          return (
-            <>
-              <h2>Next up</h2>
-              <h3 className='rainbow_text_animated'>{event.eventName}</h3>
-              <p className='rainbow_text_animated'>{event.shortDate} {event.openingHours} at {event.venueName}</p>
-              {event.optionalCallToActionTitle && event.optionalCallToActionUrl && (
-                <p>
-                <Link href={event.optionalCallToActionUrl} target="_blank" className='smallbutton bg-purple-800'>{event.optionalCallToActionTitle}</Link>
-                </p>
-              )}
-            </>
-          )
-        } else if(index === 1) {
-          return (
-            <>
-              <h2 className='mt-12'>Future events</h2>
-              <h3>{event.eventName}</h3>
-              <p>{event.shortDate} {event.openingHours} at {event.venueName}</p>
-              {event.optionalCallToActionTitle && event.optionalCallToActionUrl && (
-                <p>
-                <Link href={event.optionalCallToActionUrl} target="_blank" className='smallbutton bg-purple-800'>{event.optionalCallToActionTitle}</Link>
-                </p>
-              )}            
-            </>
-          )
-        } else {
-          return (
-            <>
-              <h3>{event.eventName}</h3>
-              <p>{event.shortDate} {event.openingHours} at {event.venueName}</p>
-              {event.optionalCallToActionTitle && event.optionalCallToActionUrl && (
-                <p>
-                <Link href={event.optionalCallToActionUrl} target="_blank" className='smallbutton bg-purple-800'>{event.optionalCallToActionTitle}</Link>
-                </p>
-              )}
-            </>
-          )
-        }
-      })}
+        <Events events={events} />
       </section>
       <section className='w-full bg-purple-800 flex flex-col md:items-center'>
         <div className='p-6 md:py-12 md:w-2/3 text-lg'>
@@ -128,11 +89,12 @@ export default async function Home() {
           <li><Link href='https://www.instagram.com/syntaxerrorsthlm/' target='_blank'>Instagram</Link></li>
           <li><Link href='https://www.twitch.tv/syntaxerrorsthlm/videos/' target='_blank'>Twitch</Link></li>
           <li><Link href='https://www.youtube.com/channel/UCitAIsd8SDH4omDTLpf5upg' target='_blank'>YpuTube</Link></li>
+          <li><Link href='mailto:info@syntax-error.se'>Email info@syntax-error.se</Link></li>
           <li><Link href='https://www.twitter.com/syntaxsthlm/' target='_blank'>X</Link></li>
         </ul>
         <br />
         <p>
-          Svenska Spelmusikfrämjandet © 2002-{new Date().getFullYear()} - Message us on Facebook for questions, ideas, corporate and co-op events
+          Svenska Spelmusikfrämjandet © 2002-{new Date().getFullYear()} - Email us at <Link href='mailto:info@syntax-error.se'>info@syntax-error.se</Link> or message us on our <Link href='https://www.facebook.com/SyntaxErrorSthlm/' target='_blank'>Facebook Page</Link> for questions, ideas, corporate and co-op events
         </p>
       </footer>       
     </main>

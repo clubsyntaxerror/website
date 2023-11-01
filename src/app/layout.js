@@ -4,8 +4,8 @@ import localFont from 'next/font/local'
 const freePixel = localFont({ src: './freepixel.woff2', variable: '--font-freepixel', display: 'swap' })
 
 export const metadata = {
-  title: 'Syntax Error Stockholm Night Club',
-  description: 'A Night Club for Chiptune and Video Game Enthusiasts',
+  title: 'Syntax Error Stockholm - The Club Night',
+  description: 'A Club Night for Chiptune, Computer, Video & Board Game Enthusiasts',
 }
 
 export default function RootLayout({ children }) {
