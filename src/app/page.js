@@ -12,20 +12,24 @@ export default async function Home() {
       <video autoPlay muted loop playsInline className="object-cover w-full h-screen -z-10 zigzag" poster="/video-poster.jpg">         
           <source src="/video.mp4" type="video/mp4"/>       
       </video>            
-      <section className='p-6 min-h-screen w-full md:w-2/3 absolute flex flex-col justify-around items-center'>
+      <section className='min-h-screen w-full absolute flex flex-col justify-around items-center'>
         <img src="/images/invader-logo.png" className='logo'></img>
         { events[0] && (
-          <div>
-            <h1>{events[0].eventName}</h1>
-            <p>{events[0].optionalEventDescription ? events[0].optionalEventDescription : "Welcome to Sweden's most magical chipmusic party!"}</p>
-            <p>{events[0].shortDate} {events[0].openingHours} at {events[0].venueName}{events[0].optionalCoverFee ? ', ' + events[0].optionalCoverFee + ' SEK' : ''} </p>
+          <>
+            <div className='bg-black bg-opacity-75 p-6 w-full flex flex-col justify-around items-center'>
+              <div className='md:w-2/3 flex flex-col justify-around items-center text-center'>
+                <h1 className='rainbow_text_animated'>{events[0].eventName}</h1>
+                <p className='text-xl md:text-3xl'>{events[0].eventDescription}</p>
+                <p className='mb-0 md:text-xl'>{events[0].longDate} at {events[0].venueName}</p>
+              </div>
+            </div>
             <div className='flex justify-center'>
               {events[0].optionalCallToActionTitle && events[0].optionalCallToActionUrl && (
                 <Link href={events[0].optionalCallToActionUrl} target="_blank" className='button bg-purple-800'>{events[0].optionalCallToActionTitle}</Link>
               )}
               <Link href='#events' className='button more bg-black'>Find out more</Link>
             </div>
-          </div>
+          </>
         )}
       </section>
       <section id='events' className='p-6 w-full md:w-2/3'>

@@ -19,8 +19,8 @@ h1 {
 }
 
 h2 {
-  font-size: 1rem;
-  color: #ffffff;
+  font-size: 2.4rem;
+  color: #777777;
 }
 
 h3 {
@@ -109,13 +109,13 @@ a {
 
 @media screen and (max-width: 640px) {
   h1 {
-    font-size: 3.2rem;
+    font-size: 2.4rem;
     margin: 1rem 0rem;
-    line-height: 3rem;
+    line-height: 2.8rem;
   }
 
   h2 {
-    font-size: 1rem;
+    font-size: 2.4rem;
   }
 
   h3 {
