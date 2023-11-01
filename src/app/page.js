@@ -36,7 +36,7 @@ export default async function Home() {
         <Events events={events} />
       </section>
       <section className='w-full rainbow_bg_animated text-black flex flex-col md:items-center'>
-        <div className='p-6 md:py-12 md:w-2/3 text-xl'>
+        <div className='p-6 md:py-12 md:w-2/3 md:text-xl'>
           <p>Welcome to Sweden's most magical chipmusic party! Dance the night away and play brand-new or retro video games – all in our uniquely warm and accepting atmosphere.</p>
           <p>Syntax Error is a club night where you'll be in good company if you enjoy playing Street Fighter or Duck Hunt, dancing to video game music, Disney classics and C64 SIDs or simply hiding in the back room playing Magic or any of our other boardgames all night.</p>
         </div>
