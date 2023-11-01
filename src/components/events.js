@@ -15,11 +15,11 @@ export default function Events({events}) {
                         events.map((event, index) => {
                             if(index === 0) {
                                 return (
-                                    <>
+                                    <div key={index}>
                                         <h3 onClick={() => setExpanded(index)} className='cursor-pointer rainbow_text_animated mb-0'>{event.eventName}{expanded === index ? '' : ' ▾'}</h3>
                                         <SmoothCollapse expanded={expanded === index}>
                                             <p>{event.eventDescription}</p>
-                                            <div class="border-gray-500 border-l pl-6">
+                                            <div className="border-gray-500 border-l pl-6">
                                                 <p className='mb-0'>{event.longDate}</p>
                                                 <p className='mb-0'>{event.venueName}{event.venueAddress ? ', ' + event.venueAddress : ''}</p>
                                                 <p className='mb-0'>Doors open {event.openingHours} </p>
@@ -31,15 +31,15 @@ export default function Events({events}) {
                                                 </p>
                                             )}
                                         </SmoothCollapse>
-                                    </>
+                                    </div>
                                 )
                             } else if(index === 1) {
                                 return (
-                                <>
+                                <div key={index}>
                                     <h3 onClick={() => setExpanded(index)} className='cursor-pointer rainbow_text_animated'>{event.eventName}{expanded === index ? '' : ' ▾'}</h3>
                                     <SmoothCollapse expanded={expanded === index}>
                                         <p>{event.eventDescription}</p>
-                                        <div class="border-gray-500 border-l pl-6">
+                                        <div className="border-gray-500 border-l pl-6">
                                             <p className='mb-0'>{event.longDate}</p>
                                             <p className='mb-0'>{event.venueName}{event.venueAddress ? ', ' + event.venueAddress : ''}</p>
                                             <p className='mb-0'>Doors open {event.openingHours} </p>
@@ -51,15 +51,15 @@ export default function Events({events}) {
                                         </p>
                                         )}            
                                     </SmoothCollapse>
-                                </>
+                                </div>
                                 )
                             } else {
                                 return (
-                                <>
+                                <div key={index}>
                                     <h3 onClick={() => setExpanded(index)} className='cursor-pointer rainbow_text_animated'>{event.eventName}{expanded === index ? '' : ' ▾'}</h3>
                                     <SmoothCollapse expanded={expanded === index}>
                                         <p>{event.eventDescription}</p>
-                                        <div class="border-gray-500 border-l pl-6">
+                                        <div className="border-gray-500 border-l pl-6">
                                             <p className='mb-0'>{event.longDate}</p>
                                             <p className='mb-0'>{event.venueName}{event.venueAddress ? ', ' + event.venueAddress : ''}</p>
                                             <p className='mb-0'>Doors open {event.openingHours} </p>
@@ -71,7 +71,7 @@ export default function Events({events}) {
                                         </p>
                                         )}
                                     </SmoothCollapse>
-                                </>
+                                </div>
                                 )
                             }
                     })
