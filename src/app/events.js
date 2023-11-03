@@ -1,5 +1,7 @@
 import { google } from 'googleapis';
 
+export const revalidate = 3600
+
 function getVenueAddress(name, optionalAddress) {
   if (name === 'H62') {
     return 'Hornsgatan 62, Stockholm'

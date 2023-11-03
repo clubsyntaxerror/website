@@ -2,8 +2,6 @@ import Link from 'next/link'
 import { getEvents } from './events.js'
 import Events from '../components/events.js'
 
-export const revalidate = 600;
-
 export default async function Home() {
   const events = (await getEvents()).slice(1)
 
