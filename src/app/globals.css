@@ -47,13 +47,13 @@ legend {
 }
 
 .button {
-  color: white;
   border: 1px solid white;
   padding: 0.5rem 2rem;
   margin: 2rem 0;
   display: inline-block;
   font-size: 1.5rem;
   text-decoration: none;
+  text-transform: uppercase;
 }
 
 .smallbutton {

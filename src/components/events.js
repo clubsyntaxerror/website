@@ -1,5 +1,6 @@
 "use client"
 import React from 'react';
+import Link from 'next/link'
 import SmoothCollapse from 'react-smooth-collapse';
 import Masonry, { ResponsiveMasonry } from "react-responsive-masonry"
 
@@ -26,12 +27,12 @@ export default function Events({events}) {
                                                 <p className='mb-0'>{event.venueName}{event.venueAddress ? ', ' + event.venueAddress : ''}</p>
                                                 <p className='mb-0'>Doors open {event.openingHours} </p>
                                                 <p>{event.optionalCoverFee ? 'Admission ' + event.optionalCoverFee + ' SEK' : ''} </p>
+                                                {event.optionalCallToActionTitle && event.optionalCallToActionUrl && (
+                                                    <p>
+                                                    <Link href={event.optionalCallToActionUrl} target="_blank" className='smallbutton'>{event.optionalCallToActionTitle}</Link>
+                                                    </p>
+                                                )}
                                             </div>
-                                            {event.optionalCallToActionTitle && event.optionalCallToActionUrl && (
-                                                <p>
-                                                <Link href={event.optionalCallToActionUrl} target="_blank" className='smallbutton bg-purple-800'>{event.optionalCallToActionTitle}</Link>
-                                                </p>
-                                            )}
                                         </SmoothCollapse>
                                     </div>
                                 )
@@ -48,12 +49,12 @@ export default function Events({events}) {
                                             <p className='mb-0'>{event.venueName}{event.venueAddress ? ', ' + event.venueAddress : ''}</p>
                                             <p className='mb-0'>Doors open {event.openingHours} </p>
                                             <p>{event.optionalCoverFee ? 'Admission ' + event.optionalCoverFee + ' SEK' : ''} </p>
+                                            {event.optionalCallToActionTitle && event.optionalCallToActionUrl && (
+                                            <p>
+                                            <Link href={event.optionalCallToActionUrl} target="_blank" className='smallbutton'>{event.optionalCallToActionTitle}</Link>
+                                            </p>
+                                            )}            
                                         </div>
-                                        {event.optionalCallToActionTitle && event.optionalCallToActionUrl && (
-                                        <p>
-                                        <Link href={event.optionalCallToActionUrl} target="_blank" className='smallbutton bg-purple-800'>{event.optionalCallToActionTitle}</Link>
-                                        </p>
-                                        )}            
                                     </SmoothCollapse>
                                 </div>
                                 )
@@ -70,12 +71,12 @@ export default function Events({events}) {
                                             <p className='mb-0'>{event.venueName}{event.venueAddress ? ', ' + event.venueAddress : ''}</p>
                                             <p className='mb-0'>Doors open {event.openingHours} </p>
                                             <p>{event.optionalCoverFee ? 'Admission ' + event.optionalCoverFee + ' SEK' : ''} </p>
+                                            {event.optionalCallToActionTitle && event.optionalCallToActionUrl && (
+                                            <p>
+                                            <Link href={event.optionalCallToActionUrl} target="_blank" className='smallbutton'>{event.optionalCallToActionTitle}</Link>
+                                            </p>
+                                            )}
                                         </div>
-                                        {event.optionalCallToActionTitle && event.optionalCallToActionUrl && (
-                                        <p>
-                                        <Link href={event.optionalCallToActionUrl} target="_blank" className='smallbutton bg-purple-800'>{event.optionalCallToActionTitle}</Link>
-                                        </p>
-                                        )}
                                     </SmoothCollapse>
                                 </div>
                                 )

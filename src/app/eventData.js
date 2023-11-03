@@ -29,7 +29,7 @@ export async function getEvents() {
     const rows = response.data.values;
     if (rows.length) {
       return rows.map((event) => ({
-        startDate: event[0],
+        startDate: new Date(event[0]),
         endDate: event[1],
         venueName: event[2],
         venueAddress: getVenueAddress(event[2], event[8]),

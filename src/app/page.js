@@ -1,9 +1,9 @@
 import Link from 'next/link'
-import { getEvents } from './events.js'
+import { getEvents } from './eventData.js'
 import Events from '../components/events.js'
 
 export default async function Home() {
-  const events = (await getEvents()).slice(1)
+  const events = (await getEvents()).slice(1).filter(event => {return event.startDate >= new Date()}) // Remove header row for our purposes
 
   return (
     <main className="flex min-h-screen flex-col items-center justify-between">
@@ -23,9 +23,16 @@ export default async function Home() {
             </div>
             <div className='flex justify-center'>
               {events[0].optionalCallToActionTitle && events[0].optionalCallToActionUrl && (
-                <Link href={events[0].optionalCallToActionUrl} target="_blank" className='button bg-purple-800'>{events[0].optionalCallToActionTitle}</Link>
+                <>
+                  <Link href={events[0].optionalCallToActionUrl} target="_blank" className='button bg-white text-black'>{events[0].optionalCallToActionTitle}</Link>
+                  <Link href='#events' className='button more bg-black'>Continue</Link>
+                </>
               )}
-              <Link href='#events' className='button more bg-black'>PRESS START</Link>
+              {(!events[0].optionalCallToActionTitle || !events[0].optionalCallToActionUrl) && (
+                <>
+                  <Link href='#events' className='button more bg-black'>Press Start</Link>
+                </>
+              )}              
             </div>
           </>
         )}
