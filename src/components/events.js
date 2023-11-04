@@ -9,7 +9,7 @@ export default function Events({events}) {
 
     return (
         <>
-            <h2>Our events</h2>
+            <h2>Our next events</h2>
             <ResponsiveMasonry columnsCountBreakPoints={{768: 1, 1024: 2, 1600: 3}}>
                 <Masonry>
                     {
@@ -17,7 +17,7 @@ export default function Events({events}) {
                             if(index === 0) {
                                 return (
                                     <div key={index}>
-                                        <h3 onClick={() => setExpanded(index)} className='cursor-pointer rainbow_text_animated mb-0'>{expanded === index ? '' : '> '}{event.eventName}{expanded === index ? ' ˅' : ''}</h3>
+                                        <h3 onClick={() => setExpanded(index)} className='cursor-pointer rainbow_text_animated mb-0'>{event.eventName}{expanded === index ? '' : ' >'}</h3>
                                         <SmoothCollapse expanded={expanded === index}>
                                             <p>{event.eventDescription}</p>
                                             <div className="pl-6 relative">
@@ -39,7 +39,7 @@ export default function Events({events}) {
                             } else if(index === 1) {
                                 return (
                                 <div key={index}>
-                                    <h3 onClick={() => setExpanded(index)} className='cursor-pointer rainbow_text_animated'>{expanded === index ? '' : '> '}{event.eventName}{expanded === index ? ' ˅' : ''}</h3>
+                                    <h3 onClick={() => setExpanded(index)} className='cursor-pointer rainbow_text_animated'>{event.eventName}{expanded === index ? '' : ' >'}</h3>
                                     <SmoothCollapse expanded={expanded === index}>
                                         <p>{event.eventDescription}</p>
                                         <div className="pl-6 relative">
@@ -61,7 +61,7 @@ export default function Events({events}) {
                             } else {
                                 return (
                                 <div key={index}>
-                                    <h3 onClick={() => setExpanded(index)} className='cursor-pointer rainbow_text_animated'>{expanded === index ? '' : '> '}{event.eventName}{expanded === index ? ' ˅' : ''}</h3>
+                                    <h3 onClick={() => setExpanded(index)} className='cursor-pointer rainbow_text_animated'>{event.eventName}{expanded === index ? '' : ' >'}</h3>
                                     <SmoothCollapse expanded={expanded === index}>
                                         <p>{event.eventDescription}</p>
                                         <div className="pl-6 relative">
