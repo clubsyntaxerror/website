@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import { getEvents } from './eventData.js'
+import Hero from '../components/hero.js'
 import Events from '../components/events.js'
 
 export default async function Home() {
@@ -7,36 +8,7 @@ export default async function Home() {
 
   return (
     <main className="flex min-h-screen flex-col items-center justify-between">
-      <video autoPlay muted loop playsInline className="object-cover w-full h-screen -z-10 zigzag" poster="/video-poster.jpg">         
-          <source src="/video2.mp4" type="video/mp4"/>       
-      </video>            
-      <section className='min-h-screen w-full absolute flex flex-col justify-around items-center'>
-        <img src="/images/invader-logo.png" className='logo'></img>
-        { events[0] && (
-          <>
-            <div className='bg-black bg-opacity-75 p-6 w-full flex flex-col justify-around items-center'>
-              <div className='md:w-2/3 flex flex-col justify-around items-center text-center'>
-                <h1 className='rainbow_text_animated'>{events[0].eventName}</h1>
-                <p className='text-xl md:text-3xl'>{events[0].eventDescription}</p>
-                <p className='mb-0 md:text-xl'>{events[0].longDate} at {events[0].venueName}</p>
-              </div>
-            </div>
-            <div className='flex justify-center'>
-              {events[0].optionalCallToActionTitle && events[0].optionalCallToActionUrl && (
-                <>
-                  <Link href={events[0].optionalCallToActionUrl} target="_blank" className='button bg-white text-black'>{events[0].optionalCallToActionTitle}</Link>
-                  <Link href='#events' className='button more bg-black'>Continue</Link>
-                </>
-              )}
-              {(!events[0].optionalCallToActionTitle || !events[0].optionalCallToActionUrl) && (
-                <>
-                  <Link href='#events' className='button more bg-black'>Press Start</Link>
-                </>
-              )}              
-            </div>
-          </>
-        )}
-      </section>
+      <Hero featuredEvent={events[0]} />
       <section id='events' className='p-6 w-full md:w-2/3'>
         <Events events={events} />
       </section>
