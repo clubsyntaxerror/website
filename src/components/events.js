@@ -10,7 +10,7 @@ export default function Events({events}) {
     return (
         <>
             <h2>Our next events</h2>
-            <ResponsiveMasonry columnsCountBreakPoints={{768: 1, 1024: 2, 1600: 3}}>
+            <ResponsiveMasonry columnsCountBreakPoints={{768: 1, 1600: 3}}>
                 <Masonry>
                     {
                         events.map((event, index) => {
