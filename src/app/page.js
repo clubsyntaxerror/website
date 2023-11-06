@@ -10,7 +10,7 @@ export default async function Home() {
   return (
     <main className="flex min-h-screen flex-col items-center justify-between">
       <Hero featuredEvent={events[0]} />
-      <section id='events' className='p-6 w-full md:w-2/3'>
+      <section id='events' className='p-6 md:pt-12 w-full md:w-2/3'>
         <Events events={events} />
       </section>
       <section className='w-full rainbow_bg_animated text-black flex flex-col md:items-center smallzigzag'>
@@ -19,7 +19,7 @@ export default async function Home() {
           <p>Syntax Error is a club night where you'll be in good company if you enjoy playing Street Fighter or Duck Hunt, dancing to video game music, Disney classics and C64 SIDs or simply hiding in the back room playing Magic or any of our other boardgames all night.</p>
         </div>
       </section>
-      <section className='p-6 w-full md:w-2/3'>
+      <section className='p-6 md:py-12 w-full md:w-2/3'>
         <Photos />
       </section>
       <section className='p-6 w-full md:w-2/3'>
