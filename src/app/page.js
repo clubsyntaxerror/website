@@ -3,6 +3,7 @@ import { getEvents } from './eventData.js'
 import Hero from '../components/hero.js'
 import Events from '../components/events.js'
 import Photos from '../components/photos.js'
+import Crew from '../components/crew.js'
 
 export default async function Home() {
   const events = (await getEvents()).slice(0,3).filter(event => {return event.startDate >= new Date()})
@@ -23,25 +24,12 @@ export default async function Home() {
         <Photos />
       </section>
       <section className='p-6 w-full md:w-2/3'>
-        <h2>Our DJ crew</h2>
-        <p>Hakushi, Ventura, Velo, Fastbom, Weyland, Kim, MissStabby, Jor-el</p>
+        <Crew />
       </section>
-      <section className='p-6 w-full md:w-2/3'>
-        <h2>Our crew</h2>
-        <p>Njursten, Toolsmonkey, Zaz</p>
-      </section>
-      <section className='p-6 w-full md:w-2/3'>
-        <h2>The board of Ideella Föreningen Svenska Spelmusikfrämjandet</h2>
-        <p>Hakushi, Weyland, Matti, MissStabby, Jor-el</p>
-      </section>         
       <section className='p-6 w-full md:w-2/3'>
         <h2>Live-acts so far</h2>
         <p>047, Algar, Blastromen, Bossfight, Brandon Walsh, Chipzel, Dubmood, Dunderpatrullen, DJ Diskmachine, FantomenK, Fastbom, Goto80, Hello World, Instant Remedy, Irving Force, Maktone, MegaNeko, Moogen, Nordloef, Powerplay, RoccoW, Rymdkraft, SabrePulse, Savlonic, Shirobon, Starchild, Tekmann, Thermostatic, Ultrasyd, USK, Wiklund, Zabutom, Zalza</p>
       </section>
-      <section className='p-6 w-full md:w-2/3'>
-        <h2>Alumni</h2>
-        <p>Jon, Matti, Lindroth, Wezz, Daniel, Nik, Whiting, Borchers, McFly, Windefalk, MrTimpi</p>
-      </section>         
       <section className='p-6 w-full md:w-2/3'>
         <h2>Our rules</h2>
         <h3>Be respectful</h3>
