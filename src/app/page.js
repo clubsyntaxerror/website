@@ -4,7 +4,7 @@ import Hero from '../components/hero.js'
 import Events from '../components/events.js'
 
 export default async function Home() {
-  const events = (await getEvents()).slice(0,3).filter(event => {return event.startDate >= new Date()}) // Remove header row for our purposes
+  const events = (await getEvents()).slice(0,3).filter(event => {return event.startDate >= new Date()})
 
   return (
     <main className="flex min-h-screen flex-col items-center justify-between">

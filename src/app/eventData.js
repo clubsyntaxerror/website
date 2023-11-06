@@ -28,7 +28,7 @@ export async function getEvents() {
 
     const rows = response.data.values;
     if (rows.length) {
-      return rows.slice(1).map((event) => ({
+      return rows.slice(1).map((event) => ({ // Skip header row
         startDate: new Date(event[0]),
         endDate: event[1],
         venueName: event[2],
