@@ -8,7 +8,7 @@ export default function Crew() {
         <Tabs>
             <TabList>
             <Tab>DJs</Tab>
-            <Tab>Crew</Tab>
+            <Tab>Orgas</Tab>
             <Tab>The Board</Tab>
             <Tab>Alumni</Tab>
             </TabList>
