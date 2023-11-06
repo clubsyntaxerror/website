@@ -10,7 +10,7 @@ export default function Events({events}) {
     return (
         <>
             <h2>Our next events</h2>
-            <ResponsiveMasonry columnsCountBreakPoints={{768: 1, 1600: 3}}>
+            <ResponsiveMasonry columnsCountBreakPoints={{768: 1, 1500: 3}}>
                 <Masonry>
                     {
                         events.map((event, index) => {
@@ -22,7 +22,7 @@ export default function Events({events}) {
                                             <p>{event.eventDescription}</p>
                                             <div className="pl-6 relative">
                                                 <div className='ping'></div>
-                                                <div className='ball -ml-6'></div>
+                                                <div className='ball -ml-12'></div>
                                                 <p className='mb-0'>{event.longDate}</p>
                                                 <p className='mb-0'>{event.venueName}{event.venueAddress ? ', ' + event.venueAddress : ''}</p>
                                                 <p className='mb-0'>Doors open {event.openingHours} </p>
