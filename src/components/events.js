@@ -1,7 +1,7 @@
 "use client"
-import React from 'react';
+import React from 'react'
 import Link from 'next/link'
-import SmoothCollapse from 'react-smooth-collapse';
+import SmoothCollapse from 'react-smooth-collapse'
 import Masonry, { ResponsiveMasonry } from "react-responsive-masonry"
 
 export default function Events({events}) {

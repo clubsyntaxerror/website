@@ -2,6 +2,7 @@ import Link from 'next/link'
 import { getEvents } from './eventData.js'
 import Hero from '../components/hero.js'
 import Events from '../components/events.js'
+import Photos from '../components/photos.js'
 
 export default async function Home() {
   const events = (await getEvents()).slice(0,3).filter(event => {return event.startDate >= new Date()})
@@ -17,7 +18,10 @@ export default async function Home() {
           <p>Welcome to Sweden's most magical chipmusic party! Dance the night away and play brand-new or retro video games – all in our uniquely warm and accepting atmosphere.</p>
           <p>Syntax Error is a club night where you'll be in good company if you enjoy playing Street Fighter or Duck Hunt, dancing to video game music, Disney classics and C64 SIDs or simply hiding in the back room playing Magic or any of our other boardgames all night.</p>
         </div>
-      </section>         
+      </section>
+      <section className='p-6 w-full md:w-2/3'>
+        <Photos />
+      </section>
       <section className='p-6 w-full md:w-2/3'>
         <h2>Our DJ crew</h2>
         <p>Hakushi, Ventura, Velo, Fastbom, Weyland, Kim, MissStabby, Jor-el</p>
