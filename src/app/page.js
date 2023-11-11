@@ -16,8 +16,8 @@ export default async function Home() {
       </section>
       <section className='w-full rainbow_bg_animated text-black flex flex-col md:items-center smallzigzag'>
         <div className='p-6 md:py-12 md:w-2/3 md:text-xl'>
-          <p>Welcome to Sweden's most magical chipmusic party! Dance the night away and play brand-new or retro video games – all in our uniquely warm and accepting atmosphere.</p>
-          <p>Syntax Error is a club night where you'll be in good company if you enjoy playing Street Fighter or Duck Hunt, dancing to video game music, Disney classics and C64 SIDs or simply hiding in the back room playing Magic or any of our other boardgames all night.</p>
+          <p>Welcome to Stockholm's Video Game Nightclub! Dance the night away to video game music and play brand-new or retro video games – all in our uniquely warm and accepting atmosphere.</p>
+          <p>Syntax Error is a night club where you'll be in good company if you enjoy playing Street Fighter or Duck Hunt, dancing to video game music, Disney classics and C64 SIDs or simply hiding in the back room playing Magic or any of our other boardgames all night.</p>
         </div>
       </section>
       <section className='p-6 md:py-12 w-full md:w-2/3'>
@@ -27,7 +27,7 @@ export default async function Home() {
         <Crew />
       </section>
       <section className='p-6 w-full md:w-2/3'>
-        <h2>Live-acts so far</h2>
+        <h2>Artist that performed at Syntax Error so far</h2>
         <p className='rainbow_text_animated'>047, Algar, Blastromen, Bossfight, Brandon Walsh, Chipzel, Dubmood, Dunderpatrullen, DJ Diskmachine, FantomenK, Fastbom, Goto80, Hello World, Instant Remedy, Irving Force, Maktone, MegaNeko, Moogen, Nordloef, Powerplay, RoccoW, Rymdkraft, SabrePulse, Savlonic, Shirobon, Starchild, Tekmann, Thermostatic, Ultrasyd, USK, Wiklund, Zabutom, Zalza</p>
       </section>
       <section className='p-6 w-full md:w-2/3'>

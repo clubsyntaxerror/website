@@ -5,8 +5,22 @@ const freePixel = localFont({ src: '../fonts/freepixel.woff2', variable: '--font
 const microKnight = localFont({ src: '../fonts/microknight.woff2', variable: '--font-microknight', display: 'swap' })
 
 export const metadata = {
-  title: 'Syntax Error Stockholm - The Club Night',
-  description: 'A Club Night for Chiptune, Computer, Video & Board Game Enthusiasts',
+  title: 'Syntax Error - Stockholm\'s Video Game Nightclub',
+  description: 'Dance the night away to video game music and play brand-new or retro video games – all in our uniquely warm and accepting atmosphere.',
+  openGraph: {
+    title: 'Syntax Error - Stockholm\'s Video Game Nightclub',
+    description: 'Dance the night away to video game music and play brand-new or retro video games – all in our uniquely warm and accepting atmosphere.',
+    url: 'https://syntax-error.se',
+    images: [
+      {
+        url: 'https://syntax-error.se/video-poster.jpg',
+        width: 1920,
+        height: 1080,
+      }
+    ],
+    locale: 'en_US',
+    type: 'website',
+  },
 }
 
 export default function RootLayout({ children }) {
