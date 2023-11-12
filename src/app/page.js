@@ -27,7 +27,7 @@ export default async function Home() {
         <Crew />
       </section>
       <section className='p-6 w-full md:w-2/3'>
-        <h2>Artist that performed at Syntax Error so far</h2>
+        <h2>Artists that performed at Syntax Error so far</h2>
         <p className='rainbow_text_animated'>047, Algar, Blastromen, Bossfight, Brandon Walsh, Chipzel, Dubmood, Dunderpatrullen, DJ Diskmachine, FantomenK, Fastbom, Goto80, Hello World, Instant Remedy, Irving Force, Maktone, MegaNeko, Moogen, Ninjaspark, Nordloef, Powerplay, RoccoW, Rymdkraft, SabrePulse, Savlonic, Shirobon, Starchild, Tekmann, Thermostatic, Ultrasyd, USK, Wiklund, Zabutom, Zalza</p>
       </section>
       <section className='p-6 w-full md:w-2/3'>
