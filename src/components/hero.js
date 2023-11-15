@@ -36,7 +36,7 @@ export default function Hero({featuredEvent}) {
                             position="top left"
                             closeOnDocumentClick
                             >
-                            <div className='text-black'><h2>No pre-sale</h2><p>Tickets to the next event are only sold at the door.</p><p>We accepts cards, Swish and cash.</p></div>
+                            <div className='text-black'><h2>No pre-sale</h2><p>Tickets to the next event are only sold at the door.</p><p>We accept cards, Swish and cash.</p></div>
                         </Popup>                   
                         <Link href='#events' className='button more bg-black'>Press start</Link>
                         </>
