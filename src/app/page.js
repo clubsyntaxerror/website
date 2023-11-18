@@ -64,7 +64,7 @@ export default async function Home() {
         <Link href='https://discord.gg/URhqp3x' target='_blank' className='smallbutton mr-2'>Discord Server</Link>
         <Link href='https://www.instagram.com/syntaxerrorsthlm/' target='_blank' className='smallbutton mr-2'>Instagram</Link>
         <Link href='https://www.twitch.tv/syntaxerrorsthlm/videos/' target='_blank' className='smallbutton mr-2'>Twitch</Link>
-        <Link href='https://www.youtube.com/channel/UCitAIsd8SDH4omDTLpf5upg' target='_blank' className='smallbutton mr-2'>YpuTube</Link>
+        <Link href='https://www.youtube.com/channel/UCitAIsd8SDH4omDTLpf5upg' target='_blank' className='smallbutton mr-2'>YouTube</Link>
         <Link href='https://www.twitter.com/syntaxsthlm/' target='_blank' className='smallbutton'>X</Link>
       </section>
       <footer className='p-6 w-full md:w-2/3'>
