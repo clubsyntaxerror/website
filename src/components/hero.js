@@ -23,22 +23,22 @@ export default function Hero({featuredEvent}) {
                     <div className='flex justify-center'>
                     {featuredEvent.optionalCallToActionTitle && featuredEvent.optionalCallToActionUrl && (
                         <>
-                        <Link href={featuredEvent.optionalCallToActionUrl} target="_blank" className='button bg-white text-black'>{events[0].optionalCallToActionTitle}</Link>
-                        <Link href='#events' className='button more bg-black'>Press start</Link>
+                        <Link href={featuredEvent.optionalCallToActionUrl} target="_blank" className='button bg-white text-black'>{featuredEvent.optionalCallToActionTitle}</Link>
+                        <Link href='#events' className='button more bg-black'>Find out more</Link>
                         </>
                     )}
                     {(!featuredEvent.optionalCallToActionTitle || !featuredEvent.optionalCallToActionUrl) && (
                         <>
                         <Popup
                             trigger={open => (
-                                <button className="button bg-white text-black">{open ? 'OK' : 'Tickets'}</button>
+                                <button className="button bg-white text-black">{open ? 'OK' : 'No presale'}</button>
                             )}
                             position="top left"
                             closeOnDocumentClick
                             >
                             <div className='text-black'><h2>No pre-sale</h2><p>Tickets to the next event are only sold at the door.</p><p>We accept cards, Swish and cash.</p></div>
                         </Popup>                   
-                        <Link href='#events' className='button more bg-black'>Press start</Link>
+                        <Link href='#events' className='button more bg-black'>Find out more</Link>
                         </>
                     )}              
                     </div>
