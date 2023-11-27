@@ -6,7 +6,7 @@ import Photos from '../components/photos.js'
 import Crew from '../components/crew.js'
 
 export default async function Home() {
-  const events = (await getEvents()).slice(0,3).filter(event => {return event.startDate >= new Date()})
+  const events = (await getEvents()).filter(event => {return event.startDate >= new Date()}).slice(0,3)
 
   return (
     <main className="flex min-h-screen flex-col items-center justify-between">
