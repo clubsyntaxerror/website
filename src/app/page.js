@@ -59,7 +59,7 @@ export default async function Home() {
       </section>
       <section className='p-6 w-full md:w-2/3'>
         <h2>Links</h2>
-        <Link href='https://shop.spreadshirt.se/syntax-error/' target='_blank' className='smallbutton mr-2'>Buy t-shirts & warez</Link>
+        <Link href='https://shop.syntax-error.se' target='_blank' className='smallbutton mr-2'>Buy t-shirts & warez</Link>
         <Link href='https://www.facebook.com/SyntaxErrorSthlm/' target='_blank' className='smallbutton mr-2'>Facebook Page</Link>
         <Link href='https://discord.gg/URhqp3x' target='_blank' className='smallbutton mr-2'>Discord Server</Link>
         <Link href='https://www.instagram.com/syntaxerrorsthlm/' target='_blank' className='smallbutton mr-2'>Instagram</Link>
