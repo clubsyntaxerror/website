@@ -59,9 +59,10 @@ export default async function Home() {
       </section>
       <section className='p-6 w-full md:w-2/3'>
         <h2>Links</h2>
-        <Link href='https://shop.syntax-error.se' target='_blank' className='smallbutton mr-2'>Buy t-shirts & warez</Link>
-        <Link href='https://www.facebook.com/SyntaxErrorSthlm/' target='_blank' className='smallbutton mr-2'>Facebook Page</Link>
-        <Link href='https://discord.gg/URhqp3x' target='_blank' className='smallbutton mr-2'>Discord Server</Link>
+        <Link href='https://shop.syntax-error.se' target='_blank' className='smallbutton mr-2'>Spreadshirt</Link>
+        <Link href='https://www.facebook.com/SyntaxErrorSthlm/' target='_blank' className='smallbutton mr-2'>Facebook</Link>
+        <Link href='https://discord.gg/URhqp3x' target='_blank' className='smallbutton mr-2'>Discord</Link>
+        <Link href='https://tiktok.com/@syntaxerrorsthlm' target='_blank' className='smallbutton mr-2'>TikTok</Link>
         <Link href='https://www.instagram.com/syntaxerrorsthlm/' target='_blank' className='smallbutton mr-2'>Instagram</Link>
         <Link href='https://www.twitch.tv/syntaxerrorsthlm/videos/' target='_blank' className='smallbutton mr-2'>Twitch</Link>
         <Link href='https://www.youtube.com/channel/UCitAIsd8SDH4omDTLpf5upg' target='_blank' className='smallbutton mr-2'>YouTube</Link>
@@ -70,7 +71,7 @@ export default async function Home() {
       <footer className='p-6 w-full md:w-2/3'>
         <h2>Svenska Spelmusikfrämjandet © 2002-{new Date().getFullYear()}</h2>
         <p>
-          Email us at <Link href='mailto:info@syntax-error.se'>info@syntax-error.se</Link> or message us on our <Link href='https://www.facebook.com/SyntaxErrorSthlm/' target='_blank'>Facebook Page</Link> for questions, ideas, corporate and co-op events
+          Email us at <Link href='mailto:info@syntax-error.se' className='smallbutton mr-2'>info@syntax-error.se</Link> or message us on our <Link href='https://www.facebook.com/SyntaxErrorSthlm/' target='_blank' className='smallbutton mr-2'>Facebook Page</Link> for questions, ideas, corporate and co-op events
         </p>
       </footer>       
     </main>
