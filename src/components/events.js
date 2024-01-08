@@ -11,7 +11,7 @@ export default function Events({events}) {
         <>
             <h2>Our next events</h2>
             <ResponsiveMasonry columnsCountBreakPoints={{768: 1, 1500: 3}} ga>
-                <Masonry gutter='16px'>
+                <Masonry gutter='32px'>
                     {
                         events.map((event, index) => {
                             if(index === 0) {
