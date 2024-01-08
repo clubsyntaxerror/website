@@ -91,6 +91,18 @@ legend {
   background-size: 400% 100%;
 }
 
+.links {
+  display: flex;
+  justify-content: space-between;
+}
+
+.links a {
+  width: 8%;
+  margin-bottom: 8px;
+  display: flex;
+  justify-content: center;
+}
+
 @keyframes rainbow_animation {
   0%,100% {
       background-position: 0 0;
@@ -257,6 +269,15 @@ legend {
   --mask: conic-gradient(from -45deg at bottom,#0000,#000 1deg 89deg,#0000 90deg) 50%/50.00px 100%;
     -webkit-mask: var(--mask);
             mask: var(--mask);
+  }
+
+  .links {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .links a {
+    width: 18%;
   }
 }
 

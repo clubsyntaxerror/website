@@ -5,6 +5,7 @@ import Events from '../components/events.js'
 import Photos from '../components/photos.js'
 import Crew from '../components/crew.js'
 import Rules from '../components/rules.js'
+import Links from '../components/links.js'
 
 export default async function Home() {
   const events = (await getEvents()).filter(event => {return event.startDate >= new Date()}).slice(0,3)
@@ -35,15 +36,7 @@ export default async function Home() {
         <Rules />
       </section>
       <section className='p-6 w-full md:w-2/3'>
-        <h2>Links</h2>
-        <Link href='https://shop.syntax-error.se' target='_blank' className='smallbutton mr-2'>Spreadshirt</Link>
-        <Link href='https://www.facebook.com/SyntaxErrorSthlm/' target='_blank' className='smallbutton mr-2'>Facebook</Link>
-        <Link href='https://discord.gg/URhqp3x' target='_blank' className='smallbutton mr-2'>Discord</Link>
-        <Link href='https://tiktok.com/@syntaxerrorsthlm' target='_blank' className='smallbutton mr-2'>TikTok</Link>
-        <Link href='https://www.instagram.com/syntaxerrorsthlm/' target='_blank' className='smallbutton mr-2'>Instagram</Link>
-        <Link href='https://www.twitch.tv/syntaxerrorsthlm/videos/' target='_blank' className='smallbutton mr-2'>Twitch</Link>
-        <Link href='https://www.youtube.com/channel/UCitAIsd8SDH4omDTLpf5upg' target='_blank' className='smallbutton mr-2'>YouTube</Link>
-        <Link href='https://www.twitter.com/syntaxsthlm/' target='_blank' className='smallbutton'>X</Link>
+        <Links />
       </section>
       <footer className='p-6 w-full md:w-2/3'>
         <h2>Svenska Spelmusikfrämjandet © 2002-{new Date().getFullYear()}</h2>

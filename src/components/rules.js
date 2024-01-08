@@ -41,7 +41,6 @@ export default function Rules({ events }) {
                 </Masonry>
             </ResponsiveMasonry>
             <img src="/images/invader-dance.gif"></img>
-
         </>
     )
 }
