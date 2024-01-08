@@ -10,9 +10,9 @@
   },
   "dependencies": {
     "@vercel/analytics": "^1.1.1",
-    "eslint-config-next": "^14.0.1",
-    "googleapis": "^128.0.0",
-    "next": "^14.0.1",
+    "eslint-config-next": "^14.0.4",
+    "googleapis": "^130.0.0",
+    "next": "^14.0.4",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-photo-album": "^2.3.0",
@@ -20,7 +20,7 @@
     "react-smooth-collapse": "^2.1.2",
     "react-tabs": "^6.0.2",
     "reactjs-popup": "^2.0.6",
-    "yet-another-react-lightbox": "^3.15.0"
+    "yet-another-react-lightbox": "^3.15.6"
   },
   "devDependencies": {
     "autoprefixer": "^10",

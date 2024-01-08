@@ -1,3 +1,4 @@
+import { cache } from 'react'
 import { google } from 'googleapis';
 
 export const revalidate = 3600
@@ -10,7 +11,7 @@ function getVenueAddress(name, optionalAddress) {
   return optionalAddress
 }
 
-export async function getEvents() {
+export const getEvents = cache(async () => {
   try {
     const target = ['https://www.googleapis.com/auth/spreadsheets.readonly'];
     const jwt = new google.auth.JWT(
@@ -49,5 +50,5 @@ export async function getEvents() {
     console.log(err);
   }
   return [];
-}
+})
 
