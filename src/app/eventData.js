@@ -11,8 +11,7 @@ function getVenueAddress(name, optionalAddress) {
   return optionalAddress
 }
 
-export async function getEvents() {
-"use server"
+export const getEvents = cache(async () => {
 try {
     const target = ['https://www.googleapis.com/auth/spreadsheets.readonly'];
     const jwt = new google.auth.JWT(
@@ -51,4 +50,4 @@ try {
     console.log(err);
   }
   return [];
-}
+})
