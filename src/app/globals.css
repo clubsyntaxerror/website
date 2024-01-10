@@ -44,7 +44,7 @@ legend {
 }
 
 .logo {
-  max-width: 50vh;
+  max-width: 70vw;
 }
 
 .button {
@@ -281,3 +281,20 @@ legend {
   }
 }
 
+@media screen and (max-width: 480px) {
+  p {
+    font-size: smaller;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+
+  h2 {
+    font-size: 1rem;
+  }
+
+  h3 {
+    font-size: 1.4rem;
+  }
+}

@@ -10,7 +10,7 @@ export default function Hero({featuredEvent}) {
                 <source src="/video.mp4" type="video/mp4"/>       
             </video>            
             <section className='min-h-screen w-full absolute flex flex-col justify-around items-center'>
-                <img src="/images/invader-logo.png" className='logo'></img>
+                <img src="/images/logo.png" className='logo'></img>
                 { featuredEvent && (
                 <>
                     <div className='bg-black bg-opacity-75 p-6 w-full flex flex-col justify-around items-center'>
