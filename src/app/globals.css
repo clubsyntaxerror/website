@@ -259,6 +259,7 @@ legend {
 
   h3 {
     font-size: 1.4rem;
+    line-height: 2.4rem;
   }
 
   .button {
@@ -278,6 +279,10 @@ legend {
 
   .links a {
     width: 18%;
+  }
+
+  .logo {
+    width: 80vw;
   }
 }
 
