@@ -19,15 +19,15 @@ export default function Crew() {
             </TabPanel>
             <TabPanel>
             <h2>Active non-DJ crew members</h2>
-            <p>Njursten, Toolsmonkey, Zaz</p>
+            <p>Njursten, Toolsmonkey, A3M1N</p>
             </TabPanel>
             <TabPanel>
                 <h2>The current board of the non-profit organisation Ideella Spelmusikfrämjandet</h2>
-                <p>Ventura (chairman), Weyland (treasurer), Matti, MissStabby, Fastbom</p>
+                <p>Ventura (chairman), Weyland (treasurer), Matti, Jor-el, Fastbom</p>
             </TabPanel>
             <TabPanel>
                 <h2>Inactive crew members</h2>
-                <p>Jon, Matti, Lindroth, Wezz, Daniel, Nik, Whiting, Borchers, McFly, Windefalk, MrTimpi, Hakushi, Velo</p>
+                <p>Jon, Matti, Lindroth, Wezz, Daniel, Nik, Whiting, Borchers, McFly, Windefalk, MrTimpi, Hakushi, Velo, Zaz</p>
             </TabPanel>        
         </Tabs>
    )
