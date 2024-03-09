@@ -25,7 +25,7 @@ h2 {
 
 h3 {
   font-size: 1.6rem;
-  line-height: 4rem;
+  line-height: 2.2rem;
 }
 
 p {
@@ -101,6 +101,10 @@ legend {
   margin-bottom: 8px;
   display: flex;
   justify-content: center;
+}
+
+#events div div div {
+  row-gap: 4px !important;
 }
 
 @keyframes rainbow_animation {
