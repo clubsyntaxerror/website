@@ -7,11 +7,11 @@ import Masonry, { ResponsiveMasonry } from "react-responsive-masonry"
 export default function Events({events}) {
     const [expanded, setExpanded] = React.useState(0)
 
-    const [desktop, setDesktop] = useState(
-        window.matchMedia("(min-width: 1500px)").matches
-      )
+    const [desktop, setDesktop] = useState(false)
     
       useEffect(() => {
+        setDesktop(window.matchMedia("(min-width: 1500px)").matches)
+
         window
         .matchMedia("(min-width: 1500px)")
         .addEventListener('change', e => setDesktop( e.matches ));
