@@ -1,5 +1,5 @@
+import { google } from 'googleapis'
 import { cache } from 'react'
-import { google } from 'googleapis';
 
 export const revalidate = 3600
 
