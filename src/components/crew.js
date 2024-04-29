@@ -23,7 +23,7 @@ export default function Crew() {
             </TabPanel>
             <TabPanel>
                 <h2>The current board of the non-profit organisation Ideella Spelmusikfrämjandet</h2>
-                <p>Ventura (chairman), Weyland (treasurer), Matti, Jor-el, Fastbom</p>
+                <p>Ventura (chairman), Weyland (treasurer), MissStabby, Jor-el, Fastbom</p>
             </TabPanel>
             <TabPanel>
                 <h2>Inactive crew members</h2>
