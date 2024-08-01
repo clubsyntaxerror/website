@@ -35,6 +35,7 @@ export default function Hero({featuredEvent}) {
                     </div>
                 </>
                 )}
+                <img src="/down.png"/>
             </section>
         </>
     )

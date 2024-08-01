@@ -8,13 +8,13 @@ import Rules from '../components/rules.js'
 import Links from '../components/links.js'
 
 export default async function Home() {
-  const events = (await getEvents()).filter(event => {return event.startDate >= new Date()}).slice(0,4)
+  const events = (await getEvents()).filter(event => {return event.startDate >= new Date()}).slice(0,7)
 
   return (
     <main className="flex min-h-screen flex-col items-center justify-between">
       <Hero featuredEvent={events[0]} />
       <section id='events' className='p-6 md:pt-12 w-full md:w-2/3'>
-        <Events events={events.slice(1,4)} />
+        <Events events={events.slice(1,7)} />
       </section>
       <section className='w-full rainbow_bg_animated text-black flex flex-col md:items-center smallzigzag'>
         <div className='p-6 md:py-12 md:w-2/3 md:text-xl'>
