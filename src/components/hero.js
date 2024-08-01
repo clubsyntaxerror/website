@@ -25,7 +25,7 @@ export default function Hero({featuredEvent}) {
                     {featuredEvent.optionalCallToActionTitle && featuredEvent.optionalCallToActionUrl && (
                         <>
                         <Link href={featuredEvent.optionalCallToActionUrl} target="_blank" className='button bg-white text-black'>{featuredEvent.optionalCallToActionTitle}</Link>
-                        <Link href='#events' className='button more bg-black'>Find out more</Link>
+                        <Link href='#events' className='button more bg-black'>More events</Link>
                         </>
                     )}
                     {(!featuredEvent.optionalCallToActionTitle || !featuredEvent.optionalCallToActionUrl) && (
@@ -44,7 +44,7 @@ export default function Hero({featuredEvent}) {
                                     <div className='text-black'><p>This event is free to attend.</p></div>
                                 )}
                         </Popup>                   
-                        <Link href='#events' className='button more bg-black'>Find out more</Link>
+                        <Link href='#events' className='button more bg-black'>More events</Link>
                         </>
                     )}              
                     </div>
