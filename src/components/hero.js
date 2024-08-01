@@ -15,6 +15,7 @@ export default function Hero({featuredEvent}) {
                 <>
                     <div className='bg-black bg-opacity-75 p-6 w-full flex flex-col justify-around items-center'>
                     <div className='md:w-2/3 flex flex-col justify-around items-center text-center'>
+                        <h2>Next event</h2>
                         <h1 className='rainbow_text_animated'>{featuredEvent.eventName}</h1>
                         <p className='text-xl md:text-3xl'>{featuredEvent.eventDescription}</p>
                         <p className='mb-0 md:text-xl'>{featuredEvent.longDate} at {featuredEvent.venueName}</p>

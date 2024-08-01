@@ -19,7 +19,7 @@ export default function Events({events}) {
 
     return (
         <>
-            <h2>Other upcoming events</h2>
+            <h2>More upcoming events</h2>
             <ResponsiveMasonry columnsCountBreakPoints={{768: 1, 1500: 3}}>
                 <Masonry gutter='64px'>
                     {
