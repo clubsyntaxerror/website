@@ -8,7 +8,7 @@ html {
 
 body {
   color: #ffffff;
-  background: #000000;
+  background: #070707;
   font-size: 1rem;
 }
 
@@ -48,13 +48,18 @@ legend {
 }
 
 .button {
-  border: 1px solid white;
   padding: 0.5rem 2rem;
   margin: 2rem 0;
   display: inline-block;
   font-size: 1.5rem;
   text-decoration: none;
   text-transform: uppercase;
+  transition: transform .2s;
+  transform: rotate(3deg) scale(1.5);
+}
+
+.button:hover {
+  transform: scale(1.6);
 }
 
 .smallbutton {
@@ -71,9 +76,15 @@ legend {
 }
 
 .button.more {
-  border: 1px solid white;
+  border: none;
   color: white;
+  background-color: black;
   margin-left: 1rem;
+  transform: rotate(-3deg);
+}
+
+.button.more:hover {
+  transform: scale(1.1);
 }
 
 .rainbow_text_animated {
@@ -310,5 +321,13 @@ legend {
 
   h3 {
     font-size: 1.4rem;
+  }
+
+  .smallbutton {
+    color: white;
+    border: unset;
+    padding: unset;
+    text-decoration: underline;
+    display: inline;
   }
 }

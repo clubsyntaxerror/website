@@ -43,7 +43,8 @@ try {
         openingHours: (new Date(event[0]).getHours()).toString().padStart(2,'0') + ':' + (new Date(event[0]).getMinutes()).toString().padStart(2,'0') + '-' + (new Date(event[1]).getHours()).toString().padStart(2,'0') + ':' + (new Date(event[1]).getMinutes()).toString().padStart(2,'0'),
         optionalEventDescription: event[5],
         optionalCallToActionTitle: event[6],
-        optionalCallToActionUrl: event[7]
+        optionalCallToActionUrl: event[7],
+        optionalVenueStreetAddress: event[8]
       }));
     }
   } catch (err) {

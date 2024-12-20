@@ -22,9 +22,6 @@ export default function Events({events}) {
             { events.length > 0 && (
                 <h2>More upcoming parties</h2>
             )}
-            { events.length === 0 && (
-                <h2>No more parties planned right now, come back later for updates or join our Discord server and ask us there.</h2>
-            )}
             <ResponsiveMasonry columnsCountBreakPoints={{768: 1, 1500: 3}}>
                 <Masonry gutter='64px'>
                     {
