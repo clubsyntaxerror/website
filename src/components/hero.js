@@ -34,15 +34,14 @@ export default function Hero({featuredEvent}) {
                     </div>
                     <div className='flex justify-center'>
                     {featuredEvent.optionalCallToActionTitle && featuredEvent.optionalCallToActionUrl && (
-                            <>
-                                <Link href={featuredEvent.optionalCallToActionUrl} target="_blank"
-                                      className='button bg-white text-black'>{featuredEvent.optionalCallToActionTitle}</Link>
-                                {/* <Link href='#events' className='button more bg-black'>About us</Link> */}
+                        <>
+                            <Link href={featuredEvent.optionalCallToActionUrl} target="_blank" className='button bg-white text-black'>{featuredEvent.optionalCallToActionTitle}</Link>
+                            <Link className='button more bg-purple-500 text-white border-2 border-white' data-eo-form-toggle-id='2b5e1218-c793-11ef-a7c8-9d7832b0d31b' href='#'>Remind me!</Link>
                         </>
                     )}
-                    {/* {(!featuredEvent.optionalCallToActionTitle || !featuredEvent.optionalCallToActionUrl) && (
-                        <Link href='#events' className='button more bg-black'>About us</Link>
-                    )}               */}
+                    {(!featuredEvent.optionalCallToActionTitle || !featuredEvent.optionalCallToActionUrl) && (
+                        <Link className='button more bg-purple-500 text-white border-2 border-white' data-eo-form-toggle-id='2b5e1218-c793-11ef-a7c8-9d7832b0d31b' href='#'>Remind me!</Link>
+                    )}              
                     </div>
                 </>
                 )}

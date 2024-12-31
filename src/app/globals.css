@@ -76,9 +76,6 @@ legend {
 }
 
 .button.more {
-  border: none;
-  color: white;
-  background-color: black;
   margin-left: 1rem;
   transform: rotate(-3deg);
 }
