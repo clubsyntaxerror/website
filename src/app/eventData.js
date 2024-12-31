@@ -36,7 +36,7 @@ try {
         venueAddress: getVenueAddress(event[2], event[8]),
         optionalCoverFee: event[3],
         eventName: event[4] ? event[4] : 'Syntax Error',
-        eventDescription: event[5] ? event[5] : 'Welcome to Stockholm\'s Video Game Nightclub!',
+        eventDescription: event[5] ? event[5] : 'Welcome to Stockholm\'s monthly Video Game Nightclub!',
         shortDate: new Date(event[0]).getUTCDate() + '/' + (new Date(event[0]).getMonth()+1),
         longDate: new Date(event[0]).toLocaleString('en-us', { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric'}),
         longTime: new Date(event[0]).toLocaleString('en-us', {hourCycle: 'h24', hour: '2-digit', minute: '2-digit' }),

@@ -20,4 +20,4 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 ## Links
 
-Icons for hero are IOS 17 filled white from icons8.com
+Icons for hero are 18x18px IOS 17 filled white from icons8.com

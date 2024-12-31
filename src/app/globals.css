@@ -63,7 +63,7 @@ legend {
 }
 
 .smallbutton {
-  color: white;
+  color: gray;
   border: 1px solid #777777;
   padding: 0.25rem 1rem;
   text-decoration: none;
@@ -321,7 +321,7 @@ legend {
   }
 
   .smallbutton {
-    color: white;
+    color: gray;
     border: unset;
     padding: unset;
     text-decoration: underline;
