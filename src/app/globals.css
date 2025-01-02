@@ -13,7 +13,7 @@ body {
 }
 
 h1 {
-  font-size: 6vw;
+  font-size: 4vw;
   margin: 1rem 0rem;
   line-height: 6vw;
 }
@@ -65,9 +65,10 @@ legend {
 .smallbutton {
   color: gray;
   border: 1px solid #777777;
-  padding: 0.25rem 1rem;
+  padding: 0.1rem 0.5rem;
   text-decoration: none;
   display: inline-block;
+  font-size: xx-small;
 }
 
 .smallbutton:hover {
@@ -101,14 +102,23 @@ legend {
 
 .links {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
 }
 
 .links a {
-  width: 8%;
-  margin-bottom: 8px;
+  margin: 0.5rem;
+  margin-bottom: 1rem;
   display: flex;
-  justify-content: center;
+  font-size: unset;
+  padding: 0.4rem 0.8rem;
+  transition: transform .2s;
+  transform: rotate(-2deg) scale(1);
+  border: 2px solid gray;
+}
+
+.links img {
+  margin-right: 0.5rem;
 }
 
 .event {
@@ -146,9 +156,27 @@ legend {
           mask: var(--mask);
 }
 
-.react-tabs__tab-list {
-  border-bottom: 6px solid white !important;
+
+.react-tabs__tab:active {
+  border-bottom: 2px solid gray !important;
 }
+
+.react-tabs__tab--selected {
+  background: gray !important;
+  border-bottom: 2px solid gray !important;
+}
+
+.react-tabs__tab--selected:focus {
+  background: gray !important;
+  border-bottom: 2px solid gray !important;
+}
+
+.react-tabs__tab-list {
+  border: none;
+  border-bottom: 4px solid gray !important;
+}
+
+
 
 .ping {
   width: 4px;
@@ -157,6 +185,10 @@ legend {
   background: #ffffff;
   left: 0;
   animation: ping 6s infinite linear;
+}
+
+.ping.hero {
+  margin-left: -24px;
 }
 
 .ball {
@@ -289,42 +321,31 @@ legend {
             mask: var(--mask);
   }
 
-  .links {
-    display: flex;
-    flex-wrap: wrap;
-  }
-
-  .links a {
-    width: 18%;
-  }
-
   .logo {
     width: 80vw;
   }
 }
 
 @media screen and (max-width: 480px) {
+  aside {
+    font-size: smaller;
+  }
+
   p {
     font-size: smaller;
   }
 
   h1 {
-    font-size: 2rem;
+    font-size: 1.6rem;
   }
 
   h2 {
     font-size: 1rem;
+    line-height: ;
   }
 
   h3 {
-    font-size: 1.4rem;
-  }
-
-  .smallbutton {
-    color: gray;
-    border: unset;
-    padding: unset;
-    text-decoration: underline;
-    display: inline;
+    font-size: 1.1rem;
+    line-height: 1.6rem;
   }
 }

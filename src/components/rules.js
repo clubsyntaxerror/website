@@ -7,10 +7,10 @@ export default function Rules({ events }) {
 
     return (
         <>
-            <h2>Our rules</h2>
+            <h2 className='text-white text-center mb-4'>Our rules</h2>
             <ResponsiveMasonry columnsCountBreakPoints={{ 768: 1, 1500: 2 }}>
                 <Masonry gutter='32px'>
-                    <div>
+                    <div className='text-gray-500'>
                         <h3>Be respectful</h3>
                         <p>
                             Syntax Error is a place where everyone is welcome, regardless of gender, sexual orientation, ethnicity, religion or favorite Star Trek captain. The only thing that is not welcome is acting disrespectful against other guests, the venue staff or the crew.
@@ -23,7 +23,7 @@ export default function Rules({ events }) {
                             If someone asks to be left alone, respect that, move along and don't take it personally. Always make sure you have consent before touching or otherwise engaging with other guests. If you're unsure, just ask, and no means no.
                         </p>
                     </div>
-                    <div>
+                    <div className='text-gray-500'>
                         <h3>Reach out to our crew</h3>
                         <p>
                             If someone is making you feel uneasy, if you need to talk to someone confidentially or if you just want to chat, grab the closest person wearing a red Syntax Error crew t-shirt. We in the crew are dedicated to making sure everyone has a good time during our events.
