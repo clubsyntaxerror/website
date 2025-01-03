@@ -5,7 +5,7 @@ import SmoothCollapse from 'react-smooth-collapse'
 import Masonry, { ResponsiveMasonry } from "react-responsive-masonry"
 
 export default function Events({events}) {
-    const [expanded, setExpanded] = React.useState(0)
+    const [expanded, setExpanded] = React.useState(-1)
 
     const [desktop, setDesktop] = useState(false)
     
@@ -31,7 +31,7 @@ export default function Events({events}) {
                             if(index === 0) {
                                 return (
                                     <div key={index} className='text-gray-500'>
-                                        <h3 onClick={() => setExpanded(index)} className='cursor-pointer rainbow_text_animated mb-0'>{event.shortDate} {event.eventName}{expanded === index ? '' : '\u00A0>'}</h3>
+                                        <h3 onClick={() => setExpanded(expanded === index ? -1 : index)} className='cursor-pointer'>{event.shortDate}: <span className='rainbow_text_animated'>{event.eventName}</span>{expanded === index ? '' : '\u00A0>'}</h3>
                                         <SmoothCollapse expanded={expanded === index || desktop}>
                                             <p>{event.eventDescription}</p>
                                             <div className="pl-6 relative">
@@ -55,7 +55,7 @@ export default function Events({events}) {
                             } else if(index === 1) {
                                 return (
                                 <div key={index} className='text-gray-500'>
-                                    <h3 onClick={() => setExpanded(index)} className='cursor-pointer rainbow_text_animated'>{event.shortDate} {event.eventName}{expanded === index ? '' : '\u00A0>'}</h3>
+                                    <h3 onClick={() => setExpanded(expanded === index ? -1 : index)} className='cursor-pointer'>{event.shortDate}: <span className='rainbow_text_animated'>{event.eventName}</span>{expanded === index ? '' : '\u00A0>'}</h3>
                                     <SmoothCollapse expanded={expanded === index || desktop}>
                                         <p>{event.eventDescription}</p>
                                             <div className="pl-6 relative">
@@ -79,7 +79,7 @@ export default function Events({events}) {
                             } else {
                                 return (
                                 <div key={index} className='text-gray-500'>
-                                    <h3 onClick={() => setExpanded(index)} className='cursor-pointer rainbow_text_animated'>{event.shortDate} {event.eventName}{expanded === index ? '' : '\u00A0>'}</h3>
+                                    <h3 onClick={() => setExpanded(expanded === index ? -1 : index)} className='cursor-pointer'>{event.shortDate}: <span className='rainbow_text_animated'>{event.eventName}</span>{expanded === index ? '' : '\u00A0>'}</h3>
                                     <SmoothCollapse expanded={expanded === index || desktop}>
                                         <p>{event.eventDescription}</p>
                                             <div className="pl-6 relative">
