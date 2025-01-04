@@ -19,8 +19,8 @@ export default async function Home() {
       <section className='w-full rainbow_bg_animated text-black flex flex-col md:items-center smallzigzag'>
         <div className='p-6 md:py-12 md:w-2/3 md:text-xl'>
           <h2 className='text-white text-center mb-4'>About us</h2>
-          <p>Welcome to Stockholm's monhtly Video Game Party & Nightclub! Dance the night away to video game music and play brand-new or retro video games – all in our uniquely warm and accepting atmosphere.</p>
-          <p>Syntax Error is a party and a nightclub where you'll be in good company if you enjoy playing Street Fighter or Duck Hunt, dancing to video game music, Disney classics and C64 SIDs or simply hiding in the back room playing Magic or any of our other boardgames all night.</p>
+          <p>Welcome to Stockholm's monthly Video Game Party & Nightclub! Dance the night away to video game music and play brand-new or retro video games – all in our uniquely warm and accepting atmosphere.</p>
+          <p>Syntax Error is a party and a nightclub where you'll be in good company if you enjoy playing Street Fighter or Duck Hunt, dancing to video game music, Disney classics and C64 SIDs or simply hiding in the back room playing Magic or any of our other board games all night.</p>
         </div>
       </section>
       <section className='p-6 md:py-12 w-full md:w-2/3'>
