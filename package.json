@@ -19,6 +19,7 @@
     "react-responsive-masonry": "^2.2.0",
     "react-smooth-collapse": "^2.1.2",
     "react-tabs": "^6.0.2",
+    "react-textra": "^0.2.0",
     "reactjs-popup": "^2.0.6",
     "yet-another-react-lightbox": "^3.17.0"
   },

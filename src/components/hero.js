@@ -2,6 +2,7 @@
 import Link from 'next/link'
 import Popup from 'reactjs-popup'
 import 'reactjs-popup/dist/index.css'
+import Textra from 'react-textra'
 
 export default function Hero({featuredEvent}) {
     const featuredEventAddress = featuredEvent.optionalVenueStreetAddress ? ', ' + featuredEvent.optionalVenueStreetAddress : featuredEvent.venueName === 'H62' ? ', Hornsgatan 62, 118 21 Stockholm' : ''
@@ -12,7 +13,9 @@ export default function Hero({featuredEvent}) {
                 <source src="/video.mp4" type="video/mp4"/>       
             </video>      
             <section className='min-h-screen w-full absolute flex flex-col justify-between items-center'>
-                <aside className='p-4 w-full text-center bg-black bg-opacity-90 text-gray-500'>Ranked as the #1 activity on Moderskeppet 2024!</aside>
+                <aside className='p-4 w-full text-center bg-black bg-opacity-90 text-gray-500'>
+                    <Textra effect='simple' data={['Ranked as the #1 activity on Moderskeppet 2024!', '"Syntax Error Stockholm is worth your time. It truly is something special. 🙂"', '"The atmosphere is awesome and nerdy! Play games, listen to blip blop while drinking beers and socialising."', '"Very good place! Amazing crowd and friendly crew and guards in door!"', '"Riktigt kul och annorlunda ställe för den som tröttnat på den gamla vanliga "krogsvängen" och gillar att träffa lite annorlunda och färgstarka människor!"', '"Party! Party! On! When the chip is pulsing this club is pumping!"', '"Tight knit yet open community. Best mixture of different nerd/gamer/underground subcultures or crowds."', '"Machokulturen lyser med sin frånvaro, och jag älskar´t!"', '"The best club for anyone who likes video games, chiptunes, nerds, board games and friendly people."']}  />
+                </aside>
                 <img src="/images/logo.png" className='logo text-white' />
                 { featuredEvent && (
                 <>
