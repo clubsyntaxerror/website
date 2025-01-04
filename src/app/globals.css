@@ -185,9 +185,6 @@ legend {
   background: #ffffff;
   left: 0;
   animation: ping 6s infinite linear;
-}
-
-.ping.hero {
   margin-left: -24px;
 }
 
