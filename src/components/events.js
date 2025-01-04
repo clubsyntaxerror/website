@@ -36,14 +36,14 @@ export default function Events({events}) {
                                             <p>{event.eventDescription}</p>
                                             <div className="pl-6 relative">
                                                 <div className='ping'></div>
-                                                <div className='ball -ml-12'></div><p className='mb-0 text-xs md:text-l pb-1'><img src='/icons/date.png' className='inline align-text-mniddle md:align-text-middle' width='18' height='18' /> {event.longDate}</p>
-                                                <p className='mb-0 text-xs md:text-l pb-1'><img src='/icons/time.png' className='inline align-text-middle md:align-text-middle' width='18' height='18' /> {event.openingHours}</p>
-                                                <address className='mb-0 text-xs md:text-l not-italic events'><img src='/icons/location.png' className='inline align-text-middle md:align-text-middle pb-1' width='18' height='18' /> {event.venueName}
+                                                <div className='ball -ml-12'></div><p className='mb-0 text-xs md:text-l pb-1'><img src='/icons/date.png' className='inline align-text-mniddle md:align-text-middle' width='18' height='18' alt='Date'/> {event.longDate}</p>
+                                                <p className='mb-0 text-xs md:text-l pb-1'><img src='/icons/time.png' className='inline align-text-middle md:align-text-middle' width='18' height='18' alt='Time' aria-hidden='true'  /> {event.openingHours}</p>
+                                                <address className='mb-0 text-xs md:text-l not-italic events'><img src='/icons/location.png' className='inline align-text-middle md:align-text-middle pb-1' width='18' height='18' alt='Location'/> {event.venueName}
                                                     {eventAddress && (
                                                         <Link className='underline text-xs md:text-sm ml-4 align-middle smallbutton uppercase' href={'https://maps.google.com/maps?q=' + eventAddress} target='_blank'>Get directions</Link>
                                                     )}
                                                 </address>
-                                                <p className='mb-0 text-xs  md:text-l'><img src='/icons/ticket.png' className='inline align-text-middle md:align-text-middle pb-1' width='18' height='18' /> {event.optionalCoverFee ? event.optionalCoverFee + ' SEK' : 'free to attend'}
+                                                <p className='mb-0 text-xs  md:text-l'><img src='/icons/ticket.png' className='inline align-text-middle md:align-text-middle pb-1' width='18' height='18' alt='Tickets'/> {event.optionalCoverFee ? event.optionalCoverFee + ' SEK' : 'free to attend'}
                                                     {event.optionalCallToActionTitle && event.optionalCallToActionUrl && (
                                                             <Link className='underline text-xs md:text-sm ml-4 align-middle smallbutton uppercase' href={event.optionalCallToActionUrl} target="_blank">{event.optionalCallToActionTitle}</Link>
                                                     )}
@@ -60,14 +60,14 @@ export default function Events({events}) {
                                         <p>{event.eventDescription}</p>
                                             <div className="pl-6 relative">
                                                 <div className='ping'></div>
-                                                <div className='ball -ml-12'></div><p className='mb-0 text-xs md:text-l pb-1'><img src='/icons/date.png' className='inline align-text-mniddle md:align-text-middle' width='18' height='18' /> {event.longDate}</p>
-                                                <p className='mb-0 text-xs md:text-l pb-1'><img src='/icons/time.png' className='inline align-text-middle md:align-text-middle' width='18' height='18' /> {event.openingHours}</p>
-                                                <address className='mb-0 text-xs md:text-l not-italic events'><img src='/icons/location.png' className='inline align-text-middle md:align-text-middle pb-1' width='18' height='18' /> {event.venueName}
+                                                <div className='ball -ml-12'></div><p className='mb-0 text-xs md:text-l pb-1'><img src='/icons/date.png' className='inline align-text-mniddle md:align-text-middle' width='18' height='18' alt='Date'  /> {event.longDate}</p>
+                                                <p className='mb-0 text-xs md:text-l pb-1'><img src='/icons/time.png' className='inline align-text-middle md:align-text-middle' width='18' height='18' alt='Time' aria-hidden='true'  /> {event.openingHours}</p>
+                                                <address className='mb-0 text-xs md:text-l not-italic events'><img src='/icons/location.png' className='inline align-text-middle md:align-text-middle pb-1' width='18' height='18' alt='Location' /> {event.venueName}
                                                     {eventAddress && (
                                                         <Link className='underline text-xs md:text-sm ml-4 align-middle smallbutton uppercase' href={'https://maps.google.com/maps?q=' + eventAddress} target='_blank'>Get directions</Link>
                                                     )}
                                                 </address>
-                                                <p className='mb-0 text-xs  md:text-l'><img src='/icons/ticket.png' className='inline align-text-middle md:align-text-middle pb-1' width='18' height='18' /> {event.optionalCoverFee ? event.optionalCoverFee + ' SEK' : 'free to attend'}
+                                                <p className='mb-0 text-xs  md:text-l'><img src='/icons/ticket.png' className='inline align-text-middle md:align-text-middle pb-1' width='18' height='18' alt='Tickets' /> {event.optionalCoverFee ? event.optionalCoverFee + ' SEK' : 'free to attend'}
                                                     {event.optionalCallToActionTitle && event.optionalCallToActionUrl && (
                                                             <Link className='underline text-xs md:text-sm ml-4 align-middle smallbutton uppercase' href={event.optionalCallToActionUrl} target="_blank">{event.optionalCallToActionTitle}</Link>
                                                     )}
@@ -84,14 +84,14 @@ export default function Events({events}) {
                                         <p>{event.eventDescription}</p>
                                             <div className="pl-6 relative">
                                                 <div className='ping'></div>
-                                                <div className='ball -ml-12'></div><p className='mb-0 text-xs md:text-l pb-1'><img src='/icons/date.png' className='inline align-text-mniddle md:align-text-middle' width='18' height='18' /> {event.longDate}</p>
-                                                <p className='mb-0 text-xs md:text-l pb-1'><img src='/icons/time.png' className='inline align-text-middle md:align-text-middle' width='18' height='18' /> {event.openingHours}</p>
-                                                <address className='mb-0 text-xs md:text-l not-italic events'><img src='/icons/location.png' className='inline align-text-middle md:align-text-middle pb-1' width='18' height='18' /> {event.venueName}
+                                                <div className='ball -ml-12'></div><p className='mb-0 text-xs md:text-l pb-1'><img src='/icons/date.png' className='inline align-text-mniddle md:align-text-middle' width='18' height='18' alt='Date' /> {event.longDate}</p>
+                                                <p className='mb-0 text-xs md:text-l pb-1'><img src='/icons/time.png' className='inline align-text-middle md:align-text-middle' width='18' height='18' alt='Time' /> {event.openingHours}</p>
+                                                <address className='mb-0 text-xs md:text-l not-italic events'><img src='/icons/location.png' className='inline align-text-middle md:align-text-middle pb-1' width='18' height='18' alt='Location' /> {event.venueName}
                                                     {eventAddress && (
                                                         <Link className='underline text-xs md:text-sm ml-4 align-middle smallbutton uppercase' href={'https://maps.google.com/maps?q=' + eventAddress} target='_blank'>Get directions</Link>
                                                     )}
                                                 </address>
-                                                <p className='mb-0 text-xs  md:text-l'><img src='/icons/ticket.png' className='inline align-text-middle md:align-text-middle pb-1' width='18' height='18' /> {event.optionalCoverFee ? event.optionalCoverFee + ' SEK' : 'free to attend'}
+                                                <p className='mb-0 text-xs  md:text-l'><img src='/icons/ticket.png' className='inline align-text-middle md:align-text-middle pb-1' width='18' height='18' alt='Tickets'/> {event.optionalCoverFee ? event.optionalCoverFee + ' SEK' : 'free to attend'}
                                                     {event.optionalCallToActionTitle && event.optionalCallToActionUrl && (
                                                             <Link className='underline text-xs md:text-sm ml-4 align-middle smallbutton uppercase' href={event.optionalCallToActionUrl} target="_blank">{event.optionalCallToActionTitle}</Link>
                                                     )}
