@@ -12,7 +12,7 @@ export default function Crew() {
 
             <Tabs className='text-gray-500 text-sm'>
                 <TabList>
-                <Tab>Members</Tab>
+                <Tab>Crew</Tab>
                 <Tab>DJs</Tab>
                 <Tab>VJs</Tab>
                 <Tab>Board</Tab>
