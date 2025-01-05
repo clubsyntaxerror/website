@@ -3,13 +3,16 @@
 import React, { useState, useEffect, useId } from "react"
 import Link from "next/link"
 import Masonry, { ResponsiveMasonry } from "react-responsive-masonry"
+import SmoothCollapse from "react-smooth-collapse"
 
-const extraStyles = "my-2";
+const collapseStyles = "my-2";
 
 function Collapse({children, expanded, id}) {
     return (
-        <div id={id} className={expanded ? extraStyles : `hidden ${extraStyles}`}>
-            {children}
+        <div id={id} className={collapseStyles}>
+            <SmoothCollapse expanded={expanded}>
+                {children}
+            </SmoothCollapse>
         </div>
     );
 }

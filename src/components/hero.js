@@ -46,7 +46,7 @@ export default function Hero({featuredEvent}) {
                                 <h1 className='rainbow_text_animated'>{featuredEvent.eventName}</h1>
                                 <p className='text-sm md:text-xl text-left text-gray-500'>{featuredEvent.eventDescription}</p>
                                 <div className='text-left text-gray-500 relative'>
-                                    <div className='ping'></div>
+                                    <div className='ping hero'></div>
                                     <div className='ball -ml-12'></div>
                                     <p className='mb-0 text-xs md:text-l pb-1'><img src='/icons/date.png' className='inline align-text-mniddle md:align-text-middle' width='18' height='18' alt='Date'/> {featuredEvent.longDate}</p>
                                     <p className='mb-0 text-xs md:text-l pb-1'><img src='/icons/time.png' className='inline align-text-middle md:align-text-middle' width='18' height='18' alt='Time'/> {featuredEvent.openingHours}</p>

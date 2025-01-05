@@ -8,6 +8,11 @@
     "start": "next start",
     "lint": "next lint"
   },
+  "overrides": {
+    "react-smooth-collapse": {
+      "react": "19.0.0"
+    }
+  },
   "dependencies": {
     "@vercel/analytics": "^1.2.2",
     "eslint-config-next": "15.1.3",
@@ -17,6 +22,7 @@
     "react-dom": "19.0.0",
     "react-photo-album": "^2.3.1",
     "react-responsive-masonry": "^2.2.0",
+    "react-smooth-collapse": "^2.1.2",
     "react-tabs": "^6.1.0",
     "react-textra": "^0.2.0",
     "reactjs-popup": "^2.0.6",
