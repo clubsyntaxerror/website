@@ -9,19 +9,19 @@ import { useMediaQuery } from "./utils/hooks"
 const collapseStyles = "my-2";
 
 function Collapse({children, expanded, id}) {
-    const prefersReducedMotion = useMediaQuery("(prefers-reduced-motion: no-preference)");
+    const prefersReducedMotion = useMediaQuery("(prefers-reduced-motion: reduce)");
 
     return (
         <div id={id} className={collapseStyles}>
             {
-                prefersReducedMotion !== false ? (
-                    <SmoothCollapse expanded={expanded}>
-                        {children}
-                    </SmoothCollapse>
-                ) : (
+                prefersReducedMotion ? (
                     <div className={expanded ? "block" : "hidden"}>
                         {children}
                     </div>
+                ) : (
+                    <SmoothCollapse expanded={expanded}>
+                        {children}
+                    </SmoothCollapse>
                 )
             }
         </div>
