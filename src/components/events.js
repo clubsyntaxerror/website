@@ -4,15 +4,26 @@ import React, { useState, useEffect, useId, useRef } from "react"
 import Link from "next/link"
 import Masonry, { ResponsiveMasonry } from "react-responsive-masonry"
 import SmoothCollapse from "react-smooth-collapse"
+import { useMediaQuery } from "./utils/hooks"
 
 const collapseStyles = "my-2";
 
 function Collapse({children, expanded, id}) {
+    const prefersReducedMotion = useMediaQuery("(prefers-reduced-motion: no-preference)");
+
     return (
         <div id={id} className={collapseStyles}>
-            <SmoothCollapse expanded={expanded}>
-                {children}
-            </SmoothCollapse>
+            {
+                prefersReducedMotion !== false ? (
+                    <SmoothCollapse expanded={expanded}>
+                        {children}
+                    </SmoothCollapse>
+                ) : (
+                    <div className={expanded ? "block" : "hidden"}>
+                        {children}
+                    </div>
+                )
+            }
         </div>
     );
 }
@@ -41,15 +52,7 @@ function KeyAligner({rootRef, alignKey, children}) {
 
 export default function Events({events}) {
     const [expanded, setExpanded] = React.useState(-1);
-    const [desktop, setDesktop] = useState(false);
-    
-    useEffect(() => {
-        setDesktop(window.matchMedia("(min-width: 1500px)").matches);
-
-        window
-            .matchMedia("(min-width: 1500px)")
-            .addEventListener("change", e => setDesktop( e.matches ));
-    }, []);
+    const desktop = useMediaQuery("(min-width: 1500px)");
 
     const rootRef = useRef(null);
     return (

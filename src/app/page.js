@@ -31,7 +31,7 @@ export default async function Home() {
       </section>
       <section className='p-6 w-full md:w-2/3'>
         <h2 className='text-white text-center mb-4'>Booked artists</h2>
-        <img src="/photos/artists.jpg" className='mb-4' />
+        <img src="/photos/artists.jpg" className='mb-4' alt='Artist playing at Syntax Error' />
         <p className='text-gray-500'>This is a list of awesome artists that has played at our clubs or concerts in the past.</p>
         <p className='rainbow_text_animated'>047, Algar, Blastromen, Bossfight, Boy vs Bacteria, Brandon Walsh, Chipzel, Dubmood, Dunderpatrullen, DJ Diskmachine, FantomenK, Fastbom, Goto80, Hello World, Instant Remedy, Irving Force, Jeroen Tel, Maktone, MegaNeko, Moogen, Ninjaspark, Nordloef, Powerplay, RoccoW, Rymdkraft, SabrePulse, Savlonic, Shirobon, Starchild, Tekmann, Thermostatic, Ultrasyd, USK, Wiklund, Zabutom, Zalza</p>
       </section>
@@ -39,7 +39,8 @@ export default async function Home() {
         <Links />
       </section>
       <footer className='p-6 w-full md:w-2/3'>
-        <img src="/images/invader-dance.gif"></img>
+        <img src="/images/invader-dance.gif" className='motion-reduce:hidden' aria-hidden={true} />
+        <img src="/images/invader-logo.png" className='motion-safe:hidden' aria-hidden={true} />
         <h2 className='text-gray-500 text-center'>Svenska Spelmusikfrämjandet © 2002-{new Date().getFullYear()}</h2>
         <p className='text-gray-500 text-center'>
           Email us at <Link href='mailto:info@syntax-error.se' className='smallbutton mr-2'>info@syntax-error.se</Link> or message us on our <Link href='https://www.facebook.com/SyntaxErrorSthlm/' target='_blank' className='smallbutton mr-2'>Facebook Page</Link> for questions, ideas, corporate and co-op events

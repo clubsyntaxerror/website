@@ -58,6 +58,12 @@ legend {
   transform: rotate(3deg) scale(1.5);
 }
 
+@media (prefers-reduced-motion: reduce) {
+  .button {
+    transition: none;
+  }
+}
+
 .button:hover {
   transform: scale(1.6);
 }
@@ -98,6 +104,17 @@ legend {
   background: linear-gradient(to right, #6666ff, #0099ff , #00ff00, #ff3399, #6666ff);
   animation: rainbow_animation 6s ease-in-out infinite;
   background-size: 400% 100%;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .rainbow_text_animated {
+    animation: none;
+    color: #0199ff;
+  }
+
+  .rainbow_bg_animated {
+    animation: none;
+  }
 }
 
 .links {
@@ -176,8 +193,6 @@ legend {
   border-bottom: 4px solid gray !important;
 }
 
-
-
 .ping {
   width: 4px;
   height: 16px;
@@ -189,6 +204,12 @@ legend {
 
 .ping.hero {
   margin-left: -24px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ping, .ball {
+    display: none;
+  }
 }
 
 .ball {
