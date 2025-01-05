@@ -68,10 +68,11 @@ export default function Events({events}) {
 
                             const innerContent = (
                                 <span className="flex">
-                                    <span className="flex-col pr-4">
+                                    <span className="flex-col pr-4" aria-hidden={true}>
                                         <KeyAligner rootRef={rootRef} alignKey="date">{event.shortDate}:</KeyAligner>
                                     </span>
                                     <span className="flex-col">
+                                        <span className="sr-only">{event.longDate}: </span>
                                         <span className="rainbow_text_animated">{event.eventName}</span>
                                         {
                                             !desktop && (
