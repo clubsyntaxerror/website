@@ -51,7 +51,7 @@ export default function Events({events}) {
                             const collapsableId = useId();
 
                             return (
-                                <section key={index} className="text-gray-500">
+                                <article key={index} className="text-gray-500">
                                     <h3>
                                         {
                                             desktop ? innerContent : (
@@ -83,7 +83,7 @@ export default function Events({events}) {
                                             </p>
                                         </div>
                                     </Collapse>
-                                </section>
+                                </article>
                             );
                         })
                     }
