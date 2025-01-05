@@ -1,110 +1,98 @@
 "use client"
-import React, { useState, useEffect } from 'react'
-import Link from 'next/link'
-import SmoothCollapse from 'react-smooth-collapse'
+
+import React, { useState, useEffect, useId } from "react"
+import Link from "next/link"
 import Masonry, { ResponsiveMasonry } from "react-responsive-masonry"
+import SmoothCollapse from "react-smooth-collapse"
+
+const collapseStyles = "my-2";
+
+function Collapse({children, expanded, id}) {
+    return (
+        <div id={id} className={collapseStyles}>
+            <SmoothCollapse expanded={expanded}>
+                {children}
+            </SmoothCollapse>
+        </div>
+    );
+}
 
 export default function Events({events}) {
-    const [expanded, setExpanded] = React.useState(-1)
-
-    const [desktop, setDesktop] = useState(false)
+    const [expanded, setExpanded] = React.useState(-1);
+    const [desktop, setDesktop] = useState(false);
     
-      useEffect(() => {
-        setDesktop(window.matchMedia("(min-width: 1500px)").matches)
+    useEffect(() => {
+        setDesktop(window.matchMedia("(min-width: 1500px)").matches);
 
         window
-        .matchMedia("(min-width: 1500px)")
-        .addEventListener('change', e => setDesktop( e.matches ));
-      }, []);
+            .matchMedia("(min-width: 1500px)")
+            .addEventListener("change", e => setDesktop( e.matches ));
+    }, []);
 
     return (
         <>
-            { events.length > 0 && (
-                <h2 className='text-center text-white mb-4'>Party calendar</h2>
+            {events.length > 0 && (
+                <h2 className="text-center text-white mb-4">Party calendar</h2>
             )}
             <ResponsiveMasonry columnsCountBreakPoints={{768: 1, 1500: 3}}>
-                <Masonry gutter='64px'>
+                <Masonry gutter="64px">
                     {
                         events.map((event, index) => {
-                            const eventAddress = event.optionalVenueStreetAddress ? ', ' + event.optionalVenueStreetAddress : event.venueName === 'H62' ? ', Hornsgatan 62, 118 21 Stockholm' : ''
+                            const eventAddress = event.optionalVenueStreetAddress ? ", " + event.optionalVenueStreetAddress : event.venueName === "H62" ? ", Hornsgatan 62, 118 21 Stockholm" : ""
 
-                            if(index === 0) {
-                                return (
-                                    <div key={index} className='text-gray-500'>
-                                        <h3 onClick={() => setExpanded(expanded === index ? -1 : index)} className='cursor-pointer'>{event.shortDate}: <span className='rainbow_text_animated'>{event.eventName}</span>{expanded === index ? '' : '\u00A0>'}</h3>
-                                        <SmoothCollapse expanded={expanded === index || desktop}>
-                                            <p>{event.eventDescription}</p>
-                                            <div className="pl-6 relative">
-                                                <div className='ping'></div>
-                                                <div className='ball -ml-12'></div><p className='mb-0 text-xs md:text-l pb-1'><img src='/icons/date.png' className='inline align-text-mniddle md:align-text-middle' width='18' height='18' alt='Date'/> {event.longDate}</p>
-                                                <p className='mb-0 text-xs md:text-l pb-1'><img src='/icons/time.png' className='inline align-text-middle md:align-text-middle' width='18' height='18' alt='Time' aria-hidden='true'  /> {event.openingHours}</p>
-                                                <address className='mb-0 text-xs md:text-l not-italic events'><img src='/icons/location.png' className='inline align-text-middle md:align-text-middle pb-1' width='18' height='18' alt='Location'/> {event.venueName}
-                                                    {eventAddress && (
-                                                        <Link className='underline text-xs md:text-sm ml-4 align-middle smallbutton uppercase' href={'https://maps.google.com/maps?q=' + eventAddress} target='_blank'>Get directions</Link>
-                                                    )}
-                                                </address>
-                                                <p className='mb-0 text-xs  md:text-l'><img src='/icons/ticket.png' className='inline align-text-middle md:align-text-middle pb-1' width='18' height='18' alt='Tickets'/> {event.optionalCoverFee ? event.optionalCoverFee + ' SEK' : 'free to attend'}
-                                                    {event.optionalCallToActionTitle && event.optionalCallToActionUrl && (
-                                                            <Link className='underline text-xs md:text-sm ml-4 align-middle smallbutton uppercase' href={event.optionalCallToActionUrl} target="_blank">{event.optionalCallToActionTitle}</Link>
-                                                    )}
-                                                </p>
-                                                </div>
-                                        </SmoothCollapse>
-                                    </div>
-                                )
-                            } else if(index === 1) {
-                                return (
-                                <div key={index} className='text-gray-500'>
-                                    <h3 onClick={() => setExpanded(expanded === index ? -1 : index)} className='cursor-pointer'>{event.shortDate}: <span className='rainbow_text_animated'>{event.eventName}</span>{expanded === index ? '' : '\u00A0>'}</h3>
-                                    <SmoothCollapse expanded={expanded === index || desktop}>
+                            const innerContent = (
+                                <>
+                                    {event.shortDate}: <span className="rainbow_text_animated">{event.eventName}</span>{
+                                        !desktop && (
+                                            <span aria-label={expanded === index ? " Collapse" : " Expand"}>
+                                                {expanded === index ? "\u00A0<" : "\u00A0>"}
+                                            </span>
+                                        )
+                                    }
+                                </>
+                            );
+                            const collapsableId = useId();
+
+                            return (
+                                <article key={index} className="text-gray-500">
+                                    <h3>
+                                        {
+                                            desktop ? innerContent : (
+                                                <button
+                                                    onClick={() => setExpanded(expanded === index ? -1 : index)}
+                                                    aria-expanded={expanded === index}
+                                                    aria-controls={collapsableId}
+                                                    className="text-left"
+                                                >
+                                                    {innerContent}
+                                                </button>
+                                            )
+                                        }
+                                    </h3>
+                                    <Collapse expanded={expanded === index || desktop} id={collapsableId}>
                                         <p>{event.eventDescription}</p>
-                                            <div className="pl-6 relative">
-                                                <div className='ping'></div>
-                                                <div className='ball -ml-12'></div><p className='mb-0 text-xs md:text-l pb-1'><img src='/icons/date.png' className='inline align-text-mniddle md:align-text-middle' width='18' height='18' alt='Date'  /> {event.longDate}</p>
-                                                <p className='mb-0 text-xs md:text-l pb-1'><img src='/icons/time.png' className='inline align-text-middle md:align-text-middle' width='18' height='18' alt='Time' aria-hidden='true'  /> {event.openingHours}</p>
-                                                <address className='mb-0 text-xs md:text-l not-italic events'><img src='/icons/location.png' className='inline align-text-middle md:align-text-middle pb-1' width='18' height='18' alt='Location' /> {event.venueName}
-                                                    {eventAddress && (
-                                                        <Link className='underline text-xs md:text-sm ml-4 align-middle smallbutton uppercase' href={'https://maps.google.com/maps?q=' + eventAddress} target='_blank'>Get directions</Link>
-                                                    )}
-                                                </address>
-                                                <p className='mb-0 text-xs  md:text-l'><img src='/icons/ticket.png' className='inline align-text-middle md:align-text-middle pb-1' width='18' height='18' alt='Tickets' /> {event.optionalCoverFee ? event.optionalCoverFee + ' SEK' : 'free to attend'}
-                                                    {event.optionalCallToActionTitle && event.optionalCallToActionUrl && (
-                                                            <Link className='underline text-xs md:text-sm ml-4 align-middle smallbutton uppercase' href={event.optionalCallToActionUrl} target="_blank">{event.optionalCallToActionTitle}</Link>
-                                                    )}
-                                                </p>
-                                            </div>
-                                    </SmoothCollapse>
-                                </div>
-                                )
-                            } else {
-                                return (
-                                <div key={index} className='text-gray-500'>
-                                    <h3 onClick={() => setExpanded(expanded === index ? -1 : index)} className='cursor-pointer'>{event.shortDate}: <span className='rainbow_text_animated'>{event.eventName}</span>{expanded === index ? '' : '\u00A0>'}</h3>
-                                    <SmoothCollapse expanded={expanded === index || desktop}>
-                                        <p>{event.eventDescription}</p>
-                                            <div className="pl-6 relative">
-                                                <div className='ping'></div>
-                                                <div className='ball -ml-12'></div><p className='mb-0 text-xs md:text-l pb-1'><img src='/icons/date.png' className='inline align-text-mniddle md:align-text-middle' width='18' height='18' alt='Date' /> {event.longDate}</p>
-                                                <p className='mb-0 text-xs md:text-l pb-1'><img src='/icons/time.png' className='inline align-text-middle md:align-text-middle' width='18' height='18' alt='Time' /> {event.openingHours}</p>
-                                                <address className='mb-0 text-xs md:text-l not-italic events'><img src='/icons/location.png' className='inline align-text-middle md:align-text-middle pb-1' width='18' height='18' alt='Location' /> {event.venueName}
-                                                    {eventAddress && (
-                                                        <Link className='underline text-xs md:text-sm ml-4 align-middle smallbutton uppercase' href={'https://maps.google.com/maps?q=' + eventAddress} target='_blank'>Get directions</Link>
-                                                    )}
-                                                </address>
-                                                <p className='mb-0 text-xs  md:text-l'><img src='/icons/ticket.png' className='inline align-text-middle md:align-text-middle pb-1' width='18' height='18' alt='Tickets'/> {event.optionalCoverFee ? event.optionalCoverFee + ' SEK' : 'free to attend'}
-                                                    {event.optionalCallToActionTitle && event.optionalCallToActionUrl && (
-                                                            <Link className='underline text-xs md:text-sm ml-4 align-middle smallbutton uppercase' href={event.optionalCallToActionUrl} target="_blank">{event.optionalCallToActionTitle}</Link>
-                                                    )}
-                                                </p>
-                                                </div>
-                                    </SmoothCollapse>
-                                </div>
-                                )
-                            }
-                    })
-                }
+                                        <div className="pl-6 relative">
+                                            <div className="ping"></div>
+                                            <div className="ball -ml-12"></div><p className="mb-0 text-xs md:text-l pb-1"><img src="/icons/date.png" className="inline align-text-mniddle md:align-text-middle" width="18" height="18" alt="Date"/> {event.longDate}</p>
+                                            <p className="mb-0 text-xs md:text-l pb-1"><img src="/icons/time.png" className="inline align-text-middle md:align-text-middle" width="18" height="18" alt="Time" aria-hidden="true"  /> {event.openingHours}</p>
+                                            <address className="mb-0 text-xs md:text-l not-italic events"><img src="/icons/location.png" className="inline align-text-middle md:align-text-middle pb-1" width="18" height="18" alt="Location"/> {event.venueName}
+                                                {eventAddress && (
+                                                    <Link className="underline text-xs md:text-sm ml-4 align-middle smallbutton uppercase" href={"https://maps.google.com/maps?q=" + encodeURIComponent(eventAddress)} target="_blank">Get directions</Link>
+                                                )}
+                                            </address>
+                                            <p className="mb-0 text-xs  md:text-l"><img src="/icons/ticket.png" className="inline align-text-middle md:align-text-middle pb-1" width="18" height="18" alt="Tickets"/> {event.optionalCoverFee ? event.optionalCoverFee + " SEK" : "free to attend"}
+                                                {event.optionalCallToActionTitle && event.optionalCallToActionUrl && (
+                                                        <Link className="underline text-xs md:text-sm ml-4 align-middle smallbutton uppercase" href={event.optionalCallToActionUrl} target="_blank">{event.optionalCallToActionTitle}</Link>
+                                                )}
+                                            </p>
+                                        </div>
+                                    </Collapse>
+                                </article>
+                            );
+                        })
+                    }
                 </Masonry>
             </ResponsiveMasonry>
         </>
-    )
+    );
 }
