@@ -3,22 +3,41 @@ import Link from 'next/link'
 import Popup from 'reactjs-popup'
 import 'reactjs-popup/dist/index.css'
 import Textra from 'react-textra'
-import { useRef, useEffect } from 'react'
+import { useRef, useEffect, useState } from 'react'
+import { useMediaQuery } from './utils/hooks'
+
+function NoMotionSocialProofs({data}) {
+    const [index, setIndex] = useState(0);
+
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setIndex((index) => (index + 1) % data.length);
+        }, 5000);
+        return () => clearInterval(interval);
+    }, [data]);
+
+    return (
+        <span>
+            {data[index]}
+        </span>
+    );
+}
 
 export default function Hero({featuredEvent}) {
     const featuredEventAddress = featuredEvent.optionalVenueStreetAddress ? ', ' + featuredEvent.optionalVenueStreetAddress : featuredEvent.venueName === 'H62' ? ', Hornsgatan 62, 118 21 Stockholm' : ''
     const socialProofs = ['Ranked as the #1 activity on Moderskeppet 2024!', '"Syntax Error Stockholm is worth your time. It truly is something special. 🙂"', '"The atmosphere is awesome and nerdy! Play games, listen to blip blop while drinking beers and socialising."', '"Very good place! Amazing crowd and friendly crew and guards in door!"', '"Riktigt kul och annorlunda ställe för den som tröttnat på den gamla vanliga "krogsvängen" och gillar att träffa lite annorlunda och färgstarka människor!"', '"Party! Party! On! When the chip is pulsing this club is pumping!"', '"Tight knit yet open community. Best mixture of different nerd/gamer/underground subcultures or crowds."', '"Machokulturen lyser med sin frånvaro, och jag älskar´t!"', '"The best club for anyone who likes video games, chiptunes, nerds, board games and friendly people."']
 
-    const videoRef = useRef(null);
+    const bgRef = useRef(null);
     const sectionRef = useRef(null);
+    const prefersReducedMotion = useMediaQuery("(prefers-reduced-motion: reduce)");
 
     useEffect(() => {
-        const video = videoRef.current;
+        const videoOrImg = bgRef.current;
         const section = sectionRef.current;
 
-        if (video && section) {
+        if (videoOrImg && section) {
             const resizeObserver = new ResizeObserver(() => {
-                video.style.height = section.clientHeight + 'px';
+                videoOrImg.style.height = section.clientHeight + 'px';
             });
 
             resizeObserver.observe(section);
@@ -26,16 +45,26 @@ export default function Hero({featuredEvent}) {
                 resizeObserver.disconnect();
             };
         }
-    }, []);
+    }, [bgRef.current]);
 
     return (
         <>
-            <video autoPlay muted loop playsInline className="object-cover w-full h-screen -z-10 zigzag" poster="/video-poster.jpg" ref={videoRef}>         
-                <source src="/video.mp4" type="video/mp4" />
-            </video>      
+            {
+                prefersReducedMotion !== false ? (
+                    <img src="/video-poster.jpg" className='object-cover w-full h-screen -z-10 zigzag' aria-hidden={true} ref={bgRef} />
+                ) : (
+                    <video autoPlay muted loop playsInline className="object-cover w-full h-screen -z-10 zigzag" poster="/video-poster.jpg" aria-hidden={true} ref={bgRef}>         
+                        <source src="/video.mp4" type="video/mp4" />
+                    </video>
+                )
+            }
             <section className='min-h-screen w-full absolute flex flex-col justify-between items-center' ref={sectionRef}>
-                <aside className='p-4 w-full absolute top-0 left-0 text-center bg-black bg-opacity-90 text-gray-500'>
-                    <Textra effect='simple' data={socialProofs}  />
+                <aside className='p-4 w-full absolute top-0 left-0 text-center bg-black bg-opacity-90 text-gray-500' aria-live='polite'>
+                    {prefersReducedMotion ? (
+                        <NoMotionSocialProofs data={socialProofs} />
+                    ) : (
+                        <Textra effect='simple' data={socialProofs} />
+                    )}
                 </aside>
                 <img src="/images/logo.png" className='logo text-white mt-24 mb-12 md:mt-18' alt='Syntax Error Video Game Party & Nightclub' />
                 { featuredEvent && (

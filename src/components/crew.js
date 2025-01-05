@@ -7,7 +7,7 @@ export default function Crew() {
     return (
         <>
             <h2 className='text-center text-white mb-4'>Our crew</h2>
-            <img src="/photos/crew.jpg" className='mb-4' />
+            <img src="/photos/crew.jpg" className='mb-4' alt='Syntax Error crew' />
             <p className='text-gray-500'>Syntax Error is run by the non-profit organization Svenska Spelmusikfrämjandet whose members organize all our events together with volunteers.</p>
 
             <Tabs className='text-gray-500 text-sm'>
