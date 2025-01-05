@@ -59,6 +59,7 @@ export default function Events({events}) {
                                                     onClick={() => setExpanded(expanded === index ? -1 : index)}
                                                     aria-expanded={expanded === index}
                                                     aria-controls={collapsableId}
+                                                    className="text-left"
                                                 >
                                                     {innerContent}
                                                 </button>
