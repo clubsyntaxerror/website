@@ -23,13 +23,20 @@ export default async function Home() {
           <p>Syntax Error is a party and a nightclub where you'll be in good company if you enjoy playing Street Fighter or Duck Hunt, dancing to video game music, Disney classics and C64 SIDs or simply hiding in the back room playing Magic or any of our other board games all night.</p>
         </div>
       </section>
-      <section className='p-6 md:py-12 w-full md:w-2/3'>
-        <Photos />
-      </section>
-      <section className='p-6 w-full md:w-2/3'>
-        <Crew />
-      </section>
-      <section className='p-6 w-full md:w-2/3'>
+        <section>
+            <h2 className='text-white text-center my-4'>Don't go alone</h2>
+            <div className='w-full text-center mb-4'>
+                <Link href='https://docs.google.com/forms/d/e/1FAIpQLSeSBSmn-_83qT2NOf1nEaAwtQEJLaAfMZKnqTJaB9FX7re89A/viewform?usp=dialog' target="_blank" className='button bg-white text-black'>Take our
+                    guest survey!</Link>
+            </div>
+        </section>
+        <section className='p-6 md:py-12 w-full md:w-2/3'>
+            <Photos/>
+        </section>
+        <section className='p-6 w-full md:w-2/3'>
+            <Crew/>
+        </section>
+        <section className='p-6 w-full md:w-2/3'>
         <h2 className='text-white text-center mb-4'>Booked artists</h2>
         <img src="/photos/artists.jpg" className='mb-4' alt='Artist playing at Syntax Error' />
         <p className='text-gray-500'>This is a list of awesome artists that has played at our clubs or concerts in the past.</p>
