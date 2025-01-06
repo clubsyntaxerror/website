@@ -38,7 +38,7 @@ export default function Crew() {
     const desktop = useMediaQuery('(min-width: 1024px)');
 
     const inner = (
-        <div className={`grid grid-cols-1 ${desktop ? 'grid-cols-5' : 'grid-cols-1'} gap-x-4`}>
+        <div className={`grid ${desktop ? 'grid-cols-5' : 'grid-cols-1'} gap-x-4`}>
             <Category
                 name='Alumni'
                 members='Jon, Matti, Lindroth, Wezz, Daniel, Nik, Whiting, Borchers, McFly, Windefalk, MrTimpi, Hakushi, Velo, Zaz'
