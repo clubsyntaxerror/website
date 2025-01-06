@@ -80,7 +80,7 @@ export default function Events({events}) {
                                         )
                                     }
                                 </h3>
-                                <Collapse expanded={expanded === index || desktop} id={collapsableId}>
+                                <Collapse expanded={expanded === index || desktop} id={collapsableId} className="my-2">
                                     <p>{event.eventDescription}</p>
                                     <div className="pl-6 relative">
                                         <div className="ping"></div>
