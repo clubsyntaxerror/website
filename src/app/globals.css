@@ -173,26 +173,6 @@ legend {
           mask: var(--mask);
 }
 
-
-.react-tabs__tab:active {
-  border-bottom: 2px solid gray !important;
-}
-
-.react-tabs__tab--selected {
-  background: gray !important;
-  border-bottom: 2px solid gray !important;
-}
-
-.react-tabs__tab--selected:focus {
-  background: gray !important;
-  border-bottom: 2px solid gray !important;
-}
-
-.react-tabs__tab-list {
-  border: none;
-  border-bottom: 4px solid gray !important;
-}
-
 .ping {
   width: 4px;
   height: 16px;

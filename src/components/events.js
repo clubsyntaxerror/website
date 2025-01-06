@@ -2,30 +2,8 @@
 
 import React, { useState, useEffect, useId, useRef } from "react"
 import Link from "next/link"
-import SmoothCollapse from "react-smooth-collapse"
 import { useMediaQuery } from "./utils/hooks"
-
-const collapseStyles = "my-2";
-
-function Collapse({children, expanded, id}) {
-    const prefersReducedMotion = useMediaQuery("(prefers-reduced-motion: reduce)");
-
-    return (
-        <div id={id} className={collapseStyles}>
-            {
-                prefersReducedMotion ? (
-                    <div className={expanded ? "block" : "hidden"}>
-                        {children}
-                    </div>
-                ) : (
-                    <SmoothCollapse expanded={expanded}>
-                        {children}
-                    </SmoothCollapse>
-                )
-            }
-        </div>
-    );
-}
+import Collapse from "./utils/Collapse"
 
 function KeyAligner({rootRef, alignKey, children}) {
     const [padding, setPadding] = useState(0);
