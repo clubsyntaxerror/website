@@ -59,7 +59,7 @@ export default function Hero({featuredEvent}) {
                 )
             }
             <section className='min-h-screen w-full absolute flex flex-col justify-between items-center' ref={sectionRef}>
-                <aside className='p-4 w-full absolute top-0 left-0 text-center bg-black bg-opacity-90 text-gray-500' aria-live='polite'>
+                <aside className='p-4 w-full absolute top-0 left-0 text-center bg-black bg-opacity-90 text-gray-500' aria-hidden={true}>
                     {prefersReducedMotion ? (
                         <NoMotionSocialProofs data={socialProofs} />
                     ) : (
