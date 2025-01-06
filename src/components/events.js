@@ -106,7 +106,10 @@ export default function Events({events}) {
                                         <p>{event.eventDescription}</p>
                                         <div className="pl-6 relative">
                                             <div className="ping"></div>
-                                            <div className="ball -ml-12"></div><p className="mb-0 text-xs md:text-l pb-1"><img src="/icons/date.png" className="inline align-text-mniddle md:align-text-middle" width="18" height="18" alt="Date"/> {event.longDate}</p>
+                                            <div className="ball -ml-12"></div>
+                                            <p className="mb-0 text-xs md:text-l pb-1" aria-hidden="true">
+                                                <img src="/icons/date.png" className="inline align-text-mniddle md:align-text-middle" width="18" height="18" aria-hidden="true" /> {event.longDate}
+                                            </p>
                                             <p className="mb-0 text-xs md:text-l pb-1"><img src="/icons/time.png" className="inline align-text-middle md:align-text-middle" width="18" height="18" alt="Time" aria-hidden="true"  /> {event.openingHours}</p>
                                             <address className="mb-0 text-xs md:text-l not-italic events"><img src="/icons/location.png" className="inline align-text-middle md:align-text-middle pb-1" width="18" height="18" alt="Location"/> {event.venueName}
                                                 {eventAddress && (
