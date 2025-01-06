@@ -69,7 +69,7 @@ export default function Crew() {
             <p className='text-gray-500'>Syntax Error is run by the non-profit organization Svenska Spelmusikfrämjandet whose members organize all our events together with volunteers.</p>
 
             {
-                desktop ? inner : (
+                desktop !== false ? inner : (
                     <CrewCollapser>{inner}</CrewCollapser>
                 )
             }
