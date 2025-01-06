@@ -9,7 +9,7 @@ export default function Rules({ events }) {
     return (
         <>
             <h2 className='text-white text-center mb-4'>Our rules</h2>
-            <div className={`grid ${desktop ? "grid-cols-2" : "grid-cols-1"} gap-8`}>
+            <div className={`grid ${desktop ? "grid-cols-2" : "grid-cols-1"} gap-x-8`}>
                 <div className='text-gray-500'>
                     <h3>Be respectful</h3>
                     <p>
