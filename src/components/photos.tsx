@@ -53,9 +53,9 @@ const photos = [
         height: 1080,
         alt: "A person with blue hair and animal ears in the same colour",
     },
-];
+] as const;
 
-function altCtx(photos) {
+function altCtx() {
     return photos.map((photo) => ({
         ...photo,
         alt: `${photo.alt} click to open in lightbox`,
@@ -67,10 +67,10 @@ export default function Photos() {
 
     return (
         <>
-            <PhotoAlbum layout="rows" photos={altCtx(photos)} onClick={({ index }) => setIndex(index)} />
+            <PhotoAlbum layout="rows" photos={altCtx()} onClick={({ index }) => setIndex(index)} />
 
             <Lightbox
-                slides={photos}
+                slides={photos as any} // Lightbox doesn't strictly support the type due to alt, but its fine.
                 open={index >= 0}
                 index={index}
                 close={() => setIndex(-1)}

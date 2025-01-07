@@ -4,8 +4,9 @@ import Link from "next/link";
 import Textra from "react-textra";
 import { useRef, useEffect, useState } from "react";
 import { useMediaQuery } from "./utils/hooks";
+import type { Event } from "../app/eventData";
 
-function NoMotionSocialProofs({ data }) {
+function NoMotionSocialProofs({ data }: { data: string[] }) {
     const [index, setIndex] = useState(0);
 
     useEffect(() => {
@@ -18,7 +19,7 @@ function NoMotionSocialProofs({ data }) {
     return <span>{data[index]}</span>;
 }
 
-export default function Hero({ featuredEvent }) {
+export default function Hero({ featuredEvent }: { featuredEvent: Event }) {
     const featuredEventAddress = featuredEvent.optionalVenueStreetAddress
         ? ", " + featuredEvent.optionalVenueStreetAddress
         : featuredEvent.venueName === "H62"
@@ -36,8 +37,8 @@ export default function Hero({ featuredEvent }) {
         '"The best club for anyone who likes video games, chiptunes, nerds, board games and friendly people."',
     ];
 
-    const bgRef = useRef(null);
-    const sectionRef = useRef(null);
+    const bgRef = useRef<any>(null); // not sure why I need to do this, future todo
+    const sectionRef = useRef<HTMLDivElement | null>(null);
     const prefersReducedMotion = useMediaQuery("(prefers-reduced-motion: reduce)");
 
     useEffect(() => {
@@ -46,7 +47,7 @@ export default function Hero({ featuredEvent }) {
 
         if (videoOrImg && section) {
             const resizeObserver = new ResizeObserver(() => {
-                videoOrImg.style.height = section.clientHeight + "px";
+                videoOrImg.style.height = `${section.clientHeight}px`;
             });
 
             resizeObserver.observe(section);

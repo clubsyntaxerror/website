@@ -3,7 +3,14 @@
 import SmoothCollapse from "react-smooth-collapse";
 import { useMediaQuery } from "./hooks";
 
-export default function Collapse({ children, className, expanded, id }) {
+type Props = {
+    children: React.ReactNode;
+    expanded: boolean;
+    id: string;
+    className?: string;
+};
+
+export default function Collapse({ children, expanded, id, className }: Props) {
     const prefersReducedMotion = useMediaQuery("(prefers-reduced-motion: reduce)");
 
     return (
