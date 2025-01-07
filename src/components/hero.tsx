@@ -5,6 +5,7 @@ import Textra from "react-textra";
 import { useRef, useEffect, useState } from "react";
 import { useMediaQuery } from "./utils/hooks";
 import type { Event } from "../app/eventData";
+
 function NoMotionSocialProofs({ data }: { data: string[] }) {
     const [index, setIndex] = useState(0);
 
