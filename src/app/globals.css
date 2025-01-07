@@ -3,349 +3,349 @@
 @tailwind utilities;
 
 html {
-  scroll-behavior: smooth;
+    scroll-behavior: smooth;
 }
 
 body {
-  color: #ffffff;
-  background: #070707;
-  font-size: 1rem;
+    color: #ffffff;
+    background: #070707;
+    font-size: 1rem;
 }
 
 h1 {
-  font-size: 4vw;
-  margin: 1rem 0rem;
-  line-height: 6vw;
+    font-size: 4vw;
+    margin: 1rem 0rem;
+    line-height: 6vw;
 }
 
 h2 {
-  font-size: 1rem;
-  color: #777777;
+    font-size: 1rem;
+    color: #777777;
 }
 
 h3 {
-  font-size: 1.6rem;
-  line-height: 2.2rem;
+    font-size: 1.6rem;
+    line-height: 2.2rem;
 }
 
 p {
-  margin-bottom: 1rem;
+    margin-bottom: 1rem;
 }
 
 fieldset {
-  border: 1px solid white;
-  display: inline-block;
-  padding: 1rem;
+    border: 1px solid white;
+    display: inline-block;
+    padding: 1rem;
 }
 
 legend {
-  padding-left: 1rem;
-  padding-right: 1rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
 }
 
 .logo {
-  max-width: 50vh;
+    max-width: 50vh;
 }
 
 .button {
-  padding: 0.5rem 2rem;
-  margin: 2rem 0;
-  display: inline-block;
-  font-size: 1.5rem;
-  text-decoration: none;
-  text-transform: uppercase;
-  transition: transform .2s;
-  transform: rotate(3deg) scale(1.5);
+    padding: 0.5rem 2rem;
+    margin: 2rem 0;
+    display: inline-block;
+    font-size: 1.5rem;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: transform 0.2s;
+    transform: rotate(3deg) scale(1.5);
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .button {
-    transition: none;
-  }
+    .button {
+        transition: none;
+    }
 }
 
 .button:hover {
-  transform: scale(1.6);
+    transform: scale(1.6);
 }
 
 .smallbutton {
-  color: gray;
-  border: 1px solid #777777;
-  padding: 0.1rem 0.5rem;
-  text-decoration: none;
-  display: inline-block;
-  font-size: xx-small;
+    color: gray;
+    border: 1px solid #777777;
+    padding: 0.1rem 0.5rem;
+    text-decoration: none;
+    display: inline-block;
+    font-size: xx-small;
 }
 
 .smallbutton:hover {
-  color: black;
-  background-color: white;;
+    color: black;
+    background-color: white;
 }
 
 .button.more {
-  margin-left: 1rem;
-  transform: rotate(-3deg);
+    margin-left: 1rem;
+    transform: rotate(-3deg);
 }
 
 .button.more:hover {
-  transform: scale(1.1);
+    transform: scale(1.1);
 }
 
 .rainbow_text_animated {
-  background: linear-gradient(to right, #6666ff, #0099ff , #00ff00, #ff3399, #6666ff);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-  animation: rainbow_animation 6s ease-in-out infinite;
-  background-size: 400% 100%;
+    background: linear-gradient(to right, #6666ff, #0099ff, #00ff00, #ff3399, #6666ff);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: rainbow_animation 6s ease-in-out infinite;
+    background-size: 400% 100%;
 }
 
 .rainbow_bg_animated {
-  background: linear-gradient(to right, #6666ff, #0099ff , #00ff00, #ff3399, #6666ff);
-  animation: rainbow_animation 6s ease-in-out infinite;
-  background-size: 400% 100%;
+    background: linear-gradient(to right, #6666ff, #0099ff, #00ff00, #ff3399, #6666ff);
+    animation: rainbow_animation 6s ease-in-out infinite;
+    background-size: 400% 100%;
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .rainbow_text_animated {
-    animation: none;
-    color: #0199ff;
-  }
+    .rainbow_text_animated {
+        animation: none;
+        color: #0199ff;
+    }
 
-  .rainbow_bg_animated {
-    animation: none;
-  }
+    .rainbow_bg_animated {
+        animation: none;
+    }
 }
 
 .links {
-  display: flex;
-  justify-content: space-evenly;
-  flex-wrap: wrap;
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
 }
 
 .links a {
-  margin: 0.5rem;
-  margin-bottom: 1rem;
-  display: flex;
-  font-size: unset;
-  padding: 0.4rem 0.8rem;
-  transition: transform .2s;
-  transform: rotate(-2deg) scale(1);
-  border: 2px solid gray;
+    margin: 0.5rem;
+    margin-bottom: 1rem;
+    display: flex;
+    font-size: unset;
+    padding: 0.4rem 0.8rem;
+    transition: transform 0.2s;
+    transform: rotate(-2deg) scale(1);
+    border: 2px solid gray;
 }
 
 .links img {
-  margin-right: 0.5rem;
+    margin-right: 0.5rem;
 }
 
 .event {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
 }
 
 #events div div div {
-  row-gap: 4px !important;
+    row-gap: 4px !important;
 }
 
 @keyframes rainbow_animation {
-  0%,100% {
-      background-position: 0 0;
-  }
+    0%,
+    100% {
+        background-position: 0 0;
+    }
 
-  50% {
-      background-position: 100% 0;
-  }
+    50% {
+        background-position: 100% 0;
+    }
 }
 
 /* https://css-generators.com/custom-borders/ */
 .zigzag {
-  background: repeating-linear-gradient(135deg,#000000 0 15px,#000000 0 30px);
-  --mask: conic-gradient(from -45deg at bottom,#0000,#000 1deg 89deg,#0000 90deg) 50%/100.00px 100%;
-  -webkit-mask: var(--mask);
-          mask: var(--mask);
+    background: repeating-linear-gradient(135deg, #000000 0 15px, #000000 0 30px);
+    --mask: conic-gradient(from -45deg at bottom, #0000, #000 1deg 89deg, #0000 90deg) 50%/100px 100%;
+    -webkit-mask: var(--mask);
+    mask: var(--mask);
 }
 
 .smallzigzag {
-  --mask: 
-    conic-gradient(from 135deg at top,#0000,#000 1deg 89deg,#0000 90deg) top/20.00px 51% repeat-x,
-    conic-gradient(from -45deg at bottom,#0000,#000 1deg 89deg,#0000 90deg) bottom/20.00px 51% repeat-x;
-  -webkit-mask: var(--mask);
-          mask: var(--mask);
+    --mask: conic-gradient(from 135deg at top, #0000, #000 1deg 89deg, #0000 90deg) top/20.00px 51% repeat-x,
+        conic-gradient(from -45deg at bottom, #0000, #000 1deg 89deg, #0000 90deg) bottom/20.00px 51% repeat-x;
+    -webkit-mask: var(--mask);
+    mask: var(--mask);
 }
 
 .ping {
-  width: 4px;
-  height: 16px;
-  position: absolute;
-  background: #ffffff;
-  left: 0;
-  animation: ping 6s infinite linear;
+    width: 4px;
+    height: 16px;
+    position: absolute;
+    background: #ffffff;
+    left: 0;
+    animation: ping 6s infinite linear;
 }
 
 .ping.hero {
-  margin-left: -24px;
+    margin-left: -24px;
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .ping, .ball {
-    display: none;
-  }
+    .ping,
+    .ball {
+        display: none;
+    }
 }
 
 .ball {
-  width: 5px;
-  height: 5px;
-  position: absolute;
-  background: #ffffff;
-  animation: ball 6s infinite linear;
+    width: 5px;
+    height: 5px;
+    position: absolute;
+    background: #ffffff;
+    animation: ball 6s infinite linear;
 }
 
 @keyframes ping {
-	0% {
-		top: 10%;
-	}
-	5% {
-		top: 10%;
-	}
-	9% {
-		top: 24%;
-	}
-	13% {
-		top: 17%;
-	}
-	24.9% {
-		top: 82%;
-	}
-	47% {
-		top: 37%;
-	}
-	52% {
-		top: 41%;
-	}
-	56% {
-		top: 64%;
-	}
-	58.1% {
-		top: 54%;
-	}
-	70% {
-		top: 74%;
-	}
-	84% {
-		top: 12%;
-	}
-	91.3% {
-		top: 18%;
-	}
-	100% {
-		top: 10%;
-	}
+    0% {
+        top: 10%;
+    }
+    5% {
+        top: 10%;
+    }
+    9% {
+        top: 24%;
+    }
+    13% {
+        top: 17%;
+    }
+    24.9% {
+        top: 82%;
+    }
+    47% {
+        top: 37%;
+    }
+    52% {
+        top: 41%;
+    }
+    56% {
+        top: 64%;
+    }
+    58.1% {
+        top: 54%;
+    }
+    70% {
+        top: 74%;
+    }
+    84% {
+        top: 12%;
+    }
+    91.3% {
+        top: 18%;
+    }
+    100% {
+        top: 10%;
+    }
 }
 
-
 @keyframes ball {
-	0% {
-		top: 34%;
-		left: 52%;
-    opacity: 0;
-	}
-	8.3% {
-		top: 52%;
-		left: 90%;
-    opacity: 0;
-	}
-	24.9% {
-		top: 85%;
-		left: 8%;
-    opacity: 1;
-	}
-	30% {
-		top: 98%;
-		left: 27%;
-    opacity: 0;
-	}
-	41.5% {
-		top: 70%;
-		left: 90%;
-    opacity: 0;
-	}
-	58.1% {
-		top: 55%;
-		left: 8%;
-    opacity: 1;
-	}
-	74.7% {
-		top: 13%;
-		left: 90%;
-    opacity: 0;
-	}
-	79% {
-		top: 1%;
-		left: 70%;
-    opacity: 0;
-	}
-	91.3% {
-		top: 22%;
-		left: 8%;
-    opacity: 1;
-	}
-	100% {
-		top: 34%;
-		left: 52%;
-    opacity: 0;
-	}
+    0% {
+        top: 34%;
+        left: 52%;
+        opacity: 0;
+    }
+    8.3% {
+        top: 52%;
+        left: 90%;
+        opacity: 0;
+    }
+    24.9% {
+        top: 85%;
+        left: 8%;
+        opacity: 1;
+    }
+    30% {
+        top: 98%;
+        left: 27%;
+        opacity: 0;
+    }
+    41.5% {
+        top: 70%;
+        left: 90%;
+        opacity: 0;
+    }
+    58.1% {
+        top: 55%;
+        left: 8%;
+        opacity: 1;
+    }
+    74.7% {
+        top: 13%;
+        left: 90%;
+        opacity: 0;
+    }
+    79% {
+        top: 1%;
+        left: 70%;
+        opacity: 0;
+    }
+    91.3% {
+        top: 22%;
+        left: 8%;
+        opacity: 1;
+    }
+    100% {
+        top: 34%;
+        left: 52%;
+        opacity: 0;
+    }
 }
 
 @media screen and (max-width: 640px) {
-  h1 {
-    font-size: 2.4rem;
-    margin: 1rem 0rem;
-    line-height: 2.8rem;
-  }
+    h1 {
+        font-size: 2.4rem;
+        margin: 1rem 0rem;
+        line-height: 2.8rem;
+    }
 
-  h2 {
-    font-size: 1rem;
-  }
+    h2 {
+        font-size: 1rem;
+    }
 
-  h3 {
-    font-size: 1.4rem;
-    line-height: 2.4rem;
-  }
+    h3 {
+        font-size: 1.4rem;
+        line-height: 2.4rem;
+    }
 
-  .button {
-    font-size: 1rem;
-  }
+    .button {
+        font-size: 1rem;
+    }
 
-  .zigzag {
-  --mask: conic-gradient(from -45deg at bottom,#0000,#000 1deg 89deg,#0000 90deg) 50%/50.00px 100%;
-    -webkit-mask: var(--mask);
-            mask: var(--mask);
-  }
+    .zigzag {
+        --mask: conic-gradient(from -45deg at bottom, #0000, #000 1deg 89deg, #0000 90deg) 50%/50px 100%;
+        -webkit-mask: var(--mask);
+        mask: var(--mask);
+    }
 
-  .logo {
-    width: 80vw;
-  }
+    .logo {
+        width: 80vw;
+    }
 }
 
 @media screen and (max-width: 480px) {
-  aside {
-    font-size: smaller;
-  }
+    aside {
+        font-size: smaller;
+    }
 
-  p {
-    font-size: smaller;
-  }
+    p {
+        font-size: smaller;
+    }
 
-  h1 {
-    font-size: 1.6rem;
-  }
+    h1 {
+        font-size: 1.6rem;
+    }
 
-  h2 {
-    font-size: 1rem;
-  }
+    h2 {
+        font-size: 1rem;
+    }
 
-  h3 {
-    font-size: 1.1rem;
-    line-height: 1.6rem;
-  }
+    h3 {
+        font-size: 1.1rem;
+        line-height: 1.6rem;
+    }
 }
