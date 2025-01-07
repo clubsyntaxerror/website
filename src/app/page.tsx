@@ -1,11 +1,11 @@
 import Link from "next/link";
-import { getEvents } from "./eventData.js";
-import Hero from "../components/hero.js";
-import Events from "../components/events.js";
-import Photos from "../components/photos.js";
-import Crew from "../components/crew.js";
-import Rules from "../components/rules.js";
-import Links from "../components/links.js";
+import { getEvents } from "./eventData";
+import Hero from "../components/hero";
+import Events from "../components/events";
+import Photos from "../components/photos";
+import Crew from "../components/crew";
+import Rules from "../components/rules";
+import Links from "../components/links";
 
 export default async function Home() {
     const events = (await getEvents())

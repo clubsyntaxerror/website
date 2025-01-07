@@ -4,19 +4,28 @@ import { useState, useEffect, useId, useRef } from "react";
 import Link from "next/link";
 import { useMediaQuery } from "./utils/hooks";
 import Collapse from "./utils/Collapse";
+import type { Event } from "../app/eventData";
 
-function KeyAligner({ rootRef, alignKey, children }) {
+type KeyAlignerProps = {
+    rootRef: React.RefObject<HTMLDivElement | null>;
+    alignKey: string;
+    children: React.ReactNode;
+};
+
+function KeyAligner({ rootRef, alignKey, children }: KeyAlignerProps) {
     const [padding, setPadding] = useState(0);
-    const spanRef = useRef(null);
+    const spanRef = useRef<HTMLSpanElement>(null);
     useEffect(() => {
-        const dates = rootRef.current.querySelectorAll(`[data-align="${CSS.escape(alignKey)}"]`);
-        let longestElement = spanRef.current;
+        const dates = rootRef.current!.querySelectorAll(
+            `[data-align="${CSS.escape(alignKey)}"]`,
+        ) satisfies NodeListOf<HTMLElement>;
+        let longestElement: HTMLElement = spanRef.current!;
         for (const date of dates) {
             if (date.offsetWidth > longestElement.offsetWidth) {
                 longestElement = date;
             }
         }
-        const padding = longestElement.offsetWidth - spanRef.current.offsetWidth;
+        const padding = longestElement!.offsetWidth - spanRef.current!.offsetWidth;
         setPadding(padding);
     }, [children, rootRef, alignKey]);
 
@@ -29,11 +38,11 @@ function KeyAligner({ rootRef, alignKey, children }) {
     );
 }
 
-export default function Events({ events }) {
+export default function Events({ events }: { events: Event[] }) {
     const [expanded, setExpanded] = useState(-1);
     const desktop = useMediaQuery("(min-width: 1500px)");
 
-    const rootRef = useRef(null);
+    const rootRef = useRef<HTMLDivElement>(null);
     return (
         <div ref={rootRef}>
             {events.length > 0 && <h2 className="text-center text-white mb-4">Party calendar</h2>}
@@ -81,7 +90,7 @@ export default function Events({ events }) {
                                     </button>
                                 )}
                             </h3>
-                            <Collapse expanded={expanded === index || desktop} id={collapsableId} className="my-2">
+                            <Collapse expanded={expanded === index || !!desktop} id={collapsableId} className="my-2">
                                 <p>{event.eventDescription}</p>
                                 <div className="pl-6 relative">
                                     <div className="ping"></div>

@@ -4,7 +4,7 @@ import { useState, useId } from "react";
 import { useMediaQuery } from "./utils/hooks";
 import Collapse from "./utils/Collapse";
 
-function Category({ name, members }) {
+function Category({ name, members }: { name: string; members: string }) {
     return (
         <article className="text-gray-500">
             <h3 className="font-bold">{name}</h3>
@@ -13,7 +13,7 @@ function Category({ name, members }) {
     );
 }
 
-function CrewCollapser({ children }) {
+function CrewCollapser({ children }: { children: React.ReactNode }) {
     const id = useId();
     const [expanded, setExpanded] = useState(false);
 
