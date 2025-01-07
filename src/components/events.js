@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect, useId, useRef } from "react";
+import { useState, useEffect, useId, useRef } from "react";
 import Link from "next/link";
 import { useMediaQuery } from "./utils/hooks";
 import Collapse from "./utils/Collapse";
@@ -30,7 +30,7 @@ function KeyAligner({ rootRef, alignKey, children }) {
 }
 
 export default function Events({ events }) {
-    const [expanded, setExpanded] = React.useState(-1);
+    const [expanded, setExpanded] = useState(-1);
     const desktop = useMediaQuery("(min-width: 1500px)");
 
     const rootRef = useRef(null);

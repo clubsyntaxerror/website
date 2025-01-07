@@ -1,9 +1,9 @@
 "use client";
-import React from "react";
+
 import Link from "next/link";
 import { useMediaQuery } from "./utils/hooks";
 
-export default function Rules({ events }) {
+export default function Rules() {
     const desktop = useMediaQuery("(min-width: 1500px)");
 
     return (

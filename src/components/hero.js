@@ -1,7 +1,6 @@
 "use client";
+
 import Link from "next/link";
-import Popup from "reactjs-popup";
-import "reactjs-popup/dist/index.css";
 import Textra from "react-textra";
 import { useRef, useEffect, useState } from "react";
 import { useMediaQuery } from "./utils/hooks";
