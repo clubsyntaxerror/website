@@ -40,14 +40,6 @@ export default function Crew() {
     const inner = (
         <div className={`grid ${desktop ? 'grid-cols-5' : 'grid-cols-1'} gap-x-4`}>
             <Category
-                name='Alumni'
-                members='Jon, Matti, Lindroth, Wezz, Daniel, Nik, Whiting, Borchers, McFly, Windefalk, MrTimpi, Hakushi, Velo, Zaz'
-            />
-            <Category
-                name='Board'
-                members='Ventura (chairman), Weyland (treasurer), MissStabby, Jor-el, Fastbom'
-            />
-            <Category
                 name='Crew'
                 members='Ventura, Fastbom, Weyland, Kim, MissStabby, Jor-el, Njursten, Toolsmonkey, A3M1N, Fetish23'
             />
@@ -58,6 +50,14 @@ export default function Crew() {
             <Category
                 name='VJs'
                 members='Weyland, Fastbom, MissStabby, Fetish23'
+            />
+            <Category
+                name='Board'
+                members='Ventura (chairman), Weyland (treasurer), MissStabby, Jor-el, Fastbom'
+            />
+            <Category
+                name='Alumni'
+                members='Jon, Matti, Lindroth, Wezz, Daniel, Nik, Whiting, Borchers, McFly, Windefalk, MrTimpi, Hakushi, Velo, Zaz'
             />
         </div>
     );
