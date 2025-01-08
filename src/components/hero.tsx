@@ -20,7 +20,7 @@ function NoMotionSocialProofs({ data }: { data: string[] }) {
     return <span>{data[index]}</span>;
 }
 
-export default function Hero({ featuredEvent }: { featuredEvent: Event }) {
+export default function Hero({ featuredEvent, locale }: { featuredEvent: Event; locale: string }) {
     const t = useTranslations("Hero");
 
     const featuredEventAddress = featuredEvent.optionalVenueStreetAddress
@@ -97,7 +97,13 @@ export default function Hero({ featuredEvent }: { featuredEvent: Event }) {
                         <Textra effect="simple" data={socialProofs} />
                     )}
                 </aside>
-                <img src="/images/logo.png" className="logo text-white mt-24 mb-12 md:mt-18" alt={t("logoAlt")} />
+                <img src="/images/logo.png" className="logo text-white mt-24 mb-4 md:mt-18" alt={t("logoAlt")} />
+                <Link
+                    href={locale === "sv" ? "/en" : "/sv"}
+                    className="text-center bg-black bg-opacity-90 p-4 mb-4 text-sm rounded-full"
+                >
+                    {locale === "sv" ? "View in English" : "Visa i Svenska"}
+                </Link>
                 {featuredEvent && (
                     <>
                         <div className="bg-black bg-opacity-90 p-6 w-full flex flex-col justify-around items-center">

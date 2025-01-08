@@ -8,7 +8,7 @@ import Rules from "../../components/rules";
 import Links from "../../components/links";
 import { getTranslations } from "next-intl/server";
 
-export default async function Home() {
+export default async function Home({ params }: { params: Promise<{ locale: string }> }) {
     const events = (await getEvents())
         .filter((event) => {
             return event.startDate >= new Date();
@@ -19,7 +19,7 @@ export default async function Home() {
 
     return (
         <main className="flex min-h-screen flex-col items-center justify-between">
-            <Hero featuredEvent={events[0]} />
+            <Hero featuredEvent={events[0]} locale={(await params).locale} />
             <section id="events" className="p-6 md:pt-12 w-full md:w-2/3">
                 <Events events={events.slice(0, 6)} />
             </section>
