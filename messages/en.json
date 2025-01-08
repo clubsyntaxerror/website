@@ -1,0 +1,92 @@
+{
+    "Metadata": {
+        "title": "Syntax Error - Stockholm's Video Game Nightclub",
+        "description": "Dance the night away to video game music and play brand-new or retro video games – all in our uniquely warm and accepting atmosphere."
+    },
+    "Home": {
+        "aboutUs": "About us",
+        "welcome": "Welcome to Stockholm's monthly Video Game Party & Nightclub! Dance the night away to video game music and play brand-new or retro video games – all in our uniquely warm and accepting atmosphere.",
+        "partyAndNightClub": "Syntax Error is a party and a nightclub where you'll be in good company if you enjoy playing Street Fighter or Duck Hunt, dancing to video game music, Disney classics and C64 SIDs or simply hiding in the back room playing Magic or any of our other board games all night.",
+        "dontGoAlone": "Don't go alone",
+        "joinOurDiscord": "Join our Discord server",
+        "bookedArtists": "Booked artists",
+        "bookedArtistsDescription": "This is a list of awesome artists that has played at our clubs or concerts in the past.",
+        "emailUs": "Email us at",
+        "orMessageUs": "or message us on our",
+        "facebookPage": "Facebook Page",
+        "forQuestions": "for questions, ideas, corporate and co-op events"
+    },
+    "CrewCollapser": {
+        "showCrew": "Show crew members",
+        "hideCrew": "Hide crew members"
+    },
+    "Crew": {
+        "crew": "Crew",
+        "ourCrew": "Our crew",
+        "alt": "Syntax Error crew",
+        "djs": "DJs",
+        "vjs": "VJs",
+        "board": "Board",
+        "alumni": "Alumni",
+        "description": "Syntax Error is run by the non-profit organization Svenska Spelmusikfrämjandet whose members organize all our events together with volunteers."
+    },
+    "Events": {
+        "partyCalendar": "Party calendar",
+        "getDirections": "Get directions",
+        "freeToAttend": "free to attend",
+        "location": "Location",
+        "tickets": "Tickets"
+    },
+    "Hero": {
+        "logoAlt": "Syntax Error Video Game Party & Nightclub",
+        "nextParty": "Next party",
+        "date": "Date",
+        "time": "Time",
+        "location": "Location",
+        "getDirections": "Get directions",
+        "tickets": "Tickets",
+        "freeToAttend": "free to attend",
+        "remindMe": "Remind me!",
+        "scrollDown": "Scroll down for more content"
+    },
+    "Links": {
+        "ourCommunity": "Our community",
+        "joinOurDiscord": "Join our Discord server",
+        "buyOurMerchandise": "Buy our merchandise",
+        "followUsOnFacebook": "Follow us on Facebook",
+        "followUsOnTikTok": "Follow us on TikTok",
+        "followUsOnInstagram": "Follow us on Instagram",
+        "watchUsOnTwitch": "Watch us on Twitch",
+        "watchUsOnYouTube": "Watch us on YouTube",
+        "followUsOnXwitter": "Follow us on X",
+        "codeWithUsOnGitHub": "Code with us on GitHub",
+        "reviewUsOnGoogle": "Review us on Google"
+    },
+    "Photos": {
+        "alt1": "2 people dressed up as Luigi and Mario doing a cheers with a drink",
+        "alt2": "2 people playing on a NES",
+        "alt3": "5 people playing on a TV with a mouse attached",
+        "alt4": "A DJ playing with people in front",
+        "alt5": "People dressing up with Batman in the middle",
+        "alt6": "A Darth Vader helmet with lights reflecting off the helmet",
+        "alt7": "A crowded bar area prominantly showing 2 people playing on a TV",
+        "alt8": "Close up of 2 people on the dance floor, left has their mouth open, right is smiling",
+        "alt9": "2 people dressed up almost touching their faces together",
+        "alt10": "A person with blue hair and animal ears in the same colour",
+        "openInLightbox": "click to open in lightbox"
+    },
+    "Rules": {
+        "ourRules": "Our rules",
+        "beRespectful": "Be respectful",
+        "beRespectfulDesc1": "Syntax Error is a place where everyone is welcome, regardless of gender, sexual orientation, ethnicity, religion or favorite Star Trek captain. The only thing that is not welcome is acting disrespectful against other guests, the venue staff or the crew.",
+        "beRespectfulDesc2": "This includes all forms of unsolicited touching, grabbing, inappropriate gestures or comments or \"jokes\" at the expense of others.",
+        "noHarassment": "No harassment of any kind",
+        "noHarassmentDesc": "If someone asks to be left alone, respect that, move along and don't take it personally. Always make sure you have consent before touching or otherwise engaging with other guests. If you're unsure, just ask, and no means no.",
+        "reachOutToOurCrew": "Reach out to our crew",
+        "reachOutToOurCrewDesc1": "If someone is making you feel uneasy, if you need to talk to someone confidentially or if you just want to chat, grab the closest person wearing a red Syntax Error crew t-shirt. We in the crew are dedicated to making sure everyone has a good time during our events.",
+        "canEmailUs1": "You can also email us at",
+        "canEmailUs2": "if you need to get in contact with us and don't feel like talking to a person directly. Talking in person is however the preferred way if we need to act on another guest that is behaving inappropriately so that we can intervene immediately.",
+        "goAwayIfYouCantBeNice": "If you can't get behind these simple rules, please refrain from visiting our events. If you purposely do not comply with the rules during an event you WILL be ejected from the venue without question.",
+        "theHappyBit": "With that said, we in the Syntax Error crew hope that you will have a most awesome time at our events, and if you're not, please let us know."
+    }
+}

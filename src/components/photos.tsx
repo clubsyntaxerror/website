@@ -11,63 +11,63 @@ import Slideshow from "yet-another-react-lightbox/plugins/slideshow";
 import Thumbnails from "yet-another-react-lightbox/plugins/thumbnails";
 import Zoom from "yet-another-react-lightbox/plugins/zoom";
 import "yet-another-react-lightbox/plugins/thumbnails.css";
-
-const photos = [
-    {
-        src: "/photos/social-1.jpg",
-        width: 1920,
-        height: 1080,
-        alt: "2 people dressed up as Luigi and Mario doing a cheers with a drink",
-    },
-    { src: "/photos/social-2.jpg", width: 1920, height: 1080, alt: "2 people playing on a NES" },
-    { src: "/photos/social-3.jpg", width: 1920, height: 1080, alt: "5 people playing on a TV with a mouse attached" },
-    { src: "/photos/social-4.jpg", width: 1920, height: 1080, alt: "A DJ playing with people in front" },
-    { src: "/photos/social-5.jpg", width: 1920, height: 1080, alt: "People dressing up with Batman in the middle" },
-    {
-        src: "/photos/social-6.jpg",
-        width: 1920,
-        height: 1080,
-        alt: "A Darth Vader helmet with lights reflecting off the helmet",
-    },
-    {
-        src: "/photos/social-7.jpg",
-        width: 1920,
-        height: 1080,
-        alt: "A crowded bar area prominantly showing 2 people playing on a TV",
-    },
-    {
-        src: "/photos/social-8.jpg",
-        width: 1920,
-        height: 1080,
-        alt: "Close up of 2 people on the dance floor, left has their mouth open, right is smiling",
-    },
-    {
-        src: "/photos/social-9.jpg",
-        width: 1920,
-        height: 1080,
-        alt: "2 people dressed up almost touching their faces together",
-    },
-    {
-        src: "/photos/social-10.jpg",
-        width: 1920,
-        height: 1080,
-        alt: "A person with blue hair and animal ears in the same colour",
-    },
-] as const;
-
-function altCtx() {
-    return photos.map((photo) => ({
-        ...photo,
-        alt: `${photo.alt} click to open in lightbox`,
-    }));
-}
+import { useTranslations } from "next-intl";
 
 export default function Photos() {
     const [index, setIndex] = useState(-1);
+    const t = useTranslations("Photos");
 
+    const photos = [
+        {
+            src: "/photos/social-1.jpg",
+            width: 1920,
+            height: 1080,
+            alt: t("alt1"),
+        },
+        { src: "/photos/social-2.jpg", width: 1920, height: 1080, alt: t("alt2") },
+        { src: "/photos/social-3.jpg", width: 1920, height: 1080, alt: t("alt3") },
+        { src: "/photos/social-4.jpg", width: 1920, height: 1080, alt: t("alt4") },
+        { src: "/photos/social-5.jpg", width: 1920, height: 1080, alt: t("alt5") },
+        {
+            src: "/photos/social-6.jpg",
+            width: 1920,
+            height: 1080,
+            alt: t("alt6"),
+        },
+        {
+            src: "/photos/social-7.jpg",
+            width: 1920,
+            height: 1080,
+            alt: t("alt7"),
+        },
+        {
+            src: "/photos/social-8.jpg",
+            width: 1920,
+            height: 1080,
+            alt: t("alt8"),
+        },
+        {
+            src: "/photos/social-9.jpg",
+            width: 1920,
+            height: 1080,
+            alt: t("alt9"),
+        },
+        {
+            src: "/photos/social-10.jpg",
+            width: 1920,
+            height: 1080,
+            alt: t("alt10"),
+        },
+    ];
+
+    const openInLightbox = t("openInLightbox");
     return (
         <>
-            <PhotoAlbum layout="rows" photos={altCtx()} onClick={({ index }) => setIndex(index)} />
+            <PhotoAlbum
+                layout="rows"
+                photos={photos.map((photo) => ({ ...photo, alt: `${photo.alt} ${openInLightbox}` }))}
+                onClick={({ index }) => setIndex(index)}
+            />
 
             <Lightbox
                 slides={photos as any} // Lightbox doesn't strictly support the type due to alt, but its fine.

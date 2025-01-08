@@ -2,57 +2,36 @@
 
 import Link from "next/link";
 import { useMediaQuery } from "./utils/hooks";
+import { useTranslations } from "next-intl";
 
 export default function Rules() {
     const desktop = useMediaQuery("(min-width: 1500px)");
+    const t = useTranslations("Rules");
 
     return (
         <>
-            <h2 className="text-white text-center mb-4">Our rules</h2>
+            <h2 className="text-white text-center mb-4">{t("ourRules")}</h2>
             <div className={`grid ${desktop ? "grid-cols-2" : "grid-cols-1"} gap-x-8`}>
                 <div className="text-gray-500">
-                    <h3>Be respectful</h3>
-                    <p>
-                        Syntax Error is a place where everyone is welcome, regardless of gender, sexual orientation,
-                        ethnicity, religion or favorite Star Trek captain. The only thing that is not welcome is acting
-                        disrespectful against other guests, the venue staff or the crew.
-                    </p>
-                    <p>
-                        This includes all forms of unsolicited touching, grabbing, inappropriate gestures or comments or
-                        "jokes" at the expense of others.
-                    </p>
-                    <h3>No harassment of any kind</h3>
-                    <p>
-                        If someone asks to be left alone, respect that, move along and don't take it personally. Always
-                        make sure you have consent before touching or otherwise engaging with other guests. If you're
-                        unsure, just ask, and no means no.
-                    </p>
+                    <h3>{t("beRespectful")}</h3>
+                    <p>{t("beRespectfulDesc1")}</p>
+                    <p>{t("beRespectfulDesc2")}</p>
+
+                    <h3>{t("noHarassment")}</h3>
+                    <p>{t("noHarassmentDesc")}</p>
                 </div>
                 <div className="text-gray-500">
-                    <h3>Reach out to our crew</h3>
+                    <h3>{t("reachOutToOurCrew")}</h3>
+                    <p>{t("reachOutToOurCrewDesc1")}</p>
                     <p>
-                        If someone is making you feel uneasy, if you need to talk to someone confidentially or if you
-                        just want to chat, grab the closest person wearing a red Syntax Error crew t-shirt. We in the
-                        crew are dedicated to making sure everyone has a good time during our events.
-                    </p>
-                    <p>
-                        You can also email us at{" "}
+                        {t("canEmailUs1")}{" "}
                         <Link href="mailto:info@syntax-error.se" className="smallbutton">
                             info@syntax-error.se
                         </Link>{" "}
-                        if you need to get in contact with us and don't feel like talking to a person directly. Talking
-                        in person is however the preferred way if we need to act on another guest that is behaving
-                        inappropriately so that we can intervene immediately.
+                        {t("canEmailUs2")}
                     </p>
-                    <p>
-                        If you can't get behind these simple rules, please refrain from visiting our events. If you
-                        purposely do not comply with the rules during an event you WILL be ejected from the venue
-                        without question.
-                    </p>
-                    <p>
-                        With that said, we in the Syntax Error crew hope that you will have a most awesome time at our
-                        events, and if you're not, please let us know.
-                    </p>
+                    <p>{t("goAwayIfYouCantBeNice")}</p>
+                    <p>{t("theHappyBit")}</p>
                 </div>
             </div>
         </>
