@@ -87,7 +87,13 @@ legend {
     transform: rotate(-3deg);
 }
 
-.button.more:hover {
+.button.cta {
+    margin-right: 1rem;
+    transform: rotate(3deg);
+}
+
+.button.more:hover,
+.button.cta:hover {
     transform: scale(1.1);
 }
 
@@ -148,6 +154,7 @@ legend {
 }
 
 @keyframes rainbow_animation {
+
     0%,
     100% {
         background-position: 0 0;
@@ -187,6 +194,7 @@ legend {
 }
 
 @media (prefers-reduced-motion: reduce) {
+
     .ping,
     .ball {
         display: none;
@@ -205,39 +213,51 @@ legend {
     0% {
         top: 10%;
     }
+
     5% {
         top: 10%;
     }
+
     9% {
         top: 24%;
     }
+
     13% {
         top: 17%;
     }
+
     24.9% {
         top: 82%;
     }
+
     47% {
         top: 37%;
     }
+
     52% {
         top: 41%;
     }
+
     56% {
         top: 64%;
     }
+
     58.1% {
         top: 54%;
     }
+
     70% {
         top: 74%;
     }
+
     84% {
         top: 12%;
     }
+
     91.3% {
         top: 18%;
     }
+
     100% {
         top: 10%;
     }
@@ -249,46 +269,55 @@ legend {
         left: 52%;
         opacity: 0;
     }
+
     8.3% {
         top: 52%;
         left: 90%;
         opacity: 0;
     }
+
     24.9% {
         top: 85%;
         left: 8%;
         opacity: 1;
     }
+
     30% {
         top: 98%;
         left: 27%;
         opacity: 0;
     }
+
     41.5% {
         top: 70%;
         left: 90%;
         opacity: 0;
     }
+
     58.1% {
         top: 55%;
         left: 8%;
         opacity: 1;
     }
+
     74.7% {
         top: 13%;
         left: 90%;
         opacity: 0;
     }
+
     79% {
         top: 1%;
         left: 70%;
         opacity: 0;
     }
+
     91.3% {
         top: 22%;
         left: 8%;
         opacity: 1;
     }
+
     100% {
         top: 34%;
         left: 52%;

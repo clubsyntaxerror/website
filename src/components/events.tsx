@@ -46,7 +46,7 @@ export default function Events({ events }: { events: Event[] }) {
     return (
         <div ref={rootRef}>
             {events.length > 0 && <h2 className="text-center text-white mb-4">Party calendar</h2>}
-            <div className={`grid ${desktop ? "grid-cols-3" : "grid-cols-1"} gap-4`}>
+            <div className={`grid ${desktop ? "grid-cols-3 gap-4" : "grid-cols-1 gap-1"}`}>
                 {events.map((event, index) => {
                     const eventAddress = event.optionalVenueStreetAddress
                         ? ", " + event.optionalVenueStreetAddress

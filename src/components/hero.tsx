@@ -171,6 +171,16 @@ export default function Hero({ featuredEvent }: { featuredEvent: Event }) {
                                         {featuredEvent.optionalCoverFee
                                             ? featuredEvent.optionalCoverFee + " SEK"
                                             : "free to attend"}
+                                        {featuredEvent.optionalCallToActionTitle &&
+                                            featuredEvent.optionalCallToActionUrl && (
+                                                <Link
+                                                    className="underline text-xs md:text-sm ml-4 align-middle smallbutton uppercase"
+                                                    href={featuredEvent.optionalCallToActionUrl}
+                                                    target="_blank"
+                                                >
+                                                    {featuredEvent.optionalCallToActionTitle}
+                                                </Link>
+                                            )}
                                     </p>
                                 </div>
                             </div>
@@ -181,23 +191,23 @@ export default function Hero({ featuredEvent }: { featuredEvent: Event }) {
                                     <Link
                                         href={featuredEvent.optionalCallToActionUrl}
                                         target="_blank"
-                                        className="button bg-white text-black"
-                                    >
-                                        {featuredEvent.optionalCallToActionTitle}
-                                    </Link>
-                                    <Link
-                                        className="button more bg-purple-800 text-white border-2 border-white"
-                                        data-eo-form-toggle-id="2b5e1218-c793-11ef-a7c8-9d7832b0d31b"
-                                        href="#"
+                                        className="button cta bg-purple-800 text-white border-2"
                                     >
                                         <img
-                                            src="/icons/mail.png"
+                                            src="/icons/buy-ticket.png"
                                             className="inline align-text-bottom md:align-text-top"
                                             width="18"
                                             height="18"
                                             aria-hidden="true"
                                         />{" "}
-                                        Remind me!
+                                        {featuredEvent.optionalCallToActionTitle}
+                                    </Link>
+                                    <Link
+                                        className="button more bg-black text-gray-500  border-gray-500 border-2"
+                                        data-eo-form-toggle-id="2b5e1218-c793-11ef-a7c8-9d7832b0d31b"
+                                        href="#"
+                                    >
+                                        Remind me
                                     </Link>
                                 </>
                             )}
