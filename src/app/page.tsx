@@ -38,9 +38,9 @@ export default async function Home() {
             <section>
                 <h2 className="text-white text-center my-4">Don't go alone</h2>
                 <div className="w-full text-center mb-4">
-                <Link href="https://discord.gg/URhqp3x" target="_blank" className="button bg-white text-black">
-                    Join our Discord server
-                </Link>
+                    <Link href="https://discord.gg/URhqp3x" target="_blank" className="button bg-white text-black">
+                        Join our Discord server
+                    </Link>
                 </div>
             </section>
             <section className="p-6 md:py-12 w-full md:w-2/3">

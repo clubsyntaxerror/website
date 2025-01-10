@@ -154,7 +154,6 @@ legend {
 }
 
 @keyframes rainbow_animation {
-
     0%,
     100% {
         background-position: 0 0;
@@ -194,7 +193,6 @@ legend {
 }
 
 @media (prefers-reduced-motion: reduce) {
-
     .ping,
     .ball {
         display: none;
