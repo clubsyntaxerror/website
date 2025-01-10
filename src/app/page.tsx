@@ -38,13 +38,9 @@ export default async function Home() {
             <section>
                 <h2 className="text-white text-center my-4">Don't go alone</h2>
                 <div className="w-full text-center mb-4">
-                    <Link
-                        href="https://docs.google.com/forms/d/e/1FAIpQLSeSBSmn-_83qT2NOf1nEaAwtQEJLaAfMZKnqTJaB9FX7re89A/viewform?usp=dialog"
-                        target="_blank"
-                        className="button bg-white text-black"
-                    >
-                        Take our guest survey!
-                    </Link>
+                <Link href="https://discord.gg/URhqp3x" target="_blank" className="button bg-white text-black">
+                    Join our Discord server
+                </Link>
                 </div>
             </section>
             <section className="p-6 md:py-12 w-full md:w-2/3">

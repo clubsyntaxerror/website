@@ -120,6 +120,15 @@ export default function Hero({ featuredEvent }: { featuredEvent: Event }) {
                                             alt="Date"
                                         />{" "}
                                         {featuredEvent.longDate}
+                                        {featuredEvent.optionalFacebookEventUrl && (
+                                            <Link
+                                                className="underline text-xs md:text-sm ml-4 align-middle smallbutton uppercase text-pu"
+                                                href={featuredEvent.optionalFacebookEventUrl}
+                                                target="_blank"
+                                            >
+                                                Facebook RSVP
+                                            </Link>
+                                        )}
                                     </p>
                                     <p className="mb-0 text-xs md:text-l pb-1">
                                         <img

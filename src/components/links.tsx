@@ -4,12 +4,15 @@ export default function Links() {
     return (
         <>
             <h2 className="text-white text-center mb-4">Our community</h2>
-            <div className="w-full text-center mb-4">
-                <Link href="https://discord.gg/URhqp3x" target="_blank" className="button bg-white text-black">
-                    Join our Discord server
-                </Link>
-            </div>
             <section className="links whitespace-nowrap">
+                <Link
+                        href="https://discord.gg/URhqp3x"
+                        target="_blank"
+                        className="smallbutton"
+                        title="Join our Discord server"
+                    >
+                    <img src="/social/spreadshirt.svg" aria-hidden="true"></img> Join our Discord server
+                </Link>
                 <Link
                     href="https://shop.syntax-error.se"
                     target="_blank"

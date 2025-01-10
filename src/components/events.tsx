@@ -104,6 +104,15 @@ export default function Events({ events }: { events: Event[] }) {
                                             aria-hidden="true"
                                         />{" "}
                                         {event.longDate}
+                                        {event.optionalFacebookEventUrl && (
+                                            <Link
+                                                className="underline text-xs md:text-sm ml-4 align-middle smallbutton uppercase text-pu"
+                                                href={event.optionalFacebookEventUrl}
+                                                target="_blank"
+                                            >
+                                                Facebook RSVP
+                                            </Link>
+                                        )}
                                     </p>
                                     <p className="mb-0 text-xs md:text-l pb-1">
                                         <img
@@ -145,7 +154,7 @@ export default function Events({ events }: { events: Event[] }) {
                                             height="18"
                                             alt="Tickets"
                                         />{" "}
-                                        {event.optionalCoverFee ? event.optionalCoverFee + " SEK" : "free to attend"}
+                                        {event.optionalCoverFee ? event.optionalCoverFee + " SEK" : "N/A"}
                                         {event.optionalCallToActionTitle && event.optionalCallToActionUrl && (
                                             <Link
                                                 className="underline text-xs md:text-sm ml-4 align-middle smallbutton uppercase"
