@@ -6,11 +6,11 @@ export default function Links() {
             <h2 className="text-white text-center mb-4">Our community</h2>
             <section className="links whitespace-nowrap">
                 <Link
-                        href="https://discord.gg/URhqp3x"
-                        target="_blank"
-                        className="smallbutton"
-                        title="Join our Discord server"
-                    >
+                    href="https://discord.gg/URhqp3x"
+                    target="_blank"
+                    className="smallbutton"
+                    title="Join our Discord server"
+                >
                     <img src="/social/spreadshirt.svg" aria-hidden="true"></img> Join our Discord server
                 </Link>
                 <Link
@@ -22,7 +22,7 @@ export default function Links() {
                     <img src="/social/spreadshirt.svg" aria-hidden="true"></img> Buy our merchandize
                 </Link>
                 <Link
-                    href="https://www.facebook.com/SyntaxErrorSthlm/"
+                    href="https://www.facebook.com/clubsyntaxerror/"
                     target="_blank"
                     className="smallbutton"
                     title="Follow us on Facebook"
@@ -30,7 +30,7 @@ export default function Links() {
                     <img src="/social/facebook.svg" aria-hidden="true"></img> Follow us on Facebook
                 </Link>
                 <Link
-                    href="https://tiktok.com/@syntaxerrorsthlm"
+                    href="https://tiktok.com/@clubsyntaxerror"
                     target="_blank"
                     className="smallbutton"
                     title="Follow us on TikTok"
@@ -46,7 +46,7 @@ export default function Links() {
                     <img src="/social/instagram.svg" aria-hidden="true"></img> Follow us on Instagram
                 </Link>
                 <Link
-                    href="https://www.twitch.tv/syntaxerrorsthlm/videos/"
+                    href="https://www.twitch.tv/clubsyntaxerror/videos/"
                     target="_blank"
                     className="smallbutton"
                     title="Watch us on Twitch"
@@ -62,7 +62,7 @@ export default function Links() {
                     <img src="/social/youtube.svg" aria-hidden="true"></img> Watch us on YouTube
                 </Link>
                 <Link
-                    href="https://www.twitter.com/syntaxsthlm/"
+                    href="https://www.twitter.com/clubsyntaxerror/"
                     target="_blank"
                     className="smallbutton"
                     title="Follow us on Xwitter"
@@ -70,7 +70,7 @@ export default function Links() {
                     <img src="/social/twitter.svg" aria-hidden="true"></img> Follow us on X
                 </Link>
                 <Link
-                    href="https://github.com/syntaxerrorsthlm"
+                    href="https://github.com/clubsyntaxerror"
                     target="_blank"
                     className="smallbutton"
                     title="Code with us on GitHub"
