@@ -42,7 +42,7 @@ export default function Crew() {
     const t = useTranslations("Crew");
 
     const inner = (
-        <div className={`grid ${desktop ? "grid-cols-5" : "grid-cols-1"} gap-x-4`}>
+        <div className={`grid ${desktop ? "grid-cols-6" : "grid-cols-1"} gap-x-2`}>
             <Category
                 name={t("crew")}
                 members="Ventura, Fastbom, Weyland, Kim, MissStabby, Jor-el, Njursten, Toolsmonkey, A3M1N, Fetish23"
@@ -57,6 +57,7 @@ export default function Crew() {
                 name={t("alumni")}
                 members="Jon, Matti, Lindroth, Wezz, Daniel, Nik, Whiting, Borchers, McFly, Windefalk, MrTimpi, Hakushi, Velo, Zaz"
             />
+            <Category name={t("website")} members="Weyland (treasurer), JustSomeDev" />
         </div>
     );
 
