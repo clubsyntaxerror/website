@@ -5,6 +5,7 @@ import Textra from "react-textra";
 import { useRef, useEffect, useState } from "react";
 import { useMediaQuery } from "./utils/hooks";
 import type { Event } from "../app/eventData";
+import { useTranslations } from "next-intl";
 
 function NoMotionSocialProofs({ data }: { data: string[] }) {
     const [index, setIndex] = useState(0);
@@ -19,7 +20,9 @@ function NoMotionSocialProofs({ data }: { data: string[] }) {
     return <span>{data[index]}</span>;
 }
 
-export default function Hero({ featuredEvent }: { featuredEvent: Event }) {
+export default function Hero({ featuredEvent, locale }: { featuredEvent: Event; locale: string }) {
+    const t = useTranslations("Hero");
+
     const featuredEventAddress = featuredEvent.optionalVenueStreetAddress
         ? ", " + featuredEvent.optionalVenueStreetAddress
         : featuredEvent.venueName === "H62"
@@ -94,16 +97,18 @@ export default function Hero({ featuredEvent }: { featuredEvent: Event }) {
                         <Textra effect="simple" data={socialProofs} />
                     )}
                 </aside>
-                <img
-                    src="/images/logo.png"
-                    className="logo text-white mt-24 mb-12 md:mt-18"
-                    alt="Syntax Error Video Game Party & Nightclub"
-                />
+                <img src="/images/logo.png" className="logo text-white mt-24 mb-4 md:mt-18" alt={t("logoAlt")} />
+                <Link
+                    href={locale === "sv" ? "/en" : "/sv"}
+                    className="text-center bg-black bg-opacity-90 p-4 mb-4 text-sm rounded-full"
+                >
+                    {locale === "sv" ? "View in English" : "Visa i Svenska"}
+                </Link>
                 {featuredEvent && (
                     <>
                         <div className="bg-black bg-opacity-90 p-6 w-full flex flex-col justify-around items-center">
                             <div className="md:w-2/3 flex flex-col justify-around items-center text-center">
-                                <h2 className="text-white">Next party</h2>
+                                <h2 className="text-white">{t("nextParty")}</h2>
                                 <h1 className="rainbow_text_animated">{featuredEvent.eventName}</h1>
                                 <p className="text-sm md:text-xl text-left text-gray-500">
                                     {featuredEvent.eventDescription}
@@ -117,7 +122,7 @@ export default function Hero({ featuredEvent }: { featuredEvent: Event }) {
                                             className="inline align-text-mniddle md:align-text-middle"
                                             width="18"
                                             height="18"
-                                            alt="Date"
+                                            alt={t("date")}
                                         />{" "}
                                         {featuredEvent.longDate}
                                         {featuredEvent.optionalFacebookEventUrl && (
@@ -136,7 +141,7 @@ export default function Hero({ featuredEvent }: { featuredEvent: Event }) {
                                             className="inline align-text-middle md:align-text-middle"
                                             width="18"
                                             height="18"
-                                            alt="Time"
+                                            alt={t("time")}
                                         />{" "}
                                         {featuredEvent.openingHours}
                                     </p>
@@ -146,7 +151,7 @@ export default function Hero({ featuredEvent }: { featuredEvent: Event }) {
                                             className="inline align-text-middle md:align-text-middle pb-1"
                                             width="18"
                                             height="18"
-                                            alt="Location"
+                                            alt={t("location")}
                                         />{" "}
                                         {featuredEvent.venueName}
                                         {featuredEventAddress}
@@ -156,7 +161,7 @@ export default function Hero({ featuredEvent }: { featuredEvent: Event }) {
                                                 href={"https://maps.google.com/maps?q=" + featuredEventAddress}
                                                 target="_blank"
                                             >
-                                                Get directions
+                                                {t("getDirections")}
                                             </Link>
                                         )}
                                     </address>
@@ -166,11 +171,11 @@ export default function Hero({ featuredEvent }: { featuredEvent: Event }) {
                                             className="inline align-text-middle md:align-text-middle pb-1"
                                             width="18"
                                             height="18"
-                                            alt="Tickets"
+                                            alt={t("tickets")}
                                         />{" "}
                                         {featuredEvent.optionalCoverFee
                                             ? featuredEvent.optionalCoverFee + " SEK"
-                                            : "free to attend"}
+                                            : t("freeToAttend")}
                                         {featuredEvent.optionalCallToActionTitle &&
                                             featuredEvent.optionalCallToActionUrl && (
                                                 <Link
@@ -207,7 +212,7 @@ export default function Hero({ featuredEvent }: { featuredEvent: Event }) {
                                         data-eo-form-toggle-id="2b5e1218-c793-11ef-a7c8-9d7832b0d31b"
                                         href="#"
                                     >
-                                        Remind me
+                                        {t("remindMe")}
                                     </Link>
                                 </>
                             )}
@@ -225,12 +230,12 @@ export default function Hero({ featuredEvent }: { featuredEvent: Event }) {
                                             height="18"
                                             aria-hidden="true"
                                         />{" "}
-                                        Remind me!
+                                        {t("remindMe")}
                                     </Link>
                                 </>
                             )}
                         </div>
-                        <img src="/down.png" className="mb-4" alt="Scroll down for more content" />
+                        <img src="/down.png" className="mb-4" alt={t("scrollDown")} />
                     </>
                 )}
             </section>

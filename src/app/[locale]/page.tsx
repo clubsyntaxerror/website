@@ -1,45 +1,40 @@
 import Link from "next/link";
-import { getEvents } from "./eventData";
-import Hero from "../components/hero";
-import Events from "../components/events";
-import Photos from "../components/photos";
-import Crew from "../components/crew";
-import Rules from "../components/rules";
-import Links from "../components/links";
+import { getEvents } from "../eventData";
+import Hero from "../../components/hero";
+import Events from "../../components/events";
+import Photos from "../../components/photos";
+import Crew from "../../components/crew";
+import Rules from "../../components/rules";
+import Links from "../../components/links";
+import { getTranslations } from "next-intl/server";
 
-export default async function Home() {
+export default async function Home({ params }: { params: Promise<{ locale: string }> }) {
     const events = (await getEvents())
         .filter((event) => {
             return event.startDate >= new Date();
         })
         .slice(0, 7);
 
+    const t = await getTranslations("Home");
+
     return (
         <main className="flex min-h-screen flex-col items-center justify-between">
-            <Hero featuredEvent={events[0]} />
+            <Hero featuredEvent={events[0]} locale={(await params).locale} />
             <section id="events" className="p-6 md:pt-12 w-full md:w-2/3">
                 <Events events={events.slice(0, 6)} />
             </section>
             <section className="w-full rainbow_bg_animated text-black flex flex-col md:items-center smallzigzag">
                 <div className="p-6 md:py-12 md:w-2/3 md:text-xl">
-                    <h2 className="text-black text-center mb-4">About us</h2>
-                    <p>
-                        Welcome to Stockholm's monthly Video Game Party & Nightclub! Dance the night away to video game
-                        music and play brand-new or retro video games – all in our uniquely warm and accepting
-                        atmosphere.
-                    </p>
-                    <p>
-                        Syntax Error is a party and a nightclub where you'll be in good company if you enjoy playing
-                        Street Fighter or Duck Hunt, dancing to video game music, Disney classics and C64 SIDs or simply
-                        hiding in the back room playing Magic or any of our other board games all night.
-                    </p>
+                    <h2 className="text-black text-center mb-4">{t("aboutUs")}</h2>
+                    <p>{t("welcome")}</p>
+                    <p>{t("partyAndNightClub")}</p>
                 </div>
             </section>
             <section>
-                <h2 className="text-white text-center my-4">Don't go alone</h2>
+                <h2 className="text-white text-center my-4">{t("dontGoAlone")}</h2>
                 <div className="w-full text-center mb-4">
                     <Link href="https://discord.gg/URhqp3x" target="_blank" className="button bg-white text-black">
-                        Join our Discord server
+                        {t("joinOurDiscord")}
                     </Link>
                 </div>
             </section>
@@ -50,11 +45,9 @@ export default async function Home() {
                 <Crew />
             </section>
             <section className="p-6 w-full md:w-2/3">
-                <h2 className="text-white text-center mb-4">Booked artists</h2>
+                <h2 className="text-white text-center mb-4">{t("bookedArtists")}</h2>
                 <img src="/photos/artists.jpg" className="mb-4" alt="Artist playing at Syntax Error" />
-                <p className="text-gray-500">
-                    This is a list of awesome artists that has played at our clubs or concerts in the past.
-                </p>
+                <p className="text-gray-500">{t("bookedArtistsDescription")}</p>
                 <p className="rainbow_text_animated">
                     047, Algar, Blastromen, Bossfight, Boy vs Bacteria, Brandon Walsh, Chipzel, Dubmood,
                     Dunderpatrullen, DJ Diskmachine, FantomenK, Fastbom, Goto80, Hello World, Instant Remedy, Irving
@@ -73,19 +66,19 @@ export default async function Home() {
                     Svenska Spelmusikfrämjandet © 2002-{new Date().getFullYear()}
                 </h2>
                 <p className="text-gray-500 text-center">
-                    Email us at{" "}
+                    {t("emailUs") + " "}
                     <Link href="mailto:info@syntax-error.se" className="smallbutton mr-2">
                         info@syntax-error.se
-                    </Link>{" "}
-                    or message us on our{" "}
+                    </Link>
+                    {" " + t("orMessageUs") + " "}
                     <Link
                         href="https://www.facebook.com/SyntaxErrorSthlm/"
                         target="_blank"
                         className="smallbutton mr-2"
                     >
-                        Facebook Page
+                        {t("facebookPage")}
                     </Link>{" "}
-                    for questions, ideas, corporate and co-op events
+                    {t("forQuestions")}
                 </p>
             </footer>
             <section className="p-6 w-full md:w-2/3">

@@ -5,7 +5,7 @@ import Link from "next/link";
 import { useMediaQuery } from "./utils/hooks";
 import Collapse from "./utils/Collapse";
 import type { Event } from "../app/eventData";
-
+import { useTranslations } from "next-intl";
 type KeyAlignerProps = {
     rootRef: React.RefObject<HTMLDivElement | null>;
     alignKey: string;
@@ -42,10 +42,12 @@ export default function Events({ events }: { events: Event[] }) {
     const [expanded, setExpanded] = useState(-1);
     const desktop = useMediaQuery("(min-width: 1500px)");
 
+    const t = useTranslations("Events");
+
     const rootRef = useRef<HTMLDivElement>(null);
     return (
         <div ref={rootRef}>
-            {events.length > 0 && <h2 className="text-center text-white mb-4">Party calendar</h2>}
+            {events.length > 0 && <h2 className="text-center text-white mb-4">{t("partyCalendar")}</h2>}
             <div className={`grid ${desktop ? "grid-cols-3 gap-4" : "grid-cols-1 gap-1"}`}>
                 {events.map((event, index) => {
                     const eventAddress = event.optionalVenueStreetAddress
@@ -120,7 +122,6 @@ export default function Events({ events }: { events: Event[] }) {
                                             className="inline align-text-middle md:align-text-middle"
                                             width="18"
                                             height="18"
-                                            alt="Time"
                                             aria-hidden="true"
                                         />{" "}
                                         {event.openingHours}
@@ -131,7 +132,7 @@ export default function Events({ events }: { events: Event[] }) {
                                             className="inline align-text-middle md:align-text-middle pb-1"
                                             width="18"
                                             height="18"
-                                            alt="Location"
+                                            alt={t("location")}
                                         />{" "}
                                         {event.venueName}
                                         {eventAddress && (
@@ -142,7 +143,7 @@ export default function Events({ events }: { events: Event[] }) {
                                                 }
                                                 target="_blank"
                                             >
-                                                Get directions
+                                                {t("getDirections")}
                                             </Link>
                                         )}
                                     </address>
@@ -152,7 +153,7 @@ export default function Events({ events }: { events: Event[] }) {
                                             className="inline align-text-middle md:align-text-middle pb-1"
                                             width="18"
                                             height="18"
-                                            alt="Tickets"
+                                            alt={t("tickets")}
                                         />{" "}
                                         {event.optionalCoverFee ? event.optionalCoverFee + " SEK" : "N/A"}
                                         {event.optionalCallToActionTitle && event.optionalCallToActionUrl && (
