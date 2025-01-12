@@ -5,21 +5,8 @@ import Photos from "../../components/photos";
 import Crew from "../../components/crew";
 import Rules from "../../components/rules";
 import Links from "../../components/links";
+import { getEvents } from "../../getEvents";
 import { getTranslations } from "next-intl/server";
-import { db, schema } from "database";
-import { cache } from "react";
-import { gte, sql, asc } from "drizzle-orm";
-
-const getEvents = cache(async () => {
-    return db.query.events.findMany({
-        where: gte(schema.events.eventStart, sql`now()`),
-        orderBy: asc(schema.events.eventStart),
-        limit: 7,
-        with: {
-            callToAction: true,
-        },
-    });
-});
 
 export default async function Home({ params }: { params: Promise<{ locale: string }> }) {
     const events = await getEvents();
@@ -30,7 +17,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
         <main className="flex min-h-screen flex-col items-center justify-between">
             <Hero featuredEvent={events[0]} locale={(await params).locale} />
             <section id="events" className="p-6 md:pt-12 w-full md:w-2/3">
-                <Events events={events.slice(0, 6)} />
+                <Events events={events.slice(0, 6)} locale={(await params).locale} />
             </section>
             <section className="w-full rainbow_bg_animated text-black flex flex-col md:items-center smallzigzag">
                 <div className="p-6 md:py-12 md:w-2/3 md:text-xl">

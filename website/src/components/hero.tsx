@@ -1,13 +1,12 @@
 "use client";
 
-import type { schema } from "database";
 import Link from "next/link";
 import Textra from "react-textra";
 import { useRef, useEffect, useState } from "react";
 import { useMediaQuery } from "./utils/hooks";
 import { useTranslations } from "next-intl";
-
-type Event = typeof schema.events.$inferSelect;
+import { formatLongDate, formatOpeningHours } from "./utils/timeFormatting";
+import type { Event } from "../getEvents";
 
 function NoMotionSocialProofs({ data }: { data: string[] }) {
     const [index, setIndex] = useState(0);
@@ -173,25 +172,26 @@ export default function Hero({ featuredEvent, locale }: { featuredEvent: Event; 
                                             alt={t("tickets")}
                                         />{" "}
                                         {featuredEvent.coverFee ? featuredEvent.coverFee : t("freeToAttend")}
-                                        {featuredEvent.callToAction &&
-                                            featuredEvent.optionalCallToActionUrl && (
-                                                <Link
-                                                    className="underline text-xs md:text-sm ml-4 align-middle smallbutton uppercase"
-                                                    href={featuredEvent.optionalCallToActionUrl}
-                                                    target="_blank"
-                                                >
-                                                    {featuredEvent.optionalCallToActionTitle}
-                                                </Link>
-                                            )}
+                                        {featuredEvent.callToAction && (
+                                            <Link
+                                                className="underline text-xs md:text-sm ml-4 align-middle smallbutton uppercase"
+                                                href={featuredEvent.callToAction.url}
+                                                target="_blank"
+                                            >
+                                                {locale === "sv"
+                                                    ? featuredEvent.callToAction.titleSve
+                                                    : featuredEvent.callToAction.titleEng}
+                                            </Link>
+                                        )}
                                     </p>
                                 </div>
                             </div>
                         </div>
                         <div className="flex justify-center">
-                            {featuredEvent.optionalCallToActionTitle && featuredEvent.optionalCallToActionUrl && (
+                            {featuredEvent.callToAction && (
                                 <>
                                     <Link
-                                        href={featuredEvent.optionalCallToActionUrl}
+                                        href={featuredEvent.callToAction.url}
                                         target="_blank"
                                         className="button cta bg-purple-800 text-white border-2"
                                     >
@@ -202,7 +202,9 @@ export default function Hero({ featuredEvent, locale }: { featuredEvent: Event; 
                                             height="18"
                                             aria-hidden="true"
                                         />{" "}
-                                        {featuredEvent.optionalCallToActionTitle}
+                                        {locale === "sv"
+                                            ? featuredEvent.callToAction.titleSve
+                                            : featuredEvent.callToAction.titleEng}
                                     </Link>
                                     <Link
                                         className="button more bg-black text-gray-500  border-gray-500 border-2"
@@ -213,7 +215,7 @@ export default function Hero({ featuredEvent, locale }: { featuredEvent: Event; 
                                     </Link>
                                 </>
                             )}
-                            {(!featuredEvent.optionalCallToActionTitle || !featuredEvent.optionalCallToActionUrl) && (
+                            {!featuredEvent.callToAction && (
                                 <>
                                     <Link
                                         className="button more bg-purple-800 text-white border-2 border-white"

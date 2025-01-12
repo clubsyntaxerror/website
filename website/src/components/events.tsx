@@ -1,19 +1,18 @@
 "use client";
 
-import type { schema } from "database";
 import { useState, useEffect, useId, useRef } from "react";
 import Link from "next/link";
 import { useTranslations } from "next-intl";
 import { useMediaQuery } from "./utils/hooks";
 import Collapse from "./utils/Collapse";
+import type { Event } from "../getEvents";
+import { formatLongDate, formatOpeningHours, formatShortDate } from "./utils/timeFormatting";
 
 type KeyAlignerProps = {
     rootRef: React.RefObject<HTMLDivElement | null>;
     alignKey: string;
     children: React.ReactNode;
 };
-
-type Event = typeof schema.events.$inferSelect;
 
 function KeyAligner({ rootRef, alignKey, children }: KeyAlignerProps) {
     const [padding, setPadding] = useState(0);
@@ -41,7 +40,7 @@ function KeyAligner({ rootRef, alignKey, children }: KeyAlignerProps) {
     );
 }
 
-export default function Events({ events }: { events: Event[] }) {
+export default function Events({ events, locale }: { events: Event[]; locale: string }) {
     const [expanded, setExpanded] = useState(-1);
     const desktop = useMediaQuery("(min-width: 1500px)");
 
@@ -53,22 +52,16 @@ export default function Events({ events }: { events: Event[] }) {
             {events.length > 0 && <h2 className="text-center text-white mb-4">{t("partyCalendar")}</h2>}
             <div className={`grid ${desktop ? "grid-cols-3 gap-4" : "grid-cols-1 gap-1"}`}>
                 {events.map((event, index) => {
-                    const eventAddress = event.optionalVenueStreetAddress
-                        ? ", " + event.optionalVenueStreetAddress
-                        : event.venueName === "H62"
-                          ? ", Hornsgatan 62, 118 21 Stockholm"
-                          : "";
-
                     const innerContent = (
                         <span className="flex">
                             <span className="flex-col pr-4" aria-hidden={true}>
                                 <KeyAligner rootRef={rootRef} alignKey="date">
-                                    {event.shortDate}:
+                                    {formatShortDate(event.eventStart)}:
                                 </KeyAligner>
                             </span>
                             <span className="flex-col">
-                                <span className="sr-only">{event.longDate}: </span>
-                                <span className="rainbow_text_animated">{event.eventName}</span>
+                                <span className="sr-only">{formatLongDate(event.eventStart)}: </span>
+                                <span className="rainbow_text_animated">{}</span>
                                 {!desktop && (
                                     <span aria-label={expanded === index ? " Collapse" : " Expand"}>
                                         {expanded === index ? "\u00A0<" : "\u00A0>"}
@@ -96,7 +89,7 @@ export default function Events({ events }: { events: Event[] }) {
                                 )}
                             </h3>
                             <Collapse expanded={expanded === index || !!desktop} id={collapsableId} className="my-2">
-                                <p>{event.eventDescription}</p>
+                                <p>{locale === "sv" ? event.eventDescriptionSve : event.eventDescriptionEng}</p>
                                 <div className="pl-6 relative">
                                     <div className="ping"></div>
                                     <div className="ball -ml-12"></div>
@@ -108,11 +101,11 @@ export default function Events({ events }: { events: Event[] }) {
                                             height="18"
                                             aria-hidden="true"
                                         />{" "}
-                                        {event.longDate}
-                                        {event.optionalFacebookEventUrl && (
+                                        {formatLongDate(event.eventStart)}
+                                        {event.facebookEventUrl && (
                                             <Link
                                                 className="underline text-xs md:text-sm ml-4 align-middle smallbutton uppercase text-pu"
-                                                href={event.optionalFacebookEventUrl}
+                                                href={event.facebookEventUrl}
                                                 target="_blank"
                                             >
                                                 Facebook RSVP
@@ -127,7 +120,7 @@ export default function Events({ events }: { events: Event[] }) {
                                             height="18"
                                             aria-hidden="true"
                                         />{" "}
-                                        {event.openingHours}
+                                        {formatOpeningHours(event.eventStart, event.eventEnd)}
                                     </p>
                                     <address className="mb-0 text-xs md:text-l not-italic events">
                                         <img
@@ -138,17 +131,16 @@ export default function Events({ events }: { events: Event[] }) {
                                             alt={t("location")}
                                         />{" "}
                                         {event.venueName}
-                                        {eventAddress && (
-                                            <Link
-                                                className="underline text-xs md:text-sm ml-4 align-middle smallbutton uppercase"
-                                                href={
-                                                    "https://maps.google.com/maps?q=" + encodeURIComponent(eventAddress)
-                                                }
-                                                target="_blank"
-                                            >
-                                                {t("getDirections")}
-                                            </Link>
-                                        )}
+                                        <Link
+                                            className="underline text-xs md:text-sm ml-4 align-middle smallbutton uppercase"
+                                            href={
+                                                "https://maps.google.com/maps?q=" +
+                                                encodeURIComponent(event.venueAddress)
+                                            }
+                                            target="_blank"
+                                        >
+                                            {t("getDirections")}
+                                        </Link>
                                     </address>
                                     <p className="mb-0 text-xs  md:text-l">
                                         <img
@@ -158,14 +150,16 @@ export default function Events({ events }: { events: Event[] }) {
                                             height="18"
                                             alt={t("tickets")}
                                         />{" "}
-                                        {event.optionalCoverFee ? event.optionalCoverFee + " SEK" : "N/A"}
-                                        {event.optionalCallToActionTitle && event.optionalCallToActionUrl && (
+                                        {event.coverFee || "N/A"}
+                                        {event.callToAction && (
                                             <Link
                                                 className="underline text-xs md:text-sm ml-4 align-middle smallbutton uppercase"
-                                                href={event.optionalCallToActionUrl}
+                                                href={event.callToAction.url}
                                                 target="_blank"
                                             >
-                                                {event.optionalCallToActionTitle}
+                                                {locale === "sv"
+                                                    ? event.callToAction.titleSve
+                                                    : event.callToAction.titleEng}
                                             </Link>
                                         )}
                                     </p>

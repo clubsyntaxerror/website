@@ -7,6 +7,7 @@ import {
     index,
     numeric,
     timestamp,
+    unique,
 } from "drizzle-orm/pg-core";
 
 export const callToAction = pgTable("call_to_action", {
@@ -20,8 +21,8 @@ export const events = pgTable(
     "events",
     {
         id: serial("id").primaryKey(),
-        eventStart: date("event_start").notNull(),
-        eventEnd: date("event_end").notNull(),
+        eventStart: date("event_start", { mode: "date" }).notNull(),
+        eventEnd: date("event_end", { mode: "date" }).notNull(),
         venueName: text("venue_name").notNull(),
         venueAddress: text("venue_address").notNull(),
         eventNameEng: text("event_name_eng").notNull(),
@@ -111,14 +112,32 @@ export const conversationRelations = relations(conversation, ({ one }) => ({
     }),
 }));
 
-export const crewUsers = pgTable("crew_users", {
-    username: text("username").primaryKey(),
-    email: text("email").notNull(),
-    passwordHash: text("password_hash").notNull(),
-    forename: text("forename").notNull(),
-    surname: text("surname").notNull(),
-    phoneNumber: text("phone_number").notNull(),
-    bioEng: text("bio_eng"),
-    bioSve: text("bio_sve"),
-    profilePictureUrl: text("profile_picture_url"),
+export const crewUsers = pgTable(
+    "crew_users",
+    {
+        discordId: text("discord_id").primaryKey(),
+        username: text("username").notNull(),
+        email: text("email").notNull(),
+        forename: text("forename").notNull(),
+        surname: text("surname").notNull(),
+        phoneNumber: text("phone_number").notNull(),
+        bioEng: text("bio_eng"),
+        bioSve: text("bio_sve"),
+        profilePictureUrl: text("profile_picture_url"),
+    },
+    ({ username }) => [unique("username_idx").on(username)],
+);
+
+export const crewUserTokens = pgTable("crew_user_tokens", {
+    id: serial("id").primaryKey(),
+    crewUserId: serial("crew_user_id").references(() => crewUsers.discordId),
+    token: text("token").notNull(),
+    createdAt: timestamp("created_at").defaultNow().notNull(),
 });
+
+export const crewUserTokenRelations = relations(crewUserTokens, ({ one }) => ({
+    crewUser: one(crewUsers, {
+        fields: [crewUserTokens.crewUserId],
+        references: [crewUsers.discordId],
+    }),
+}));
