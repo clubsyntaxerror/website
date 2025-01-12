@@ -130,7 +130,7 @@ export const crewUsers = pgTable(
 
 export const crewUserTokens = pgTable("crew_user_tokens", {
     id: serial("id").primaryKey(),
-    crewUserId: serial("crew_user_id").references(() => crewUsers.discordId),
+    crewUserId: text("crew_user_id").references(() => crewUsers.discordId),
     token: text("token").notNull(),
     createdAt: timestamp("created_at").defaultNow().notNull(),
 });
