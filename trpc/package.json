@@ -1,0 +1,9 @@
+{
+    "private": true,
+    "name": "trpc",
+    "type": "module",
+    "main": "./index.ts",
+    "dependencies": {
+        "@trpc/server": "^11.0.0-rc.695"
+    }
+}

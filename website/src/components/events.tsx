@@ -1,16 +1,19 @@
 "use client";
 
+import type { schema } from "database";
 import { useState, useEffect, useId, useRef } from "react";
 import Link from "next/link";
+import { useTranslations } from "next-intl";
 import { useMediaQuery } from "./utils/hooks";
 import Collapse from "./utils/Collapse";
-import type { Event } from "../app/eventData";
-import { useTranslations } from "next-intl";
+
 type KeyAlignerProps = {
     rootRef: React.RefObject<HTMLDivElement | null>;
     alignKey: string;
     children: React.ReactNode;
 };
+
+type Event = typeof schema.events.$inferSelect;
 
 function KeyAligner({ rootRef, alignKey, children }: KeyAlignerProps) {
     const [padding, setPadding] = useState(0);

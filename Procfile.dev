@@ -1,0 +1,2 @@
+website: npm run --workspace=website dev
+mobile: npm run --workspace=mobile start

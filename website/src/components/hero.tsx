@@ -1,11 +1,13 @@
 "use client";
 
+import type { schema } from "database";
 import Link from "next/link";
 import Textra from "react-textra";
 import { useRef, useEffect, useState } from "react";
 import { useMediaQuery } from "./utils/hooks";
-import type { Event } from "../app/eventData";
 import { useTranslations } from "next-intl";
+
+type Event = typeof schema.events.$inferSelect;
 
 function NoMotionSocialProofs({ data }: { data: string[] }) {
     const [index, setIndex] = useState(0);
@@ -23,11 +25,6 @@ function NoMotionSocialProofs({ data }: { data: string[] }) {
 export default function Hero({ featuredEvent, locale }: { featuredEvent: Event; locale: string }) {
     const t = useTranslations("Hero");
 
-    const featuredEventAddress = featuredEvent.optionalVenueStreetAddress
-        ? ", " + featuredEvent.optionalVenueStreetAddress
-        : featuredEvent.venueName === "H62"
-          ? ", Hornsgatan 62, 118 21 Stockholm"
-          : "";
     const socialProofs = [
         "Ranked as the #1 activity on Moderskeppet 2024!",
         '"Syntax Error Stockholm is worth your time. It truly is something special. 🙂"',
@@ -109,9 +106,13 @@ export default function Hero({ featuredEvent, locale }: { featuredEvent: Event; 
                         <div className="bg-black bg-opacity-90 p-6 w-full flex flex-col justify-around items-center">
                             <div className="md:w-2/3 flex flex-col justify-around items-center text-center">
                                 <h2 className="text-white">{t("nextParty")}</h2>
-                                <h1 className="rainbow_text_animated">{featuredEvent.eventName}</h1>
+                                <h1 className="rainbow_text_animated">
+                                    {locale === "sv" ? featuredEvent.eventNameSve : featuredEvent.eventNameEng}
+                                </h1>
                                 <p className="text-sm md:text-xl text-left text-gray-500">
-                                    {featuredEvent.eventDescription}
+                                    {locale === "sv"
+                                        ? featuredEvent.eventDescriptionSve
+                                        : featuredEvent.eventDescriptionEng}
                                 </p>
                                 <div className="text-left text-gray-500 relative">
                                     <div className="ping hero"></div>
@@ -124,11 +125,11 @@ export default function Hero({ featuredEvent, locale }: { featuredEvent: Event; 
                                             height="18"
                                             alt={t("date")}
                                         />{" "}
-                                        {featuredEvent.longDate}
-                                        {featuredEvent.optionalFacebookEventUrl && (
+                                        {formatLongDate(featuredEvent.eventStart)}
+                                        {featuredEvent.facebookEventUrl && (
                                             <Link
                                                 className="underline text-xs md:text-sm ml-4 align-middle smallbutton uppercase text-pu"
-                                                href={featuredEvent.optionalFacebookEventUrl}
+                                                href={featuredEvent.facebookEventUrl}
                                                 target="_blank"
                                             >
                                                 Facebook RSVP
@@ -143,7 +144,7 @@ export default function Hero({ featuredEvent, locale }: { featuredEvent: Event; 
                                             height="18"
                                             alt={t("time")}
                                         />{" "}
-                                        {featuredEvent.openingHours}
+                                        {formatOpeningHours(featuredEvent.eventStart, featuredEvent.eventEnd)}
                                     </p>
                                     <address className="mb-0 text-xs md:text-l not-italic">
                                         <img
@@ -154,16 +155,14 @@ export default function Hero({ featuredEvent, locale }: { featuredEvent: Event; 
                                             alt={t("location")}
                                         />{" "}
                                         {featuredEvent.venueName}
-                                        {featuredEventAddress}
-                                        {featuredEventAddress && (
-                                            <Link
-                                                className="underline text-xs md:text-sm ml-4 align-middle smallbutton uppercase text-pu"
-                                                href={"https://maps.google.com/maps?q=" + featuredEventAddress}
-                                                target="_blank"
-                                            >
-                                                {t("getDirections")}
-                                            </Link>
-                                        )}
+                                        {featuredEvent.venueAddress}
+                                        <Link
+                                            className="underline text-xs md:text-sm ml-4 align-middle smallbutton uppercase text-pu"
+                                            href={"https://maps.google.com/maps?q=" + featuredEvent.venueAddress}
+                                            target="_blank"
+                                        >
+                                            {t("getDirections")}
+                                        </Link>
                                     </address>
                                     <p className="mb-0 text-xs  md:text-l">
                                         <img
@@ -173,10 +172,8 @@ export default function Hero({ featuredEvent, locale }: { featuredEvent: Event; 
                                             height="18"
                                             alt={t("tickets")}
                                         />{" "}
-                                        {featuredEvent.optionalCoverFee
-                                            ? featuredEvent.optionalCoverFee + " SEK"
-                                            : t("freeToAttend")}
-                                        {featuredEvent.optionalCallToActionTitle &&
+                                        {featuredEvent.coverFee ? featuredEvent.coverFee : t("freeToAttend")}
+                                        {featuredEvent.callToAction &&
                                             featuredEvent.optionalCallToActionUrl && (
                                                 <Link
                                                     className="underline text-xs md:text-sm ml-4 align-middle smallbutton uppercase"

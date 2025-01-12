@@ -20,7 +20,11 @@
             {
                 "name": "next"
             }
-        ]
+        ],
+        "baseUrl": ".",
+        "paths": {
+            "tslib": ["./node_modules/tslib"]
+        }
     },
     "include": ["next-env.d.ts", ".next/types/**/*.ts", "**/*.ts", "**/*.tsx"],
     "exclude": ["node_modules"]

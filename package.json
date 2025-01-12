@@ -1,37 +1,20 @@
 {
-    "name": "website",
-    "private": true,
-    "scripts": {
-        "dev": "next dev --turbopack",
-        "build": "next build",
-        "start": "next start",
-        "format": "prettier --check .",
-        "format:fix": "prettier --write ."
-    },
-    "overrides": {
-        "react-smooth-collapse": {
-            "react": "19.0.0"
-        }
-    },
-    "dependencies": {
-        "@vercel/analytics": "^1.2.2",
-        "googleapis": "^130.0.0",
-        "next": "15.1.3",
-        "next-intl": "^3.26.3",
-        "react": "19.0.0",
-        "react-dom": "19.0.0",
-        "react-photo-album": "^2.3.1",
-        "react-smooth-collapse": "^2.1.2",
-        "react-textra": "^0.2.0",
-        "yet-another-react-lightbox": "^3.17.0"
-    },
+    "workspaces": [
+        "database",
+        "mobile",
+        "trpc",
+        "website"
+    ],
     "devDependencies": {
-        "@types/node": "^22.10.5",
-        "@types/react": "^19.0.3",
-        "autoprefixer": "^10.4.18",
-        "postcss": "^8.4.35",
-        "prettier": "^3.4.2",
-        "tailwindcss": "^3.4.1",
-        "typescript": "^5.7.2"
+        "foreman": "^3.0.1",
+        "prettier": "^3.4.2"
+    },
+    "scripts": {
+        "dev": "foreman start -f Procfile.dev",
+        "format": "prettier --check .",
+        "format:fix": "prettier --write .",
+        "expo": "npm run --workspace=mobile expo",
+        "db:generate-migrations": "npm run --workspace=database db:generate-migrations",
+        "db:migrate": "npm run --workspace=database db:migrate"
     }
 }

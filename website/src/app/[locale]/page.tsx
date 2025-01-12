@@ -1,5 +1,4 @@
 import Link from "next/link";
-import { getEvents } from "../eventData";
 import Hero from "../../components/hero";
 import Events from "../../components/events";
 import Photos from "../../components/photos";
@@ -7,13 +6,23 @@ import Crew from "../../components/crew";
 import Rules from "../../components/rules";
 import Links from "../../components/links";
 import { getTranslations } from "next-intl/server";
+import { db, schema } from "database";
+import { cache } from "react";
+import { gte, sql, asc } from "drizzle-orm";
+
+const getEvents = cache(async () => {
+    return db.query.events.findMany({
+        where: gte(schema.events.eventStart, sql`now()`),
+        orderBy: asc(schema.events.eventStart),
+        limit: 7,
+        with: {
+            callToAction: true,
+        },
+    });
+});
 
 export default async function Home({ params }: { params: Promise<{ locale: string }> }) {
-    const events = (await getEvents())
-        .filter((event) => {
-            return event.startDate >= new Date();
-        })
-        .slice(0, 7);
+    const events = await getEvents();
 
     const t = await getTranslations("Home");
 
