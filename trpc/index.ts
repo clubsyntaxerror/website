@@ -2,7 +2,7 @@ import { router, procedure } from "./trpc";
 import { createContext } from "./context";
 import { fetchRequestHandler } from "@trpc/server/adapters/fetch";
 import { db, schema } from "database";
-import { eq } from "drizzle-orm";
+import { eq, sql, gte } from "drizzle-orm";
 
 const appRouter = router({
     getUser: procedure.query(({ ctx }) => ctx.user),
@@ -13,6 +13,16 @@ const appRouter = router({
             );
         }
     }),
+    getEvents: procedure.query(() =>
+        db
+            .select()
+            .from(schema.events)
+            .where(gte(schema.events.eventEnd, sql`now()`))
+            .innerJoin(
+                schema.callToAction,
+                eq(schema.events.callToActionId, schema.callToAction.id),
+            ),
+    ),
 });
 
 export type AppRouter = typeof appRouter;

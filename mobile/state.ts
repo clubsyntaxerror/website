@@ -1,6 +1,8 @@
 import type { schema } from "database";
 import { useSyncExternalStore } from "react";
-import rpc, { getToken, changeToken } from "./clients/rpc";
+import { rpcClient, getToken, changeToken } from "./clients/rpc";
+import { AppState } from "react-native";
+import { useLocales } from "expo-localization";
 
 export type User = typeof schema.crewUsers.$inferSelect;
 
@@ -11,7 +13,7 @@ let userRevision = 0;
 
 function updateUser() {
     let ourRevision = ++userRevision;
-    rpc.getUser.query().then((newUser) => {
+    rpcClient.getUser.query().then((newUser) => {
         if (ourRevision === userRevision) {
             user = newUser;
             for (const subscriber of userSubscribers) {
@@ -46,4 +48,9 @@ export function useUser() {
         () => user,
         () => user,
     );
+}
+
+export function useIsSwedish() {
+    const locales = useLocales();
+    return locales[0].languageCode === "sv";
 }

@@ -1,5 +1,6 @@
 import type { AppRouter } from "trpc";
 import { createTRPCClient, httpBatchLink } from "@trpc/client";
+import { createTRPCReact } from "@trpc/react-query";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
 let tokenPromise = AsyncStorage.getItem("token");
@@ -17,7 +18,7 @@ export async function changeToken(token: string | null) {
     tokenPromise = Promise.resolve(token);
 }
 
-export default createTRPCClient<AppRouter>({
+export const rpcClient = createTRPCClient<AppRouter>({
     links: [
         httpBatchLink({
             url: process.env.TRPC_URL || "https://syntax-error.se/api/trpc",
@@ -31,3 +32,5 @@ export default createTRPCClient<AppRouter>({
         }),
     ],
 });
+
+export const rpcReact = createTRPCReact<AppRouter>();

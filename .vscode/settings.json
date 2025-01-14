@@ -1,4 +1,7 @@
 {
     "editor.formatOnSave": true,
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+
+    // This is needed for tRPC to behave correctly
+    "typescript.tsdk": "node_modules/typescript/lib"
 }

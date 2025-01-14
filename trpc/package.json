@@ -5,6 +5,7 @@
     "main": "./index.ts",
     "dependencies": {
         "@trpc/server": "^11.0.0-rc.695",
-        "drizzle-orm": "^0.38.3"
+        "drizzle-orm": "^0.38.3",
+        "zod": "^3.24.1"
     }
 }
