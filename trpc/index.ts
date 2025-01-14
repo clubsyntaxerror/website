@@ -18,7 +18,7 @@ const appRouter = router({
             .select()
             .from(schema.events)
             .where(gte(schema.events.eventEnd, sql`now()`))
-            .innerJoin(
+            .leftJoin(
                 schema.callToAction,
                 eq(schema.events.callToActionId, schema.callToAction.id),
             ),
