@@ -47,7 +47,7 @@ export default function Crew() {
     }
 
     return (
-        <Container>
+        <Container title="Crew">
             {user && (
                 <Button
                     title={swede ? "Redigera Profil" : "Edit Profile"}

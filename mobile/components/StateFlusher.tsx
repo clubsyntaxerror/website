@@ -33,6 +33,7 @@ export default function StateFlusher<
     consumer: Consumer,
     otherProps,
 }: StateFlusherProps<O, K, ConsumerProps>) {
+    const originalRef = React.useRef(obj[objKey]);
     const [value, setValueNoRefChange] = React.useState(() => obj[objKey]);
     const valueRef = React.useRef(value);
 
@@ -42,15 +43,16 @@ export default function StateFlusher<
     }, []);
 
     React.useEffect(() => {
-        return hookWriteCallback(() => {
+        const cb1 = hookWriteCallback(() => {
             writer(objKey, valueRef.current);
         });
-    }, []);
-
-    React.useEffect(() => {
-        return hookRollbackCallback(() => {
-            setValueNoRefChange(valueRef.current);
+        const cb2 = hookRollbackCallback(() => {
+            writer(objKey, originalRef.current);
         });
+        return () => {
+            cb1();
+            cb2();
+        };
     }, []);
 
     // @ts-expect-error: Not 100% sure why this is needed.

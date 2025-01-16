@@ -1,6 +1,6 @@
 import React from "react";
 import { router } from "expo-router";
-import { Button, View, Text } from "react-native";
+import { Button, View, Text, ScrollView } from "react-native";
 import type { schema } from "database";
 import { z } from "zod";
 import { rpcClient, rpcReact } from "../clients/rpc";
@@ -114,7 +114,7 @@ function Editor({ user }: { user: typeof schema.crewUsers.$inferSelect }) {
 
     // Return the editor body.
     return (
-        <Container>
+        <Container title={swede ? "Redigera Profil" : "Edit Profile"}>
             {formState === "error" && (
                 <Text style={{ color: "red" }}>
                     {swede
@@ -123,113 +123,117 @@ function Editor({ user }: { user: typeof schema.crewUsers.$inferSelect }) {
                 </Text>
             )}
 
-            <UserFlusher
-                user={user}
-                hookWriteCallback={hookWriteCallback}
-                hookRollbackCallback={hookRollbackCallback}
-                objKey="username"
-                consumer={Textbox}
-                otherProps={{
-                    setOkCallback,
-                    checkFormState,
-                    label: swede ? "Användarnamn" : "Username",
-                    schema: z.string().min(1),
-                    bigInput: false,
-                }}
-            />
-            <UserFlusher
-                user={user}
-                hookWriteCallback={hookWriteCallback}
-                hookRollbackCallback={hookRollbackCallback}
-                objKey="forename"
-                consumer={Textbox}
-                otherProps={{
-                    setOkCallback,
-                    checkFormState,
-                    label: swede ? "Förnamn" : "Forename",
-                    schema: z.string().min(1),
-                    bigInput: false,
-                }}
-            />
-            <UserFlusher
-                user={user}
-                hookWriteCallback={hookWriteCallback}
-                hookRollbackCallback={hookRollbackCallback}
-                objKey="surname"
-                consumer={Textbox}
-                otherProps={{
-                    setOkCallback,
-                    checkFormState,
-                    label: swede ? "Efternamn" : "Surname",
-                    schema: z.string().min(1),
-                    bigInput: false,
-                }}
-            />
-            <UserFlusher
-                user={user}
-                hookWriteCallback={hookWriteCallback}
-                hookRollbackCallback={hookRollbackCallback}
-                objKey="email"
-                consumer={Textbox}
-                otherProps={{
-                    setOkCallback,
-                    checkFormState,
-                    label: swede ? "E-post" : "Email",
-                    schema: z.string().email(),
-                    bigInput: false,
-                }}
-            />
-            <UserFlusher
-                user={user}
-                hookWriteCallback={hookWriteCallback}
-                hookRollbackCallback={hookRollbackCallback}
-                objKey="phoneNumber"
-                consumer={Textbox}
-                otherProps={{
-                    setOkCallback,
-                    checkFormState,
-                    label: swede ? "Telefonnummer" : "Phone Number",
-                    schema: z
-                        .string()
-                        .min(1)
-                        .regex(/^\+[0-9]+$/),
-                    bigInput: false,
-                }}
-            />
-            <UserFlusher
-                user={user}
-                hookWriteCallback={hookWriteCallback}
-                hookRollbackCallback={hookRollbackCallback}
-                objKey="bioEng"
-                consumer={NullableTextbox}
-                otherProps={{
-                    setOkCallback,
-                    checkFormState,
-                    label: swede ? "Engelsk Bio" : "English Bio",
-                    schema: z.string(),
-                    bigInput: false,
-                }}
-            />
-            <UserFlusher
-                user={user}
-                hookWriteCallback={hookWriteCallback}
-                hookRollbackCallback={hookRollbackCallback}
-                objKey="bioSve"
-                consumer={NullableTextbox}
-                otherProps={{
-                    setOkCallback,
-                    checkFormState,
-                    label: swede ? "Svensk Bio" : "Swedish Bio",
-                    schema: z.string(),
-                    bigInput: false,
-                }}
-            />
+            <ScrollView>
+                <UserFlusher
+                    user={user}
+                    hookWriteCallback={hookWriteCallback}
+                    hookRollbackCallback={hookRollbackCallback}
+                    objKey="username"
+                    consumer={Textbox}
+                    otherProps={{
+                        setOkCallback,
+                        checkFormState,
+                        label: swede ? "Användarnamn" : "Username",
+                        schema: z.string().min(1),
+                        bigInput: false,
+                    }}
+                />
+                <UserFlusher
+                    user={user}
+                    hookWriteCallback={hookWriteCallback}
+                    hookRollbackCallback={hookRollbackCallback}
+                    objKey="forename"
+                    consumer={Textbox}
+                    otherProps={{
+                        setOkCallback,
+                        checkFormState,
+                        label: swede ? "Förnamn" : "Forename",
+                        schema: z.string().min(1),
+                        bigInput: false,
+                    }}
+                />
+                <UserFlusher
+                    user={user}
+                    hookWriteCallback={hookWriteCallback}
+                    hookRollbackCallback={hookRollbackCallback}
+                    objKey="surname"
+                    consumer={Textbox}
+                    otherProps={{
+                        setOkCallback,
+                        checkFormState,
+                        label: swede ? "Efternamn" : "Surname",
+                        schema: z.string().min(1),
+                        bigInput: false,
+                    }}
+                />
+                <UserFlusher
+                    user={user}
+                    hookWriteCallback={hookWriteCallback}
+                    hookRollbackCallback={hookRollbackCallback}
+                    objKey="email"
+                    consumer={Textbox}
+                    otherProps={{
+                        setOkCallback,
+                        checkFormState,
+                        label: swede ? "E-post" : "Email",
+                        schema: z.string().email(),
+                        bigInput: false,
+                    }}
+                />
+                <UserFlusher
+                    user={user}
+                    hookWriteCallback={hookWriteCallback}
+                    hookRollbackCallback={hookRollbackCallback}
+                    objKey="phoneNumber"
+                    consumer={Textbox}
+                    otherProps={{
+                        setOkCallback,
+                        checkFormState,
+                        label: swede ? "Telefonnummer" : "Phone Number",
+                        schema: z
+                            .string()
+                            .min(1)
+                            .regex(/^\+[0-9]+$/),
+                        bigInput: false,
+                    }}
+                />
+                <UserFlusher
+                    user={user}
+                    hookWriteCallback={hookWriteCallback}
+                    hookRollbackCallback={hookRollbackCallback}
+                    objKey="bioEng"
+                    consumer={NullableTextbox}
+                    otherProps={{
+                        setOkCallback,
+                        checkFormState,
+                        label: swede ? "Engelsk Bio" : "English Bio",
+                        schema: z.string(),
+                        bigInput: true,
+                    }}
+                />
+                <UserFlusher
+                    user={user}
+                    hookWriteCallback={hookWriteCallback}
+                    hookRollbackCallback={hookRollbackCallback}
+                    objKey="bioSve"
+                    consumer={NullableTextbox}
+                    otherProps={{
+                        setOkCallback,
+                        checkFormState,
+                        label: swede ? "Svensk Bio" : "Swedish Bio",
+                        schema: z.string(),
+                        bigInput: true,
+                    }}
+                />
 
-            <Button
-                disabled={formState === "disabled"}
-                onPress={writeProfile}
-                title={swede ? "Spara" : "Save"}
-            />
+                <View style={{ marginTop: 10 }}>
+                    <Button
+                        disabled={formState === "disabled"}
+                        onPress={writeProfile}
+                        title={swede ? "Spara" : "Save"}
+                    />
+                </View>
+            </ScrollView>
         </Container>
     );
 }

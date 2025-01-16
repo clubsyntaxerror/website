@@ -2,9 +2,11 @@ import React from "react";
 import { Stack } from "expo-router";
 import { rpcReact, rpcClient } from "../clients/rpc";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { useIsSwedish } from "../state";
 
 export default function RootLayout() {
     const [queryClient] = React.useState(() => new QueryClient());
+    const swede = useIsSwedish();
 
     return (
         <rpcReact.Provider client={rpcClient} queryClient={queryClient}>
@@ -12,7 +14,10 @@ export default function RootLayout() {
                 <Stack>
                     <Stack.Screen
                         name="(tabs)"
-                        options={{ headerShown: false }}
+                        options={{
+                            headerTitle: swede ? "Tillbaka" : "Back",
+                            headerShown: false,
+                        }}
                     />
                 </Stack>
             </QueryClientProvider>

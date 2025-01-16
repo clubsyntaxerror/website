@@ -32,7 +32,7 @@ export default function Events() {
     }
 
     return (
-        <Container>
+        <Container title={swede ? "Händelser" : "Events"}>
             {user && (
                 <Button
                     title={swede ? "Ny Händelse" : "New Event"}

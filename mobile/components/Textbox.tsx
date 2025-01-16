@@ -1,5 +1,5 @@
 import React from "react";
-import { TextInput, Text } from "react-native";
+import { TextInput, Text, StyleSheet } from "react-native";
 import { z } from "zod";
 
 export type Props = {
@@ -39,14 +39,27 @@ export default function Textbox({
                 style={{ fontSize: 16, fontWeight: "bold" }}
                 aria-hidden={true}
             >
-                {label}
+                {label}:
             </Text>
             <TextInput
                 value={value}
                 onChangeText={update}
+                style={styles.textbox}
                 numberOfLines={bigInput ? 10 : 1}
+                multiline={bigInput}
                 aria-label={label}
             />
         </>
     );
 }
+
+const styles = StyleSheet.create({
+    textbox: {
+        fontSize: 16,
+        borderWidth: 1,
+        borderColor: "#e0e0e0",
+        borderRadius: 5,
+        padding: 10,
+        marginVertical: 10,
+    },
+});

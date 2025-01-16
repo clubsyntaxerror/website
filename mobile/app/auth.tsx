@@ -1,5 +1,5 @@
 import React from "react";
-import { router } from "expo-router";
+import { router, Stack } from "expo-router";
 import { Platform } from "react-native";
 import { WebView } from "react-native-webview";
 import { useUser, setToken } from "../state";
@@ -62,16 +62,19 @@ export default function Auth() {
         return true;
     };
     return (
-        <WebView
-            originWhitelist={["*"]}
-            source={{ uri: initialUrl }}
-            onShouldStartLoadWithRequest={
-                Platform.OS === "ios" ? handleLogin : undefined
-            }
-            onNavigationStateChange={
-                Platform.OS === "android" ? handleLogin : undefined
-            }
-            ref={Platform.OS === "android" ? wvRef : undefined}
-        />
+        <>
+            <Stack.Screen options={{ headerShown: false }} />
+            <WebView
+                originWhitelist={["*"]}
+                source={{ uri: initialUrl }}
+                onShouldStartLoadWithRequest={
+                    Platform.OS === "ios" ? handleLogin : undefined
+                }
+                onNavigationStateChange={
+                    Platform.OS === "android" ? handleLogin : undefined
+                }
+                ref={Platform.OS === "android" ? wvRef : undefined}
+            />
+        </>
     );
 }
