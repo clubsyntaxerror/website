@@ -10,6 +10,43 @@ import StateFlusher from "../components/StateFlusher";
 import Textbox from "../components/Textbox";
 import NullableTextbox from "../components/NullableTextbox";
 
+type User = typeof schema.crewUsers.$inferSelect;
+
+// A bunch of TS magic to effectively macro editing the user.
+type UserFlusherProps<
+    UserKey extends keyof User,
+    Props extends {
+        value: User[UserKey];
+        setValue: (value: User[UserKey]) => void;
+    },
+> = {
+    objKey: UserKey;
+    consumer: (props: Props) => React.ReactNode;
+    otherProps: Omit<Props, "value" | "setValue">;
+    user: User;
+    hookWriteCallback: (fn: () => void) => () => void;
+    hookRollbackCallback: (fn: () => void) => () => void;
+};
+const UserFlusher = <
+    UserKey extends keyof User,
+    Props extends {
+        value: User[UserKey];
+        setValue: (value: User[UserKey]) => void;
+    },
+>(
+    props: UserFlusherProps<UserKey, Props>,
+) => (
+    <StateFlusher
+        obj={props.user}
+        objKey={props.objKey}
+        writer={updateUserKey}
+        hookWriteCallback={props.hookWriteCallback}
+        hookRollbackCallback={props.hookRollbackCallback}
+        consumer={props.consumer}
+        otherProps={props.otherProps}
+    />
+);
+
 function Editor({ user }: { user: typeof schema.crewUsers.$inferSelect }) {
     // Check if the user is a swede.
     const swede = useIsSwedish();
@@ -34,9 +71,24 @@ function Editor({ user }: { user: typeof schema.crewUsers.$inferSelect }) {
     }, []);
     const reactUtils = rpcReact.useUtils();
 
+    // Create a set of write callbacks and rollback callbacks and a function to add them to the set + allow them to be removed.
+    const writeRefs = React.useRef<Set<() => void>>(new Set());
+    const hookWriteCallback = React.useCallback((fn: () => void) => {
+        writeRefs.current.add(fn);
+        return () => writeRefs.current.delete(fn);
+    }, []);
+    const rollbackRefs = React.useRef<Set<() => void>>(new Set());
+    const hookRollbackCallback = React.useCallback((fn: () => void) => {
+        rollbackRefs.current.add(fn);
+        return () => rollbackRefs.current.delete(fn);
+    }, []);
+
     // Write the profile to the database.
     const writeProfile = React.useCallback(async () => {
         setFormState("disabled");
+        for (const fn of writeRefs.current) {
+            fn();
+        }
         rpcClient.editProfile
             .mutate({
                 username: user.username,
@@ -47,57 +99,18 @@ function Editor({ user }: { user: typeof schema.crewUsers.$inferSelect }) {
                 bioEng: user.bioEng ?? undefined,
                 bioSve: user.bioSve ?? undefined,
             })
-            .catch(() => setFormState("error"))
+            .catch(() => {
+                for (const fn of rollbackRefs.current) {
+                    fn();
+                }
+                setFormState("error");
+            })
             .then(() => {
                 // Bust the cache and set the form to OK.
                 reactUtils.getCrew.invalidate();
                 setFormState("ok");
             });
     }, []);
-
-    // Create a set of write callbacks and rollback callbacks and a function to add them to the set + allow them to be removed.
-    const writeRefs = React.useRef<Set<() => void>>(new Set());
-    const rollbackRefs = React.useRef<Set<() => void>>(new Set());
-    const hookWriteCallback = React.useCallback((fn: () => void) => {
-        writeRefs.current.add(fn);
-        return () => writeRefs.current.delete(fn);
-    }, []);
-    const hookRollbackCallback = React.useCallback((fn: () => void) => {
-        rollbackRefs.current.add(fn);
-        return () => rollbackRefs.current.delete(fn);
-    }, []);
-
-    // A bunch of TS magic to effectively macro editing the user.
-    type UserFlusherProps<
-        UserKey extends keyof typeof user,
-        Props extends {
-            value: (typeof user)[UserKey];
-            setValue: (value: (typeof user)[UserKey]) => void;
-        },
-    > = {
-        objKey: UserKey;
-        consumer: (props: Props) => React.ReactNode;
-        otherProps: Omit<Props, "value" | "setValue">;
-    };
-    const UserFlusher = <
-        UserKey extends keyof typeof user,
-        Props extends {
-            value: (typeof user)[UserKey];
-            setValue: (value: (typeof user)[UserKey]) => void;
-        },
-    >(
-        props: UserFlusherProps<UserKey, Props>,
-    ) => (
-        <StateFlusher
-            obj={user}
-            objKey={props.objKey}
-            writer={updateUserKey}
-            hookWriteCallback={hookWriteCallback}
-            hookRollbackCallback={hookRollbackCallback}
-            consumer={props.consumer}
-            otherProps={props.otherProps}
-        />
-    );
 
     // Return the editor body.
     return (
@@ -111,6 +124,9 @@ function Editor({ user }: { user: typeof schema.crewUsers.$inferSelect }) {
             )}
 
             <UserFlusher
+                user={user}
+                hookWriteCallback={hookWriteCallback}
+                hookRollbackCallback={hookRollbackCallback}
                 objKey="username"
                 consumer={Textbox}
                 otherProps={{
@@ -122,6 +138,9 @@ function Editor({ user }: { user: typeof schema.crewUsers.$inferSelect }) {
                 }}
             />
             <UserFlusher
+                user={user}
+                hookWriteCallback={hookWriteCallback}
+                hookRollbackCallback={hookRollbackCallback}
                 objKey="forename"
                 consumer={Textbox}
                 otherProps={{
@@ -133,6 +152,9 @@ function Editor({ user }: { user: typeof schema.crewUsers.$inferSelect }) {
                 }}
             />
             <UserFlusher
+                user={user}
+                hookWriteCallback={hookWriteCallback}
+                hookRollbackCallback={hookRollbackCallback}
                 objKey="surname"
                 consumer={Textbox}
                 otherProps={{
@@ -144,6 +166,9 @@ function Editor({ user }: { user: typeof schema.crewUsers.$inferSelect }) {
                 }}
             />
             <UserFlusher
+                user={user}
+                hookWriteCallback={hookWriteCallback}
+                hookRollbackCallback={hookRollbackCallback}
                 objKey="email"
                 consumer={Textbox}
                 otherProps={{
@@ -155,6 +180,9 @@ function Editor({ user }: { user: typeof schema.crewUsers.$inferSelect }) {
                 }}
             />
             <UserFlusher
+                user={user}
+                hookWriteCallback={hookWriteCallback}
+                hookRollbackCallback={hookRollbackCallback}
                 objKey="phoneNumber"
                 consumer={Textbox}
                 otherProps={{
@@ -169,6 +197,9 @@ function Editor({ user }: { user: typeof schema.crewUsers.$inferSelect }) {
                 }}
             />
             <UserFlusher
+                user={user}
+                hookWriteCallback={hookWriteCallback}
+                hookRollbackCallback={hookRollbackCallback}
                 objKey="bioEng"
                 consumer={NullableTextbox}
                 otherProps={{
@@ -180,6 +211,9 @@ function Editor({ user }: { user: typeof schema.crewUsers.$inferSelect }) {
                 }}
             />
             <UserFlusher
+                user={user}
+                hookWriteCallback={hookWriteCallback}
+                hookRollbackCallback={hookRollbackCallback}
                 objKey="bioSve"
                 consumer={NullableTextbox}
                 otherProps={{
@@ -190,6 +224,7 @@ function Editor({ user }: { user: typeof schema.crewUsers.$inferSelect }) {
                     bigInput: false,
                 }}
             />
+
             <Button
                 disabled={formState === "disabled"}
                 onPress={writeProfile}
