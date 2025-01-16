@@ -10,43 +10,6 @@ import StateFlusher from "../components/StateFlusher";
 import Textbox from "../components/Textbox";
 import NullableTextbox from "../components/NullableTextbox";
 
-type User = typeof schema.crewUsers.$inferSelect;
-
-// A bunch of TS magic to effectively macro editing the user.
-type UserFlusherProps<
-    UserKey extends keyof User,
-    Props extends {
-        value: User[UserKey];
-        setValue: (value: User[UserKey]) => void;
-    },
-> = {
-    objKey: UserKey;
-    consumer: (props: Props) => React.ReactNode;
-    otherProps: Omit<Props, "value" | "setValue">;
-    user: User;
-    hookWriteCallback: (fn: () => void) => () => void;
-    hookRollbackCallback: (fn: () => void) => () => void;
-};
-const UserFlusher = <
-    UserKey extends keyof User,
-    Props extends {
-        value: User[UserKey];
-        setValue: (value: User[UserKey]) => void;
-    },
->(
-    props: UserFlusherProps<UserKey, Props>,
-) => (
-    <StateFlusher
-        obj={props.user}
-        objKey={props.objKey}
-        writer={updateUserKey}
-        hookWriteCallback={props.hookWriteCallback}
-        hookRollbackCallback={props.hookRollbackCallback}
-        consumer={props.consumer}
-        otherProps={props.otherProps}
-    />
-);
-
 function Editor({ user }: { user: typeof schema.crewUsers.$inferSelect }) {
     // Check if the user is a swede.
     const swede = useIsSwedish();
@@ -125,11 +88,12 @@ function Editor({ user }: { user: typeof schema.crewUsers.$inferSelect }) {
             )}
 
             <ScrollView>
-                <UserFlusher
-                    user={user}
+                <StateFlusher
+                    obj={user}
+                    objKey="username"
+                    writer={updateUserKey}
                     hookWriteCallback={hookWriteCallback}
                     hookRollbackCallback={hookRollbackCallback}
-                    objKey="username"
                     consumer={Textbox}
                     otherProps={{
                         setOkCallback,
@@ -139,11 +103,12 @@ function Editor({ user }: { user: typeof schema.crewUsers.$inferSelect }) {
                         bigInput: false,
                     }}
                 />
-                <UserFlusher
-                    user={user}
+                <StateFlusher
+                    obj={user}
+                    objKey="forename"
+                    writer={updateUserKey}
                     hookWriteCallback={hookWriteCallback}
                     hookRollbackCallback={hookRollbackCallback}
-                    objKey="forename"
                     consumer={Textbox}
                     otherProps={{
                         setOkCallback,
@@ -153,11 +118,12 @@ function Editor({ user }: { user: typeof schema.crewUsers.$inferSelect }) {
                         bigInput: false,
                     }}
                 />
-                <UserFlusher
-                    user={user}
+                <StateFlusher
+                    obj={user}
+                    objKey="surname"
+                    writer={updateUserKey}
                     hookWriteCallback={hookWriteCallback}
                     hookRollbackCallback={hookRollbackCallback}
-                    objKey="surname"
                     consumer={Textbox}
                     otherProps={{
                         setOkCallback,
@@ -167,11 +133,12 @@ function Editor({ user }: { user: typeof schema.crewUsers.$inferSelect }) {
                         bigInput: false,
                     }}
                 />
-                <UserFlusher
-                    user={user}
+                <StateFlusher
+                    obj={user}
+                    objKey="email"
+                    writer={updateUserKey}
                     hookWriteCallback={hookWriteCallback}
                     hookRollbackCallback={hookRollbackCallback}
-                    objKey="email"
                     consumer={Textbox}
                     otherProps={{
                         setOkCallback,
@@ -181,11 +148,12 @@ function Editor({ user }: { user: typeof schema.crewUsers.$inferSelect }) {
                         bigInput: false,
                     }}
                 />
-                <UserFlusher
-                    user={user}
+                <StateFlusher
+                    obj={user}
+                    objKey="phoneNumber"
+                    writer={updateUserKey}
                     hookWriteCallback={hookWriteCallback}
                     hookRollbackCallback={hookRollbackCallback}
-                    objKey="phoneNumber"
                     consumer={Textbox}
                     otherProps={{
                         setOkCallback,
@@ -198,11 +166,12 @@ function Editor({ user }: { user: typeof schema.crewUsers.$inferSelect }) {
                         bigInput: false,
                     }}
                 />
-                <UserFlusher
-                    user={user}
+                <StateFlusher
+                    obj={user}
+                    objKey="bioEng"
+                    writer={updateUserKey}
                     hookWriteCallback={hookWriteCallback}
                     hookRollbackCallback={hookRollbackCallback}
-                    objKey="bioEng"
                     consumer={NullableTextbox}
                     otherProps={{
                         setOkCallback,
@@ -212,11 +181,12 @@ function Editor({ user }: { user: typeof schema.crewUsers.$inferSelect }) {
                         bigInput: true,
                     }}
                 />
-                <UserFlusher
-                    user={user}
+                <StateFlusher
+                    obj={user}
+                    objKey="bioSve"
+                    writer={updateUserKey}
                     hookWriteCallback={hookWriteCallback}
                     hookRollbackCallback={hookRollbackCallback}
-                    objKey="bioSve"
                     consumer={NullableTextbox}
                     otherProps={{
                         setOkCallback,
