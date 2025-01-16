@@ -1,12 +1,32 @@
 import React from "react";
-import { Text } from "react-native";
+import { Button, FlatList, Text } from "react-native";
 import Container from "../../components/Container";
 import { useIsSwedish, useUser } from "../../state";
-import { Link } from "expo-router";
+import { Link, router } from "expo-router";
+import { rpcReact } from "../../clients/rpc";
+import LoadingSpinner from "../../components/LoadingSpinner";
+import Error from "../../components/Error";
+import UserCard from "../../components/UserCard";
 
 export default function Crew() {
     const user = useUser();
     const swede = useIsSwedish();
+    const { data, isLoading, isError } = rpcReact.getCrew.useQuery(undefined, {
+        staleTime: 120000,
+    });
+
+    if (isLoading) {
+        return <LoadingSpinner />;
+    }
+
+    if (isError) {
+        return (
+            <Error
+                sveError="Misslyckades med att hämta crew"
+                engError="Failed to fetch crew"
+            />
+        );
+    }
 
     let crewText = user ? (
         <Link href="/auth">
@@ -28,6 +48,20 @@ export default function Crew() {
 
     return (
         <Container>
+            {user && (
+                <Button
+                    title={swede ? "Redigera profil" : "Edit Profile"}
+                    onPress={() => {
+                        router.push("/profile");
+                    }}
+                />
+            )}
+            <FlatList
+                data={data || []}
+                renderItem={({ item, index }) => (
+                    <UserCard user={item} key={index} />
+                )}
+            />
             <Text style={{ textAlign: "center" }}>{crewText}</Text>
         </Container>
     );

@@ -1,13 +1,21 @@
 import type { schema } from "database";
 import { useSyncExternalStore } from "react";
 import { rpcClient, getToken, changeToken } from "./clients/rpc";
-import { AppState } from "react-native";
 import { useLocales } from "expo-localization";
 
 export type User = typeof schema.crewUsers.$inferSelect;
 
 let user: User | null = null;
 let userSubscribers = new Set<() => void>();
+
+export function updateUserKey<K extends keyof User>(key: K, value: User[K]) {
+    if (user) {
+        user[key] = value;
+        for (const subscriber of userSubscribers) {
+            subscriber();
+        }
+    }
+}
 
 function updateUser() {
     rpcClient.getUser.query().then((newUser) => {
