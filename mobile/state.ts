@@ -31,15 +31,16 @@ getToken().then((token) => {
 });
 
 export function setToken(token: string | null) {
-    changeToken(token);
-    if (token) {
-        updateUser();
-    } else {
-        user = null;
-        for (const subscriber of userSubscribers) {
-            subscriber();
+    changeToken(token).then(() => {
+        if (token) {
+            updateUser();
+        } else {
+            user = null;
+            for (const subscriber of userSubscribers) {
+                subscriber();
+            }
         }
-    }
+    });
 }
 
 export function useUser() {
