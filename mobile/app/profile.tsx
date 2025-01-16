@@ -75,7 +75,7 @@ function Editor({ user }: { user: typeof schema.crewUsers.$inferSelect }) {
             setValue: (value: (typeof user)[UserKey]) => void;
         },
     > = {
-        key: UserKey;
+        objKey: UserKey;
         consumer: (props: Props) => React.ReactNode;
         otherProps: Omit<Props, "value" | "setValue">;
     };
@@ -90,7 +90,7 @@ function Editor({ user }: { user: typeof schema.crewUsers.$inferSelect }) {
     ) => (
         <StateFlusher
             obj={user}
-            key={props.key}
+            objKey={props.objKey}
             writer={updateUserKey}
             hookWriteCallback={hookWriteCallback}
             hookRollbackCallback={hookRollbackCallback}
@@ -111,7 +111,7 @@ function Editor({ user }: { user: typeof schema.crewUsers.$inferSelect }) {
             )}
 
             <UserFlusher
-                key="username"
+                objKey="username"
                 consumer={Textbox}
                 otherProps={{
                     setOkCallback,
@@ -122,7 +122,7 @@ function Editor({ user }: { user: typeof schema.crewUsers.$inferSelect }) {
                 }}
             />
             <UserFlusher
-                key="forename"
+                objKey="forename"
                 consumer={Textbox}
                 otherProps={{
                     setOkCallback,
@@ -133,7 +133,7 @@ function Editor({ user }: { user: typeof schema.crewUsers.$inferSelect }) {
                 }}
             />
             <UserFlusher
-                key="surname"
+                objKey="surname"
                 consumer={Textbox}
                 otherProps={{
                     setOkCallback,
@@ -144,7 +144,7 @@ function Editor({ user }: { user: typeof schema.crewUsers.$inferSelect }) {
                 }}
             />
             <UserFlusher
-                key="email"
+                objKey="email"
                 consumer={Textbox}
                 otherProps={{
                     setOkCallback,
@@ -155,7 +155,7 @@ function Editor({ user }: { user: typeof schema.crewUsers.$inferSelect }) {
                 }}
             />
             <UserFlusher
-                key="phoneNumber"
+                objKey="phoneNumber"
                 consumer={Textbox}
                 otherProps={{
                     setOkCallback,
@@ -169,7 +169,7 @@ function Editor({ user }: { user: typeof schema.crewUsers.$inferSelect }) {
                 }}
             />
             <UserFlusher
-                key="bioEng"
+                objKey="bioEng"
                 consumer={NullableTextbox}
                 otherProps={{
                     setOkCallback,
@@ -180,7 +180,7 @@ function Editor({ user }: { user: typeof schema.crewUsers.$inferSelect }) {
                 }}
             />
             <UserFlusher
-                key="bioSve"
+                objKey="bioSve"
                 consumer={NullableTextbox}
                 otherProps={{
                     setOkCallback,

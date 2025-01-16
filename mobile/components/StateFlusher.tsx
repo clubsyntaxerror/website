@@ -9,7 +9,7 @@ type StateFlusherProps<
     },
 > = {
     obj: O;
-    key: K;
+    objKey: K;
     writer: (key: K, value: O[K]) => void;
     hookWriteCallback: (fn: () => void) => () => void;
     hookRollbackCallback: (fn: () => void) => () => void;
@@ -26,14 +26,14 @@ export default function StateFlusher<
     },
 >({
     obj,
-    key,
+    objKey,
     writer,
     hookWriteCallback,
     hookRollbackCallback,
     consumer: Consumer,
     otherProps,
 }: StateFlusherProps<O, K, ConsumerProps>) {
-    const [original] = React.useState(obj[key]);
+    const [original] = React.useState(obj[objKey]);
     const [value, setValueNoRefChange] = React.useState(original);
     const valueRef = React.useRef(value);
 
@@ -44,7 +44,7 @@ export default function StateFlusher<
 
     React.useEffect(() => {
         const write = hookWriteCallback(() => {
-            writer(key, valueRef.current);
+            writer(objKey, valueRef.current);
         });
         const rollback = hookRollbackCallback(() => {
             setValue(original);

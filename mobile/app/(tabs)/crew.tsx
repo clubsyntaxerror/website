@@ -50,7 +50,7 @@ export default function Crew() {
         <Container>
             {user && (
                 <Button
-                    title={swede ? "Redigera profil" : "Edit Profile"}
+                    title={swede ? "Redigera Profil" : "Edit Profile"}
                     onPress={() => {
                         router.push("/profile");
                     }}

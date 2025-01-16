@@ -35,7 +35,7 @@ export default function Events() {
         <Container>
             {user && (
                 <Button
-                    title={swede ? "Ny händelse" : "New event"}
+                    title={swede ? "Ny Händelse" : "New Event"}
                     onPress={() => {
                         router.push("/events/new");
                     }}
