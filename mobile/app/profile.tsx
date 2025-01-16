@@ -113,6 +113,7 @@ function Editor({ user }: { user: typeof schema.crewUsers.$inferSelect }) {
     }, []);
 
     // Return the editor body.
+    // TODO: Add a profile picture uploader.
     return (
         <Container title={swede ? "Redigera Profil" : "Edit Profile"}>
             {formState === "error" && (
