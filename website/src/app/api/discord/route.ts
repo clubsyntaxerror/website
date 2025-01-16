@@ -1,5 +1,3 @@
-import { cookies } from "next/headers";
-
 export const runtime = "edge";
 
 export async function GET() {
@@ -18,8 +16,9 @@ export async function GET() {
     url.searchParams.set("response_type", "code");
     url.searchParams.set("scope", "identify");
 
-    const cookieJar = await cookies();
-    const state = crypto.randomUUID();
-    cookieJar.set("discord_state", state);
-    return Response.redirect(url.toString());
+    return new Response(url.toString(), {
+        headers: {
+            "Content-Type": "text/plain",
+        },
+    });
 }

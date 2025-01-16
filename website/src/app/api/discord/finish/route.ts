@@ -12,14 +12,7 @@ function getAllowedUserIds() {
 }
 
 export async function GET(req: Request) {
-    const cookieJar = await cookies();
-    const state = cookieJar.get("discord_state");
-
     const url = new URL(req.url);
-    if (state?.value !== url.searchParams.get("state")) {
-        return Response.json({ error: "Invalid state" }, { status: 400 });
-    }
-
     const code = url.searchParams.get("code");
     if (!code) {
         return Response.json({ error: "No code" }, { status: 400 });

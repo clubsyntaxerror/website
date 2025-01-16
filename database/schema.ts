@@ -8,6 +8,7 @@ import {
     numeric,
     timestamp,
     unique,
+    uuid,
 } from "drizzle-orm/pg-core";
 
 export const callToAction = pgTable("call_to_action", {
@@ -71,7 +72,7 @@ export const eventMapLocationRelations = relations(
 export const safetyReports = pgTable(
     "safety_reports",
     {
-        id: serial("id").primaryKey(),
+        id: uuid("id").primaryKey().defaultRandom(),
         eventMapLocationId: serial("event_map_location_id").references(
             () => eventMapLocations.id,
             { onDelete: "set null" }, // Be VERY paranoid about deleting safety reports!
@@ -96,11 +97,12 @@ export const conversation = pgTable(
     "conversation",
     {
         createdAt: timestamp("created_at").defaultNow().notNull(),
-        safetyReportId: serial("safety_report_id").references(
+        safetyReportId: uuid("safety_report_id").references(
             () => safetyReports.id,
             { onDelete: "cascade" },
         ),
         crewUsername: text("crew_username"),
+        message: text("message").notNull(),
     },
     ({ safetyReportId }) => [index("safety_report_id_idx").on(safetyReportId)],
 );

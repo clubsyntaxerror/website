@@ -1,0 +1,506 @@
+{
+  "id": "653be054-fd1f-4b62-a8fe-a9f58befcd8f",
+  "prevId": "00000000-0000-0000-0000-000000000000",
+  "version": "7",
+  "dialect": "postgresql",
+  "tables": {
+    "public.call_to_action": {
+      "name": "call_to_action",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "serial",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "title_eng": {
+          "name": "title_eng",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "title_sve": {
+          "name": "title_sve",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "url": {
+          "name": "url",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    },
+    "public.conversation": {
+      "name": "conversation",
+      "schema": "",
+      "columns": {
+        "created_at": {
+          "name": "created_at",
+          "type": "timestamp",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
+        },
+        "safety_report_id": {
+          "name": "safety_report_id",
+          "type": "uuid",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "crew_username": {
+          "name": "crew_username",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "message": {
+          "name": "message",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "indexes": {
+        "safety_report_id_idx": {
+          "name": "safety_report_id_idx",
+          "columns": [
+            {
+              "expression": "safety_report_id",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": false,
+          "concurrently": false,
+          "method": "btree",
+          "with": {}
+        }
+      },
+      "foreignKeys": {
+        "conversation_safety_report_id_safety_reports_id_fk": {
+          "name": "conversation_safety_report_id_safety_reports_id_fk",
+          "tableFrom": "conversation",
+          "tableTo": "safety_reports",
+          "columnsFrom": [
+            "safety_report_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "cascade",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    },
+    "public.crew_user_tokens": {
+      "name": "crew_user_tokens",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "serial",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "crew_user_id": {
+          "name": "crew_user_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "token": {
+          "name": "token",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "created_at": {
+          "name": "created_at",
+          "type": "timestamp",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {
+        "crew_user_tokens_crew_user_id_crew_users_discord_id_fk": {
+          "name": "crew_user_tokens_crew_user_id_crew_users_discord_id_fk",
+          "tableFrom": "crew_user_tokens",
+          "tableTo": "crew_users",
+          "columnsFrom": [
+            "crew_user_id"
+          ],
+          "columnsTo": [
+            "discord_id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    },
+    "public.crew_users": {
+      "name": "crew_users",
+      "schema": "",
+      "columns": {
+        "discord_id": {
+          "name": "discord_id",
+          "type": "text",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "username": {
+          "name": "username",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "email": {
+          "name": "email",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "forename": {
+          "name": "forename",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "surname": {
+          "name": "surname",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "phone_number": {
+          "name": "phone_number",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "bio_eng": {
+          "name": "bio_eng",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "bio_sve": {
+          "name": "bio_sve",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "profile_picture_url": {
+          "name": "profile_picture_url",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {
+        "username_idx": {
+          "name": "username_idx",
+          "nullsNotDistinct": false,
+          "columns": [
+            "username"
+          ]
+        }
+      },
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    },
+    "public.event_map_locations": {
+      "name": "event_map_locations",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "serial",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "event_id": {
+          "name": "event_id",
+          "type": "serial",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "map_x": {
+          "name": "map_x",
+          "type": "numeric",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "map_y": {
+          "name": "map_y",
+          "type": "numeric",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {
+        "event_map_locations_event_id_events_id_fk": {
+          "name": "event_map_locations_event_id_events_id_fk",
+          "tableFrom": "event_map_locations",
+          "tableTo": "events",
+          "columnsFrom": [
+            "event_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "cascade",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    },
+    "public.events": {
+      "name": "events",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "serial",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "event_start": {
+          "name": "event_start",
+          "type": "date",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "event_end": {
+          "name": "event_end",
+          "type": "date",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "venue_name": {
+          "name": "venue_name",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "venue_address": {
+          "name": "venue_address",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "event_name_eng": {
+          "name": "event_name_eng",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "event_name_sve": {
+          "name": "event_name_sve",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "event_description_eng": {
+          "name": "event_description_eng",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "event_description_sve": {
+          "name": "event_description_sve",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "cover_fee": {
+          "name": "cover_fee",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "call_to_action_id": {
+          "name": "call_to_action_id",
+          "type": "serial",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "facebook_event_url": {
+          "name": "facebook_event_url",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        }
+      },
+      "indexes": {
+        "event_start_idx": {
+          "name": "event_start_idx",
+          "columns": [
+            {
+              "expression": "event_start",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": false,
+          "concurrently": false,
+          "method": "btree",
+          "with": {}
+        },
+        "event_end_idx": {
+          "name": "event_end_idx",
+          "columns": [
+            {
+              "expression": "event_end",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": false,
+          "concurrently": false,
+          "method": "btree",
+          "with": {}
+        }
+      },
+      "foreignKeys": {
+        "events_call_to_action_id_call_to_action_id_fk": {
+          "name": "events_call_to_action_id_call_to_action_id_fk",
+          "tableFrom": "events",
+          "tableTo": "call_to_action",
+          "columnsFrom": [
+            "call_to_action_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "cascade",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    },
+    "public.safety_reports": {
+      "name": "safety_reports",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "uuid",
+          "primaryKey": true,
+          "notNull": true,
+          "default": "gen_random_uuid()"
+        },
+        "event_map_location_id": {
+          "name": "event_map_location_id",
+          "type": "serial",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "description": {
+          "name": "description",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "device_id": {
+          "name": "device_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "resolved_by": {
+          "name": "resolved_by",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        }
+      },
+      "indexes": {
+        "device_id_idx": {
+          "name": "device_id_idx",
+          "columns": [
+            {
+              "expression": "device_id",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": false,
+          "concurrently": false,
+          "method": "btree",
+          "with": {}
+        }
+      },
+      "foreignKeys": {
+        "safety_reports_event_map_location_id_event_map_locations_id_fk": {
+          "name": "safety_reports_event_map_location_id_event_map_locations_id_fk",
+          "tableFrom": "safety_reports",
+          "tableTo": "event_map_locations",
+          "columnsFrom": [
+            "event_map_location_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "set null",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    }
+  },
+  "enums": {},
+  "schemas": {},
+  "sequences": {},
+  "roles": {},
+  "policies": {},
+  "views": {},
+  "_meta": {
+    "columns": {},
+    "schemas": {},
+    "tables": {}
+  }
+}

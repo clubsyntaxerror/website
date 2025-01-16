@@ -6,15 +6,16 @@
         "website"
     ],
     "devDependencies": {
-        "foreman": "^3.0.1",
-        "prettier": "^3.4.2"
+        "prettier": "^3.4.2",
+        "dotenv-cli": "^8.0.0"
     },
     "scripts": {
-        "dev": "foreman start -f Procfile.dev",
+        "dev:website": "dotenv -e .env -- npm run --workspace=website dev",
+        "dev:mobile": "dotenv -e .env -- npm run --workspace=mobile start",
         "format": "prettier --check .",
         "format:fix": "prettier --write .",
         "expo": "npm run --workspace=mobile expo",
-        "db:generate-migrations": "npm run --workspace=database db:generate-migrations",
-        "db:migrate": "npm run --workspace=database db:migrate"
+        "db:generate-migrations": "dotenv -e .env -- npm run --workspace=database db:generate-migrations --",
+        "db:migrate": "dotenv -e .env -- npm run --workspace=database db:migrate --"
     }
 }
