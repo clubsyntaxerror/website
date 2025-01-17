@@ -9,6 +9,7 @@ import {
     timestamp,
     unique,
     uuid,
+    boolean,
 } from "drizzle-orm/pg-core";
 
 export const callToAction = pgTable("call_to_action", {
@@ -143,3 +144,9 @@ export const crewUserTokenRelations = relations(crewUserTokens, ({ one }) => ({
         references: [crewUsers.discordId],
     }),
 }));
+
+export const mobileDevices = pgTable("mobile_devices", {
+    id: text("id").primaryKey(),
+    pushToken: text("push_token").notNull(),
+    isSwedish: boolean("is_swedish").notNull().default(false),
+});

@@ -3,7 +3,7 @@ import { createTRPCClient, httpBatchLink } from "@trpc/client";
 import { createTRPCReact } from "@trpc/react-query";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
-let tokenPromise = AsyncStorage.getItem("token");
+let tokenPromise = typeof window !== "undefined" ? AsyncStorage.getItem("token") : Promise.resolve(null);
 
 export function getToken() {
     return tokenPromise;

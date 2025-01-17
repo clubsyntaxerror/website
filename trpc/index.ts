@@ -34,13 +34,36 @@ const conversationReplySchema = conversationGetSchema.extend({
     message: z.string(),
 });
 
-let invalidator = (route: string) => {};
+let invalidator = (_: string) => {};
 
 export function setInvalidator(fn: (route: string) => void) {
     invalidator = fn;
 }
 
 const appRouter = router({
+    generateDeviceId: procedure
+        .input(z.object({
+            pushToken: z.string(),
+        }))
+        .mutation(async ({ input }) => {
+            const deviceId = crypto.randomUUID();
+            await db.insert(schema.mobileDevices).values({
+                id: deviceId,
+                pushToken: input.pushToken,
+            });
+            return deviceId;
+        }),
+    setIsSwedish: procedure
+        .input(z.object({
+            deviceId: z.string(),
+            isSwedish: z.boolean(),
+        }))
+        .mutation(async ({ input }) => {
+            await db
+                .update(schema.mobileDevices)
+                .set({ isSwedish: input.isSwedish })
+                .where(eq(schema.mobileDevices.id, input.deviceId));
+        }),
     getUser: procedure.query(({ ctx }) => ctx.user),
     killToken: procedure.mutation(async ({ ctx }) => {
         if (ctx.token) {
