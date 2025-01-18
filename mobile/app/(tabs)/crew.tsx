@@ -16,7 +16,7 @@ export default function Crew() {
     });
 
     if (isLoading) {
-        return <LoadingSpinner />;
+        return <LoadingSpinner title="Crew" />;
     }
 
     if (isError) {

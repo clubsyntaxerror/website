@@ -2,7 +2,7 @@ import React from "react";
 import { router, Stack } from "expo-router";
 import { Platform } from "react-native";
 import { WebView } from "react-native-webview";
-import { useUser, setToken } from "../state";
+import { useUser, setToken, useIsSwedish } from "../state";
 import { rpcClient } from "../clients/rpc";
 import LoadingSpinner from "../components/LoadingSpinner";
 
@@ -12,6 +12,9 @@ const loginStartUrl =
         : "https://www.syntax-error.se/api/discord";
 
 export default function Auth() {
+    // Need for the titles.
+    const swede = useIsSwedish();
+
     // If the user is logged in, unauthenticate and go back.
     const user = useUser();
     const wvRef = React.useRef<WebView>(null);
@@ -40,7 +43,7 @@ export default function Auth() {
 
     // Initially, show a loading screen.
     if (!initialUrl) {
-        return <LoadingSpinner />;
+        return <LoadingSpinner title={swede ? "Logga in" : "Login"} />;
     }
 
     // Return the webview with a callback to handle the login.
@@ -63,7 +66,12 @@ export default function Auth() {
     };
     return (
         <>
-            <Stack.Screen options={{ headerShown: false }} />
+            <Stack.Screen
+                options={{
+                    headerShown: false,
+                    title: swede ? "Logga in" : "Login",
+                }}
+            />
             <WebView
                 originWhitelist={["*"]}
                 source={{ uri: initialUrl }}

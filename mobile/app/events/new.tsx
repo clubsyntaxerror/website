@@ -6,6 +6,7 @@ import { useIsSwedish } from "../../state";
 export default function NewEvent() {
     const swede = useIsSwedish();
 
+    // TODO: Implement
     return (
         <Container title={swede ? "Ny Händelse" : "New Event"}>
             <Text>New event page</Text>

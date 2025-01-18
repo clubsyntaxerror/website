@@ -7,6 +7,18 @@ import * as Notifications from "expo-notifications";
 
 export type User = typeof schema.crewUsers.$inferSelect;
 
+function buildSetUpdatePattern<T>(getter: () => T, cbSet: Set<() => void>) {
+    return () =>
+        React.useSyncExternalStore(
+            (subscriber) => {
+                cbSet.add(subscriber);
+                return () => cbSet.delete(subscriber);
+            },
+            getter,
+            getter,
+        );
+}
+
 let user: User | null = null;
 let userSubscribers = new Set<() => void>();
 
@@ -45,16 +57,7 @@ export function setToken(token: string | null) {
     });
 }
 
-export function useUser() {
-    return React.useSyncExternalStore(
-        (subscriber) => {
-            userSubscribers.add(subscriber);
-            return () => userSubscribers.delete(subscriber);
-        },
-        () => user,
-        () => user,
-    );
-}
+export const useUser = buildSetUpdatePattern(() => user, userSubscribers);
 
 export function useIsSwedish() {
     const locales = useLocales();
@@ -78,7 +81,9 @@ const deviceIdSubscribers = new Set<() => void>();
         const pushToken = await Notifications.getExpoPushTokenAsync();
 
         // Get the server to generate a device ID for us.
-        deviceId = await rpcClient.generateDeviceId.mutate({ pushToken: pushToken.data });
+        deviceId = await rpcClient.generateDeviceId.mutate({
+            pushToken: pushToken.data,
+        });
         await AsyncStorage.setItem("deviceId", deviceId!);
 
         // Since this is the initial setup, request permission to send push notifications.
@@ -91,16 +96,10 @@ const deviceIdSubscribers = new Set<() => void>();
     console.error("Failed to get device ID", error);
 });
 
-export function useDeviceID() {
-    return React.useSyncExternalStore(
-        (subscriber) => {
-            deviceIdSubscribers.add(subscriber);
-            return () => deviceIdSubscribers.delete(subscriber);
-        },
-        () => deviceId,
-        () => deviceId,
-    );
-}
+export const useDeviceID = buildSetUpdatePattern(
+    () => deviceId,
+    deviceIdSubscribers,
+);
 
 export function DeviceIDUpdater() {
     const swede = useIsSwedish();

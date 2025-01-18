@@ -28,7 +28,7 @@ export default function Events() {
     }
 
     if (isLoading) {
-        return <LoadingSpinner />;
+        return <LoadingSpinner title={swede ? "Händelser" : "Events"} />;
     }
 
     return (

@@ -1,37 +1,41 @@
 import React from "react";
-import { Button, ScrollView, View, Text } from "react-native";
-import { router } from "expo-router";
-import Container from "../../components/Container";
-import withDeviceID from "../../components/withDeviceID";
-import LoadingSpinner from "../../components/LoadingSpinner";
+import { View, Text } from "react-native";
 import { useIsSwedish } from "../../state";
-import Error from "../../components/Error";
-import ReportCard from "../../components/ReportCard";
+import withDeviceID from "../../components/withDeviceID";
 import { rpcReact } from "../../clients/rpc";
+import Error from "../../components/Error";
+import Container from "../../components/Container";
+import LoadingSpinner from "../../components/LoadingSpinner";
+import ReportCard from "../../components/ReportCard";
 import FontAwesome from "@expo/vector-icons/FontAwesome";
 
-function Inbox({ deviceId, swede }: { deviceId: string; swede: boolean }) {
+function ResolvedReports({ deviceId }: { deviceId: string }) {
+    const swede = useIsSwedish();
     const { data, isLoading, isError } = rpcReact.getSafetyInbox.useQuery({
         deviceId,
-        resolved: false,
+        resolved: true,
     });
 
     if (isLoading)
         return (
             <LoadingSpinner
-                title={swede ? "Säkerhetsposter" : "Safety Reports"}
+                title={
+                    swede ? "Lösta säkerhetsposter" : "Resolved Safety Reports"
+                }
             />
         );
     if (isError)
         return (
             <Error
-                engError="Failed to load safety inbox"
-                sveError="Kunde inte ladda in säkerhetsposten"
+                engError="Failed to load resolved safety reports"
+                sveError="Kunde inte ladda in lösta säkerhetsposter"
             />
         );
 
     return (
-        <ScrollView style={{ marginTop: 30 }}>
+        <Container
+            title={swede ? "Lösta säkerhetsposter" : "Resolved Safety Reports"}
+        >
             {data?.length ? (
                 data.map((report) => (
                     <ReportCard
@@ -57,30 +61,8 @@ function Inbox({ deviceId, swede }: { deviceId: string; swede: boolean }) {
                     </Text>
                 </View>
             )}
-            <Button
-                title={
-                    swede
-                        ? "Visa lösta säkerhetsposter"
-                        : "View Resolved Reports"
-                }
-                onPress={() => router.push("/safety/resolved")}
-            />
-        </ScrollView>
-    );
-}
-
-const WrappedInbox = withDeviceID(Inbox);
-
-export default function Safety() {
-    const swede = useIsSwedish();
-
-    return (
-        <Container title={swede ? "Säkerhet" : "Safety"}>
-            <Button
-                title={swede ? "Ny Säkerhetspost" : "New Safety Report"}
-                onPress={() => router.push("/safety/new")}
-            />
-            <WrappedInbox swede={swede} />
         </Container>
     );
 }
+
+export default withDeviceID(ResolvedReports);
