@@ -1,7 +1,7 @@
 import React from "react";
 import { Button, FlatList } from "react-native";
 import { router } from "expo-router";
-import { useUser, useIsSwedish } from "../../state";
+import { userAtom, useIsSwedish } from "../../state";
 import { rpcReact } from "../../clients/rpc";
 import LoadingSpinner from "../../components/LoadingSpinner";
 import Error from "../../components/Error";
@@ -9,7 +9,7 @@ import Container from "../../components/Container";
 import EventCard from "../../components/EventCard";
 
 export default function Events() {
-    const user = useUser();
+    const user = userAtom.use();
     const { data, isError, isLoading } = rpcReact.getEvents.useQuery(
         undefined,
         {

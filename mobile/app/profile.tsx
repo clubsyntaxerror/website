@@ -4,7 +4,7 @@ import { Button, View, Text, ScrollView } from "react-native";
 import type { schema } from "database";
 import { z } from "zod";
 import { rpcClient, rpcReact } from "../clients/rpc";
-import { updateUserKey, useIsSwedish, useUser } from "../state";
+import { updateUserKey, useIsSwedish, userAtom } from "../state";
 import Container from "../components/Container";
 import StateFlusher from "../components/StateFlusher";
 import Textbox from "../components/Textbox";
@@ -211,7 +211,7 @@ function Editor({ user }: { user: typeof schema.crewUsers.$inferSelect }) {
 
 export default function Profile() {
     // We need the user to edit it!
-    const user = useUser();
+    const user = userAtom.use();
 
     // Handle if the user isn't logged in. This is a very weird case, but just in case.
     React.useEffect(() => {

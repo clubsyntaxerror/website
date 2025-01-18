@@ -2,7 +2,7 @@ import React from "react";
 import { router, Stack } from "expo-router";
 import { Platform } from "react-native";
 import { WebView } from "react-native-webview";
-import { useUser, setToken, useIsSwedish } from "../state";
+import { userAtom, setToken, useIsSwedish } from "../state";
 import { rpcClient } from "../clients/rpc";
 import LoadingSpinner from "../components/LoadingSpinner";
 
@@ -16,7 +16,7 @@ export default function Auth() {
     const swede = useIsSwedish();
 
     // If the user is logged in, unauthenticate and go back.
-    const user = useUser();
+    const user = userAtom.use();
     const wvRef = React.useRef<WebView>(null);
 
     // Defines the initial URL for the webview.

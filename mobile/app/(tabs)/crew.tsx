@@ -1,7 +1,7 @@
 import React from "react";
 import { Button, FlatList, Text } from "react-native";
 import Container from "../../components/Container";
-import { useIsSwedish, useUser } from "../../state";
+import { useIsSwedish, userAtom } from "../../state";
 import { Link, router } from "expo-router";
 import { rpcReact } from "../../clients/rpc";
 import LoadingSpinner from "../../components/LoadingSpinner";
@@ -9,7 +9,7 @@ import Error from "../../components/Error";
 import UserCard from "../../components/UserCard";
 
 export default function Crew() {
-    const user = useUser();
+    const user = userAtom.use();
     const swede = useIsSwedish();
     const { data, isLoading, isError } = rpcReact.getCrew.useQuery(undefined, {
         staleTime: 120000,
