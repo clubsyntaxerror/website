@@ -62,12 +62,20 @@ export default function Links() {
                     <img src="/social/youtube.svg" aria-hidden="true"></img> Watch us on YouTube
                 </Link>
                 <Link
-                    href="https://www.twitter.com/clubsyntaxerror/"
+                    href="https://bsky.app/profile/clubsyntaxerror.bsky.social"
                     target="_blank"
                     className="smallbutton"
-                    title="Follow us on Xwitter"
+                    title="Follow us on Bluesky"
                 >
-                    <img src="/social/twitter.svg" aria-hidden="true"></img> Follow us on X
+                    <img src="/social/bluesky.svg" aria-hidden="true"></img> Follow us on Bluesky
+                </Link>
+                <Link
+                    href="https://x.com/clubsyntaxerror"
+                    target="_blank"
+                    className="smallbutton"
+                    title="Follow us on X"
+                >
+                    <img src="/social/x.svg" aria-hidden="true"></img> Follow us on X
                 </Link>
                 <Link
                     href="https://github.com/clubsyntaxerror"
