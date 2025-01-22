@@ -110,7 +110,7 @@ export default function Events({ events }: { events: Event[] }) {
                                                 href={event.optionalFacebookEventUrl}
                                                 target="_blank"
                                             >
-                                                Facebook RSVP
+                                                Facebook
                                             </Link>
                                         )}
                                     </p>
@@ -134,6 +134,7 @@ export default function Events({ events }: { events: Event[] }) {
                                             alt="Location"
                                         />{" "}
                                         {event.venueName}
+                                        {eventAddress}
                                         {eventAddress && (
                                             <Link
                                                 className="underline text-xs md:text-sm ml-4 align-middle smallbutton uppercase"
@@ -142,7 +143,7 @@ export default function Events({ events }: { events: Event[] }) {
                                                 }
                                                 target="_blank"
                                             >
-                                                Get directions
+                                                Directions
                                             </Link>
                                         )}
                                     </address>
@@ -157,7 +158,7 @@ export default function Events({ events }: { events: Event[] }) {
                                         {event.optionalCoverFee ? event.optionalCoverFee + " SEK" : "N/A"}
                                         {event.optionalCallToActionTitle && event.optionalCallToActionUrl && (
                                             <Link
-                                                className="underline text-xs md:text-sm ml-4 align-middle smallbutton uppercase"
+                                                className="underline text-xs md:text-sm ml-4 align-middle smallbutton text-white uppercase"
                                                 href={event.optionalCallToActionUrl}
                                                 target="_blank"
                                             >

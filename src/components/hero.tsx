@@ -126,7 +126,7 @@ export default function Hero({ featuredEvent }: { featuredEvent: Event }) {
                                                 href={featuredEvent.optionalFacebookEventUrl}
                                                 target="_blank"
                                             >
-                                                Facebook RSVP
+                                                Facebook
                                             </Link>
                                         )}
                                     </p>
@@ -156,7 +156,7 @@ export default function Hero({ featuredEvent }: { featuredEvent: Event }) {
                                                 href={"https://maps.google.com/maps?q=" + featuredEventAddress}
                                                 target="_blank"
                                             >
-                                                Get directions
+                                                Directions
                                             </Link>
                                         )}
                                     </address>
@@ -193,21 +193,21 @@ export default function Hero({ featuredEvent }: { featuredEvent: Event }) {
                                         target="_blank"
                                         className="button cta bg-purple-800 text-white border-2"
                                     >
-                                        <img
+                                        {/* <img
                                             src="/icons/buy-ticket.png"
                                             className="inline align-text-bottom md:align-text-top"
                                             width="18"
                                             height="18"
                                             aria-hidden="true"
-                                        />{" "}
-                                        {featuredEvent.optionalCallToActionTitle}
+                                        />{" "} */}
+                                        &gt;&gt; {featuredEvent.optionalCallToActionTitle} &lt;&lt;
                                     </Link>
                                     <Link
                                         className="button more bg-black text-gray-500  border-gray-500 border-2"
                                         data-eo-form-toggle-id="2b5e1218-c793-11ef-a7c8-9d7832b0d31b"
                                         href="#"
                                     >
-                                        Remind me
+                                        Remind me!
                                     </Link>
                                 </>
                             )}
