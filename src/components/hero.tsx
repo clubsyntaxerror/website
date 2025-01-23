@@ -139,6 +139,7 @@ export default function Hero({ featuredEvent }: { featuredEvent: Event }) {
                                             alt="Time"
                                         />{" "}
                                         {featuredEvent.openingHours}
+                                        {featuredEvent.optionalAgeLimit && ", " + featuredEvent.optionalAgeLimit + "+"}
                                     </p>
                                     <address className="mb-0 text-xs md:text-l not-italic">
                                         <img

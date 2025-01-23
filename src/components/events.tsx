@@ -124,6 +124,7 @@ export default function Events({ events }: { events: Event[] }) {
                                             aria-hidden="true"
                                         />{" "}
                                         {event.openingHours}
+                                        {event.optionalAgeLimit && ", " + event.optionalAgeLimit + "+"}
                                     </p>
                                     <address className="mb-0 text-xs md:text-l not-italic events">
                                         <img
