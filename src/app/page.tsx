@@ -16,7 +16,7 @@ export default async function Home() {
 
     return (
         <main className="flex min-h-screen flex-col items-center justify-between">
-            <Hero featuredEvent={events[0]} />
+            <Hero featuredEvent={events.filter((event) => !event.optionalHideFromHero)[0]} />
             <section id="events" className="p-6 md:pt-12 w-full md:w-2/3">
                 <Events events={events.slice(0, 6)} />
             </section>

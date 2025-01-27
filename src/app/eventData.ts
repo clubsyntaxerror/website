@@ -29,6 +29,7 @@ export type Event = {
     optionalVenueStreetAddress: string | undefined;
     optionalFacebookEventUrl: string | undefined;
     optionalAgeLimit: string | undefined;
+    optionalHideFromHero: boolean | undefined;
 };
 
 export const getEvents = cache(async () => {
@@ -86,6 +87,7 @@ export const getEvents = cache(async () => {
                         optionalVenueStreetAddress: event[8] as string | undefined,
                         optionalFacebookEventUrl: event[9] as string | undefined,
                         optionalAgeLimit: event[10] as string | undefined,
+                        optionalHideFromHero: event[11] as boolean | undefined,
                     }) satisfies Event,
             );
         }
