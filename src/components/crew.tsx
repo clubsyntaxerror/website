@@ -41,9 +41,9 @@ export default function Crew() {
         <div className={`grid ${desktop ? "grid-cols-5" : "grid-cols-1"} gap-x-4`}>
             <Category
                 name="Crew"
-                members="Ventura, Fastbom, Weyland, Kim, MissStabby, Jor-el, Njursten, Toolsmonkey, A3M1N, Fetish23"
+                members="Ventura, Fastbom, Weyland, Ookamineko, MissStabby, Jor-el, Njursten, Toolsmonkey, A3M1N, Fetish23"
             />
-            <Category name="DJs" members="Ventura, Fastbom, Weyland, Kim, MissStabby, Jor-el" />
+            <Category name="DJs" members="Ventura, Fastbom, Weyland, Ookamineko, MissStabby, Jor-el" />
             <Category name="VJs" members="Weyland, Fastbom, MissStabby, Fetish23" />
             <Category name="Board" members="Ventura (chairman), Weyland (treasurer), MissStabby, Jor-el, Fastbom" />
             <Category
