@@ -154,7 +154,7 @@ export default function Hero({ featuredEvent }: { featuredEvent: Event }) {
                                             ? featuredEvent.optionalCoverFee + " SEK"
                                             : "free to attend"}
                                     </p>
-                                    <p className="mb-0 text-xs  md:text-l">
+                                    <p className="mb-0 text-xs  md:text-l mt-4">
                                         {featuredEventAddress && (
                                             <Link
                                                 className="underline text-xs md:text-sm align-middle smallbutton uppercase text-pu"
