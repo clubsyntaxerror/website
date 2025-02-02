@@ -78,8 +78,17 @@ legend {
 }
 
 .smallbutton:hover {
-    color: black;
-    background-color: white;
+    color: black !important;
+    background-color: white !important;
+    transform: rotate(0) !important;
+}
+
+.smallbutton.cta {
+    border: 2px solid white;
+    color: white;
+    background-color: #6b21a8;
+    transform: rotate(3deg);
+    transition: transform 0.2s;
 }
 
 .button.more {

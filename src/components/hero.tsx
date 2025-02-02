@@ -120,15 +120,6 @@ export default function Hero({ featuredEvent }: { featuredEvent: Event }) {
                                             alt="Date"
                                         />{" "}
                                         {featuredEvent.longDate}
-                                        {featuredEvent.optionalFacebookEventUrl && (
-                                            <Link
-                                                className="underline text-xs md:text-sm ml-4 align-middle smallbutton uppercase text-pu"
-                                                href={featuredEvent.optionalFacebookEventUrl}
-                                                target="_blank"
-                                            >
-                                                Facebook
-                                            </Link>
-                                        )}
                                     </p>
                                     <p className="mb-0 text-xs md:text-l pb-1">
                                         <img
@@ -150,16 +141,6 @@ export default function Hero({ featuredEvent }: { featuredEvent: Event }) {
                                             alt="Location"
                                         />{" "}
                                         {featuredEvent.venueName}
-                                        {featuredEventAddress}
-                                        {featuredEventAddress && (
-                                            <Link
-                                                className="underline text-xs md:text-sm ml-4 align-middle smallbutton uppercase text-pu"
-                                                href={"https://maps.google.com/maps?q=" + featuredEventAddress}
-                                                target="_blank"
-                                            >
-                                                Directions
-                                            </Link>
-                                        )}
                                     </address>
                                     <p className="mb-0 text-xs  md:text-l">
                                         <img
@@ -172,16 +153,26 @@ export default function Hero({ featuredEvent }: { featuredEvent: Event }) {
                                         {featuredEvent.optionalCoverFee
                                             ? featuredEvent.optionalCoverFee + " SEK"
                                             : "free to attend"}
-                                        {featuredEvent.optionalCallToActionTitle &&
-                                            featuredEvent.optionalCallToActionUrl && (
-                                                <Link
-                                                    className="underline text-xs md:text-sm ml-4 align-middle smallbutton uppercase"
-                                                    href={featuredEvent.optionalCallToActionUrl}
-                                                    target="_blank"
-                                                >
-                                                    {featuredEvent.optionalCallToActionTitle}
-                                                </Link>
-                                            )}
+                                    </p>
+                                    <p className="mb-0 text-xs  md:text-l">
+                                        {featuredEventAddress && (
+                                            <Link
+                                                className="underline text-xs md:text-sm align-middle smallbutton uppercase text-pu"
+                                                href={"https://maps.google.com/maps?q=" + featuredEventAddress}
+                                                target="_blank"
+                                            >
+                                                Directions
+                                            </Link>
+                                        )}
+                                        {featuredEvent.optionalFacebookEventUrl && (
+                                            <Link
+                                                className="underline text-xs md:text-sm ml-4 align-middle smallbutton uppercase text-pu"
+                                                href={featuredEvent.optionalFacebookEventUrl}
+                                                target="_blank"
+                                            >
+                                                Facebook
+                                            </Link>
+                                        )}
                                     </p>
                                 </div>
                             </div>
@@ -194,13 +185,6 @@ export default function Hero({ featuredEvent }: { featuredEvent: Event }) {
                                         target="_blank"
                                         className="button cta bg-purple-800 text-white border-2"
                                     >
-                                        {/* <img
-                                            src="/icons/buy-ticket.png"
-                                            className="inline align-text-bottom md:align-text-top"
-                                            width="18"
-                                            height="18"
-                                            aria-hidden="true"
-                                        />{" "} */}
                                         &gt;&gt; {featuredEvent.optionalCallToActionTitle} &lt;&lt;
                                     </Link>
                                     <Link

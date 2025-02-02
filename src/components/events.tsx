@@ -104,15 +104,6 @@ export default function Events({ events }: { events: Event[] }) {
                                             aria-hidden="true"
                                         />{" "}
                                         {event.longDate}
-                                        {event.optionalFacebookEventUrl && (
-                                            <Link
-                                                className="underline text-xs md:text-sm ml-4 align-middle smallbutton uppercase text-pu"
-                                                href={event.optionalFacebookEventUrl}
-                                                target="_blank"
-                                            >
-                                                Facebook
-                                            </Link>
-                                        )}
                                     </p>
                                     <p className="mb-0 text-xs md:text-l pb-1">
                                         <img
@@ -135,18 +126,6 @@ export default function Events({ events }: { events: Event[] }) {
                                             alt="Location"
                                         />{" "}
                                         {event.venueName}
-                                        {eventAddress}
-                                        {eventAddress && (
-                                            <Link
-                                                className="underline text-xs md:text-sm ml-4 align-middle smallbutton uppercase"
-                                                href={
-                                                    "https://maps.google.com/maps?q=" + encodeURIComponent(eventAddress)
-                                                }
-                                                target="_blank"
-                                            >
-                                                Directions
-                                            </Link>
-                                        )}
                                     </address>
                                     <p className="mb-0 text-xs  md:text-l">
                                         <img
@@ -157,13 +136,35 @@ export default function Events({ events }: { events: Event[] }) {
                                             alt="Tickets"
                                         />{" "}
                                         {event.optionalCoverFee ? event.optionalCoverFee + " SEK" : "N/A"}
+                                    </p>
+                                    <p className="mb-0 text-xs md:text-l mt-4">
                                         {event.optionalCallToActionTitle && event.optionalCallToActionUrl && (
                                             <Link
-                                                className="underline text-xs md:text-sm ml-4 align-middle smallbutton text-white uppercase"
+                                                className="underline text-xs md:text-sm align-middle smallbutton cta mr-4 text-white uppercase"
                                                 href={event.optionalCallToActionUrl}
                                                 target="_blank"
                                             >
                                                 {event.optionalCallToActionTitle}
+                                            </Link>
+                                        )}
+                                        {eventAddress && (
+                                            <Link
+                                                className="underline text-xs md:text-sm align-middle smallbutton mr-4 uppercase"
+                                                href={
+                                                    "https://maps.google.com/maps?q=" + encodeURIComponent(eventAddress)
+                                                }
+                                                target="_blank"
+                                            >
+                                                Directions
+                                            </Link>
+                                        )}
+                                        {event.optionalFacebookEventUrl && (
+                                            <Link
+                                                className="underline text-xs md:text-sm align-middle smallbutton mr-4 uppercase text-pu"
+                                                href={event.optionalFacebookEventUrl}
+                                                target="_blank"
+                                            >
+                                                Facebook
                                             </Link>
                                         )}
                                     </p>
