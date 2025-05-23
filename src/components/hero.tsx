@@ -192,7 +192,7 @@ export default function Hero({ featuredEvent }: { featuredEvent: Event }) {
                                         data-eo-form-toggle-id="2b5e1218-c793-11ef-a7c8-9d7832b0d31b"
                                         href="#"
                                     >
-                                        Remind me!
+                                        Newsletter
                                     </Link>
                                 </>
                             )}
@@ -210,7 +210,7 @@ export default function Hero({ featuredEvent }: { featuredEvent: Event }) {
                                             height="18"
                                             aria-hidden="true"
                                         />{" "}
-                                        Remind me!
+                                        Newsletter
                                     </Link>
                                 </>
                             )}
