@@ -56,11 +56,11 @@ export default async function Home() {
                     This is a list of awesome artists that has played at our clubs or concerts in the past.
                 </p>
                 <p className="rainbow_text_animated">
-                    047, Algar, Blastromen, Bossfight, Boy vs Bacteria, Brandon Walsh, Chipzel, Cyanide Dansen, Dubmood,
-                    Dunderpatrullen, DJ Diskmachine, FantomenK, Fastbom, Goto80, Hello World, Instant Remedy, Irving
-                    Force, Jeroen Tel, Maktone, MegaNeko, Moogen, Ninjaspark, Nordloef, Powerplay, RoccoW, Rymdkraft,
-                    SabrePulse, Savlonic, Shirobon, Starchild, Tekmann, Thermostatic, Ultrasyd, USK, Wiklund, Zabutom,
-                    Zalza
+                    047, Algar, Bitvortex, Blastromen, Bossfight, Boy vs Bacteria, Brandon Walsh, Chipzel, Cyanide
+                    Dansen, Dual Core, Dubmood, Dunderpatrullen, DJ Diskmachine, FantomenK, Fastbom, FsFreak, Goto80,
+                    Hello World, Instant Remedy, Irving Force, Jeroen Tel, laamaa, Lizard King, Maktone, MegaNeko,
+                    Moogen, Ninjaspark, Nordloef, Powerplay, RoccoW, Rymdkraft, SabrePulse, Savlonic, Shirobon,
+                    Starchild, Tekmann, Thermostatic, Ultrasyd, USK, Wiklund, Zabutom, Zalza
                 </p>
             </section>
             <section className="p-6 w-full md:w-2/3">
