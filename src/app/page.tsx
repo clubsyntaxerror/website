@@ -36,10 +36,10 @@ export default async function Home() {
                 </div>
             </section>
             <section>
-                <h2 className="text-white text-center my-4">Don't go alone</h2>
+                <h2 className="text-white text-center my-4">Between events</h2>
                 <div className="w-full text-center mb-4">
                     <Link href="https://discord.gg/URhqp3x" target="_blank" className="button bg-white text-black">
-                        Join our Discord server
+                        Join our Discord
                     </Link>
                 </div>
             </section>
