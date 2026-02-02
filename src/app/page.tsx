@@ -1,7 +1,9 @@
 import Link from "next/link";
 import { getEvents } from "./eventData";
+import { getVideos } from "./youtubeData";
 import Hero from "../components/hero";
 import Events from "../components/events";
+import Videos from "../components/videos";
 import Photos from "../components/photos";
 import Crew from "../components/crew";
 import Rules from "../components/rules";
@@ -13,6 +15,7 @@ export default async function Home() {
             return event.startDate >= new Date();
         })
         .slice(0, 7);
+    const videos = await getVideos();
 
     return (
         <main className="flex min-h-screen flex-col items-center justify-between">
@@ -44,6 +47,11 @@ export default async function Home() {
                 </div>
             </section>
             <section className="p-6 md:py-12 w-full md:w-2/3">
+                <h2 className="text-white text-center mb-4">Latest videos</h2>
+                <Videos videos={videos} />
+            </section>
+            <section className="p-6 md:py-12 w-full md:w-2/3">
+                <h2 className="text-white text-center mb-4">Photo gallery</h2>
                 <Photos />
             </section>
             <section className="p-6 w-full md:w-2/3">
