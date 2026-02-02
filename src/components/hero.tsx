@@ -5,6 +5,7 @@ import Textra from "react-textra";
 import { useRef, useEffect, useState } from "react";
 import { useMediaQuery } from "./utils/hooks";
 import type { Event } from "../app/eventData";
+import Pong from "./pong";
 
 function NoMotionSocialProofs({ data }: { data: string[] }) {
     const [index, setIndex] = useState(0);
@@ -108,9 +109,8 @@ export default function Hero({ featuredEvent }: { featuredEvent: Event }) {
                                 <p className="text-sm md:text-xl text-left text-gray-500">
                                     {featuredEvent.eventDescription}
                                 </p>
-                                <div className="text-left text-gray-500 relative">
-                                    <div className="ping hero"></div>
-                                    <div className="ball -ml-12"></div>
+                                <div className="text-left text-gray-500 relative pl-6">
+                                    <Pong />
                                     <p className="mb-0 text-xs md:text-l pb-1">
                                         <img
                                             src="/icons/date.png"

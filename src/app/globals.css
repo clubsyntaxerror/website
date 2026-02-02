@@ -198,10 +198,6 @@ legend {
     animation: ping 6s infinite linear;
 }
 
-.ping.hero {
-    margin-left: -24px;
-}
-
 @media (prefers-reduced-motion: reduce) {
     .ping,
     .ball {
@@ -286,7 +282,7 @@ legend {
 
     24.9% {
         top: 85%;
-        left: 8%;
+        left: 4px;
         opacity: 1;
     }
 
@@ -304,7 +300,7 @@ legend {
 
     58.1% {
         top: 55%;
-        left: 8%;
+        left: 4px;
         opacity: 1;
     }
 
@@ -322,7 +318,7 @@ legend {
 
     91.3% {
         top: 22%;
-        left: 8%;
+        left: 4px;
         opacity: 1;
     }
 

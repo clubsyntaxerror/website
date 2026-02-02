@@ -5,6 +5,7 @@ import Link from "next/link";
 import { useMediaQuery } from "./utils/hooks";
 import Collapse from "./utils/Collapse";
 import type { Event } from "../app/eventData";
+import Pong from "./pong";
 
 type KeyAlignerProps = {
     rootRef: React.RefObject<HTMLDivElement | null>;
@@ -93,8 +94,7 @@ export default function Events({ events }: { events: Event[] }) {
                             <Collapse expanded={expanded === index || !!desktop} id={collapsableId} className="my-2">
                                 <p>{event.eventDescription}</p>
                                 <div className="pl-6 relative">
-                                    <div className="ping"></div>
-                                    <div className="ball -ml-12"></div>
+                                    <Pong />
                                     <p className="mb-0 text-xs md:text-l pb-1" aria-hidden="true">
                                         <img
                                             src="/icons/date.png"
