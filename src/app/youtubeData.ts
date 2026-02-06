@@ -35,7 +35,8 @@ export const getVideos = cache(async (): Promise<Video[]> => {
             return items.map((item) => ({
                 id: item.snippet?.resourceId?.videoId || "",
                 title: item.snippet?.title || "",
-                thumbnail: item.snippet?.thumbnails?.maxres?.url ||
+                thumbnail:
+                    item.snippet?.thumbnails?.maxres?.url ||
                     item.snippet?.thumbnails?.high?.url ||
                     item.snippet?.thumbnails?.medium?.url ||
                     "",
