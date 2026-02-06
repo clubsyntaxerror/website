@@ -1,5 +1,7 @@
 "use client";
 
+import './pong.css';
+
 export default function Pong() {
     return (
         <div className="absolute left-0 top-0 h-full w-36 pointer-events-none">
