@@ -8,6 +8,7 @@ import Photos from "../components/photos";
 import Crew from "../components/crew";
 import Rules from "../components/rules";
 import Links from "../components/links";
+import Sponsors from "../components/sponsors";
 
 export default async function Home() {
     const events = (await getEvents())
@@ -73,6 +74,9 @@ export default async function Home() {
             </section>
             <section className="p-6 w-full md:w-2/3">
                 <Links />
+            </section>
+            <section className="p-6 w-full md:w-2/3">
+                <Sponsors />
             </section>
             <footer className="p-6 w-full md:w-2/3">
                 <img src="/images/invader-dance.gif" className="motion-reduce:hidden" aria-hidden={true} />
