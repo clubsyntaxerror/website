@@ -10,7 +10,7 @@ const sponsors = [
 
 export default function Sponsors() {
     return (
-        <>
+        <section className="p-6 w-full md:w-2/3">
             <h2 className="text-white text-center mb-4">Our sponsors</h2>
             <div className="flex flex-wrap justify-center items-center gap-6 p-6">
                 {sponsors.map((sponsor) => (
@@ -30,6 +30,6 @@ export default function Sponsors() {
                     </Link>
                 ))}
             </div>
-        </>
+        </section>
     );
 }

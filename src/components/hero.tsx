@@ -63,7 +63,7 @@ export default function Hero({ featuredEvent }: { featuredEvent: Event }) {
             {prefersReducedMotion !== false ? (
                 <img
                     src="/video-poster.jpg"
-                    className="object-cover w-full h-screen -z-10 zigzag"
+                    className="object-cover w-full h-screen h-[100dvh] -z-10 zigzag"
                     aria-hidden={true}
                     ref={bgRef}
                 />
@@ -73,7 +73,7 @@ export default function Hero({ featuredEvent }: { featuredEvent: Event }) {
                     muted
                     loop
                     playsInline
-                    className="object-cover w-full h-screen -z-10 zigzag"
+                    className="object-cover w-full h-screen h-[100dvh] -z-10 zigzag"
                     poster="/video-poster.jpg"
                     aria-hidden={true}
                     ref={bgRef}
@@ -82,7 +82,7 @@ export default function Hero({ featuredEvent }: { featuredEvent: Event }) {
                 </video>
             )}
             <section
-                className="min-h-screen w-full absolute flex flex-col justify-between items-center"
+                className="min-h-screen min-h-[100dvh] w-full absolute flex flex-col justify-between items-center"
                 ref={sectionRef}
             >
                 <aside
@@ -105,11 +105,11 @@ export default function Hero({ featuredEvent }: { featuredEvent: Event }) {
                         <div className="bg-black bg-opacity-90 p-6 w-full flex flex-col justify-around items-center">
                             <div className="md:w-2/3 flex flex-col justify-around items-center text-center">
                                 <h2 className="text-white">Next party</h2>
-                                <h1 className="rainbow_text_animated">{featuredEvent.eventName}</h1>
-                                <p className="text-sm md:text-xl text-left text-gray-500">
+                                <h1 className="rainbow_text_animated leading-tight">{featuredEvent.eventName}</h1>
+                                <p className="hidden md:block text-sm md:text-xl text-left text-gray-500">
                                     {featuredEvent.eventDescription}
                                 </p>
-                                <div className="text-left text-gray-500 relative pl-6">
+                                <div className="hidden md:block text-left text-gray-500 relative pl-6">
                                     <Pong />
                                     <p className="mb-0 text-xs md:text-l pb-1">
                                         <img
@@ -177,42 +177,30 @@ export default function Hero({ featuredEvent }: { featuredEvent: Event }) {
                                 </div>
                             </div>
                         </div>
-                        <div className="flex justify-center">
-                            {featuredEvent.optionalCallToActionTitle && featuredEvent.optionalCallToActionUrl && (
-                                <>
-                                    <Link
-                                        href={featuredEvent.optionalCallToActionUrl}
-                                        target="_blank"
-                                        className="button cta bg-purple-800 text-white border-2"
-                                    >
-                                        &gt;&gt; {featuredEvent.optionalCallToActionTitle} &lt;&lt;
-                                    </Link>
-                                    <Link
-                                        className="button more bg-black text-gray-500  border-gray-500 border-2"
-                                        data-eo-form-toggle-id="2b5e1218-c793-11ef-a7c8-9d7832b0d31b"
-                                        href="#"
-                                    >
-                                        Newsletter
-                                    </Link>
-                                </>
-                            )}
-                            {(!featuredEvent.optionalCallToActionTitle || !featuredEvent.optionalCallToActionUrl) && (
-                                <>
-                                    <Link
-                                        className="button more bg-purple-800 text-white border-2 border-white"
-                                        data-eo-form-toggle-id="2b5e1218-c793-11ef-a7c8-9d7832b0d31b"
-                                        href="#"
-                                    >
-                                        <img
-                                            src="/icons/mail.png"
-                                            className="inline align-text-bottom md:align-text-top"
-                                            width="18"
-                                            height="18"
-                                            aria-hidden="true"
-                                        />{" "}
-                                        Newsletter
-                                    </Link>
-                                </>
+                        <div className="w-full text-center">
+                            {featuredEvent.optionalCallToActionTitle && featuredEvent.optionalCallToActionUrl ? (
+                                <Link
+                                    href={featuredEvent.optionalCallToActionUrl}
+                                    target="_blank"
+                                    className="button bg-purple-800 text-white border-2"
+                                >
+                                    &gt;&gt; {featuredEvent.optionalCallToActionTitle} &lt;&lt;
+                                </Link>
+                            ) : (
+                                <Link
+                                    className="button bg-purple-800 text-white border-2 border-white"
+                                    data-eo-form-toggle-id="2b5e1218-c793-11ef-a7c8-9d7832b0d31b"
+                                    href="#"
+                                >
+                                    <img
+                                        src="/icons/mail.png"
+                                        className="inline align-text-bottom md:align-text-top"
+                                        width="18"
+                                        height="18"
+                                        aria-hidden="true"
+                                    />{" "}
+                                    Newsletter
+                                </Link>
                             )}
                         </div>
                         <img src="/down.png" className="mb-4" alt="Scroll down for more content" />

@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import type { Video } from "../app/youtubeData";
 
 export default function Videos({ videos }: { videos: Video[] }) {
@@ -11,6 +12,8 @@ export default function Videos({ videos }: { videos: Video[] }) {
     }
 
     return (
+        <section className="p-6 md:py-12 w-full md:w-2/3">
+        <h2 className="text-white text-center mb-4">Latest videos</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {videos.map((video) => (
                 <div key={video.id} className="relative">
@@ -54,5 +57,15 @@ export default function Videos({ videos }: { videos: Video[] }) {
                 </div>
             ))}
         </div>
+        <div className="w-full text-center mt-4">
+            <Link
+                href="https://www.youtube.com/channel/UCitAIsd8SDH4omDTLpf5upg"
+                target="_blank"
+                className="button bg-white text-black"
+            >
+                Watch more on YouTube
+            </Link>
+        </div>
+        </section>
     );
 }

@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import PhotoAlbum from "react-photo-album";
 
 import Lightbox from "yet-another-react-lightbox";
@@ -66,7 +67,8 @@ export default function Photos() {
     const [index, setIndex] = useState(-1);
 
     return (
-        <>
+        <section className="p-6 md:py-12 w-full md:w-2/3">
+            <h2 className="text-white text-center mb-4">Photo gallery</h2>
             <PhotoAlbum layout="rows" photos={altCtx()} onClick={({ index }) => setIndex(index)} />
 
             <Lightbox
@@ -76,6 +78,15 @@ export default function Photos() {
                 close={() => setIndex(-1)}
                 plugins={[Fullscreen, Slideshow, Thumbnails, Zoom]}
             />
-        </>
+            <div className="w-full text-center mt-4">
+                <Link
+                    href="https://www.facebook.com/clubsyntaxerror/photos"
+                    target="_blank"
+                    className="button bg-white text-black"
+                >
+                    See more on Facebook
+                </Link>
+            </div>
+        </section>
     );
 }

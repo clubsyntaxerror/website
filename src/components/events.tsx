@@ -40,12 +40,12 @@ function KeyAligner({ rootRef, alignKey, children }: KeyAlignerProps) {
 }
 
 export default function Events({ events }: { events: Event[] }) {
-    const [expanded, setExpanded] = useState(-1);
+    const [expanded, setExpanded] = useState(0);
     const desktop = useMediaQuery("(min-width: 1500px)");
 
     const rootRef = useRef<HTMLDivElement>(null);
     return (
-        <div ref={rootRef}>
+        <section id="events" className="p-6 md:pt-12 w-full md:w-2/3" ref={rootRef}>
             {events.length > 0 && <h2 className="text-center text-white mb-4">Party calendar</h2>}
             <div className={`grid ${desktop ? "grid-cols-3 gap-4" : "grid-cols-1 gap-1"}`}>
                 {events.map((event, index) => {
@@ -174,6 +174,17 @@ export default function Events({ events }: { events: Event[] }) {
                     );
                 })}
             </div>
-        </div>
+            {events.length > 0 && (
+                <div className="w-full text-center mt-4">
+                    <Link
+                        className="button bg-white text-black"
+                        data-eo-form-toggle-id="2b5e1218-c793-11ef-a7c8-9d7832b0d31b"
+                        href="#"
+                    >
+                        Party newsletter
+                    </Link>
+                </div>
+            )}
+        </section>
     );
 }

@@ -7,7 +7,7 @@ export default function Rules() {
     const desktop = useMediaQuery("(min-width: 1500px)");
 
     return (
-        <>
+        <section className="p-6 w-full md:w-2/3">
             <h2 className="text-white text-center mb-4">Our rules</h2>
             <div className={`grid ${desktop ? "grid-cols-2" : "grid-cols-1"} gap-x-8`}>
                 <div className="text-gray-500">
@@ -55,6 +55,6 @@ export default function Rules() {
                     </p>
                 </div>
             </div>
-        </>
+        </section>
     );
 }

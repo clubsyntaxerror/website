@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export default function Links() {
     return (
-        <>
+        <section className="p-6 w-full md:w-2/3">
             <h2 className="text-white text-center mb-4">Our community</h2>
             <section className="links whitespace-nowrap">
                 <Link
@@ -94,6 +94,6 @@ export default function Links() {
                     <img src="/social/google.svg" aria-hidden="true"></img> Review us on Google
                 </Link>
             </section>
-        </>
+        </section>
     );
 }

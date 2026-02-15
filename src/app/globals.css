@@ -4,12 +4,14 @@
 
 html {
     scroll-behavior: smooth;
+    overflow-x: hidden;
 }
 
 body {
     color: #ffffff;
     background: #070707;
     font-size: 1rem;
+    overflow-x: hidden;
 }
 
 h1 {
@@ -207,6 +209,10 @@ legend {
 
     .button {
         font-size: 1rem;
+        display: block;
+        width: 110vw;
+        margin-left: calc(50% - 55vw);
+        text-align: center;
     }
 
     .zigzag {
