@@ -30,8 +30,8 @@ export default async function Home() {
             <Crew />
             <Artists />
             <Links />
-            <Sponsors />
             <Footer />
+            <Sponsors />
             <Rules />
         </main>
     );
