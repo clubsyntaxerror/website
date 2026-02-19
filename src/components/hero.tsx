@@ -185,7 +185,7 @@ export default function Hero({ featuredEvent }: { featuredEvent: Event }) {
                                 </div>
                             </div>
                         </div>
-                        <div className="w-full text-center">
+                        <div className="w-full text-center mb-6 md:mb-12">
                             {featuredEvent.optionalCallToActionTitle && featuredEvent.optionalCallToActionUrl ? (
                                 <Link
                                     href={featuredEvent.optionalCallToActionUrl}
@@ -197,8 +197,7 @@ export default function Hero({ featuredEvent }: { featuredEvent: Event }) {
                             ) : (
                                 <Link
                                     className="button bg-purple-800 text-white border-2 border-white"
-                                    data-eo-form-toggle-id="2b5e1218-c793-11ef-a7c8-9d7832b0d31b"
-                                    href="#"
+                                    href="/newsletter"
                                 >
                                     <img
                                         src="/icons/mail.png"

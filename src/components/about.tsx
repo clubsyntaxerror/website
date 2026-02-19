@@ -3,7 +3,7 @@ import Link from "next/link";
 export default function About() {
     return (
         <>
-            <section className="w-full rainbow_bg_animated text-black flex flex-col md:items-center smallzigzag">
+            <section className="w-full rainbow_bg_animated text-black flex flex-col md:items-center smallzigzag my-12 md:my-24">
                 <div className="p-6 md:py-12 md:w-2/3 md:text-xl">
                     <h2 className="text-black text-center mb-4">About us</h2>
                     <p>
@@ -17,10 +17,8 @@ export default function About() {
                         hiding in the back room playing Magic or any of our other board games all night.
                     </p>
                 </div>
-            </section>
-            <section>
-                <div className="w-full text-center mb-4">
-                    <Link href="https://discord.gg/URhqp3x" target="_blank" className="button bg-white text-black">
+                <div className="w-full text-center mt-0 mb-6 md:mb-12">
+                    <Link href="https://discord.gg/URhqp3x" target="_blank" className="button bg-black text-white">
                         Join our Discord
                     </Link>
                 </div>

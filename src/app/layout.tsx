@@ -38,11 +38,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                 <Nav />
                 {children}
                 <Analytics />
-                <script
-                    async
-                    src="https://eocampaign1.com/form/2b5e1218-c793-11ef-a7c8-9d7832b0d31b.js"
-                    data-form="2b5e1218-c793-11ef-a7c8-9d7832b0d31b"
-                ></script>
             </body>
         </html>
     );

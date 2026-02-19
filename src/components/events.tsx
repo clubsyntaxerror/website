@@ -137,7 +137,7 @@ export default function Events({ events }: { events: Event[] }) {
                                         />{" "}
                                         {event.optionalCoverFee ? event.optionalCoverFee + " SEK" : "N/A"}
                                     </p>
-                                    <p className="mb-0 text-xs md:text-l mt-4">
+                                    <p className="mb-4 text-xs md:text-l mt-4">
                                         {event.optionalCallToActionTitle && event.optionalCallToActionUrl && (
                                             <Link
                                                 className="underline text-xs md:text-sm align-middle smallbutton cta mr-4 text-white uppercase"
@@ -178,8 +178,7 @@ export default function Events({ events }: { events: Event[] }) {
                 <div className="w-full text-center mt-4">
                     <Link
                         className="button bg-white text-black"
-                        data-eo-form-toggle-id="2b5e1218-c793-11ef-a7c8-9d7832b0d31b"
-                        href="#"
+                        href="/newsletter"
                     >
                         Party newsletter
                     </Link>
