@@ -85,6 +85,20 @@ legend {
     transform: rotate(0) !important;
 }
 
+.navlink {
+    color: white;
+    padding: 0.3rem 1.2rem;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 1.5rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+}
+
+.navlink:hover {
+    color: #aaaaaa;
+}
+
 .smallbutton.cta {
     border: 2px solid white;
     color: white;
@@ -358,6 +372,10 @@ legend {
 }
 
 @media screen and (max-width: 640px) {
+    .navlink {
+        font-size: 1rem;
+    }
+
     h1 {
         font-size: 2.4rem;
         margin: 1rem 0rem;

@@ -23,6 +23,10 @@ export default function Footer() {
                 </Link>{" "}
                 for questions, ideas, corporate and co-op events
             </p>
+            <p className="text-gray-500 text-center mt-2">
+                <Link href="/about" className="smallbutton mr-2">About</Link>
+                <Link href="/faq" className="smallbutton">FAQ</Link>
+            </p>
         </footer>
     );
 }

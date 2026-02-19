@@ -1,6 +1,7 @@
 import "./globals.css";
 import localFont from "next/font/local";
 import { Analytics } from "@vercel/analytics/react";
+import Nav from "../components/nav";
 
 const microKnight = localFont({ src: "../fonts/microknight.woff2", variable: "--font-microknight", display: "swap" });
 
@@ -34,6 +35,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     return (
         <html lang="en">
             <body className={microKnight.className}>
+                <Nav />
                 {children}
                 <Analytics />
                 <script
