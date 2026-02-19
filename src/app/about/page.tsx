@@ -77,11 +77,8 @@ export default function AboutPage() {
                         </p>
                         <p>
                             We take pride in being an inclusive space. Everyone is welcome regardless of gender, sexual
-                            orientation, ethnicity, or religion. Our dedicated crew enforces a strict{" "}
-                            <Link href="/#rules" className="smallbutton">
-                                Code of Conduct
-                            </Link>{" "}
-                            to make sure every guest feels safe and respected.
+                            orientation, ethnicity, or religion. Our dedicated crew enforces a strict Code of Conduct to
+                            make sure every guest feels safe and respected.
                         </p>
                     </div>
                 </section>
@@ -127,9 +124,15 @@ export default function AboutPage() {
                             growing: more video games, lasers, epic performers like Dubmood and FantomenK, and the
                             beloved annual Halloween costume party. Collaborations followed with SEC-T, Gamer's Night,
                             Kodachicon and KarateGamers, and the club even rented the ballroom-like Bryggarsalen for a
-                            Halloween special.
+                            Halloween special. A lot of new members joined the crew as well.
                         </p>
-                        <h3>Version 4.0 - 2025</h3>
+                        <h3>Version 4.0 - 2020</h3>
+                        <p>
+                            In 2020 the COVID-19 pandemic forced the club to shut down for the first time in its
+                            history. The crew used the time to build a new website, start a Twitch channel, build a VR
+                            chat copy of the nightclub and host online events to keep the community together.
+                        </p>
+                        <h3>Version 5.0 - 2025</h3>
                         <p>
                             In 2025 we sent our our first ever annual survey to get feedback from our guests and learn
                             how to make the club even better. The response was overwhelming and we got tons of great

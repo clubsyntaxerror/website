@@ -14,5 +14,5 @@ export default function NewsletterForm() {
         return () => { script.remove(); };
     }, []);
 
-    return <div id="emailoctopus-form-container" />;
+    return <div id="emailoctopus-form-container" className="flex flex-col items-center" />;
 }
