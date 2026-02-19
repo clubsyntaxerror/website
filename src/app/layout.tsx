@@ -5,17 +5,21 @@ import { Analytics } from "@vercel/analytics/react";
 const microKnight = localFont({ src: "../fonts/microknight.woff2", variable: "--font-microknight", display: "swap" });
 
 export const metadata = {
+    metadataBase: new URL("https://www.syntax-error.se"),
     title: "Club Syntax Error - Stockholm's Video Game Nightclub",
     description:
         "Dance the night away to video game music and play brand-new or retro video games – all in our uniquely warm and accepting atmosphere.",
+    alternates: {
+        canonical: "https://www.syntax-error.se",
+    },
     openGraph: {
         title: "Club Syntax Error - Stockholm's Video Game Nightclub",
         description:
             "Dance the night away to video game music and play brand-new or retro video games – all in our uniquely warm and accepting atmosphere.",
-        url: "https://syntax-error.se",
+        url: "https://www.syntax-error.se",
         images: [
             {
-                url: "https://syntax-error.se/video-poster.jpg",
+                url: "https://www.syntax-error.se/video-poster.jpg",
                 width: 1920,
                 height: 1080,
             },
