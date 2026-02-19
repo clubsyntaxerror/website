@@ -27,7 +27,7 @@ export const getVideos = cache(async (): Promise<Video[]> => {
         const response = await youtube.playlistItems.list({
             part: ["snippet"],
             playlistId: UPLOADS_PLAYLIST_ID,
-            maxResults: 4,
+            maxResults: 10,
         });
 
         const items = response.data.items;

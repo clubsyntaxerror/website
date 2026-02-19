@@ -15,8 +15,8 @@ export default function Videos({ videos }: { videos: Video[] }) {
         <section className="p-6 md:py-12 w-full md:w-2/3">
         <h2 className="text-white text-center mb-4">Latest videos</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            {videos.map((video) => (
-                <div key={video.id} className="relative">
+            {videos.map((video, index) => (
+                <div key={video.id} className={`relative ${index >= 3 ? "hidden md:block" : ""}`}>
                     {expandedId === video.id ? (
                         <div className="aspect-video">
                             <iframe
