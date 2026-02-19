@@ -95,17 +95,19 @@ export default function Hero({ featuredEvent }: { featuredEvent: Event }) {
                         <Textra effect="simple" data={socialProofs} />
                     )}
                 </aside>
-                <img
-                    src="/images/logo.png"
-                    className="logo text-white mt-24 mb-12 md:mt-18"
-                    alt="Syntax Error Video Game Party & Nightclub"
-                />
+                <h1 className="contents">
+                    <img
+                        src="/images/logo.png"
+                        className="logo text-white mt-24 mb-12 md:mt-18"
+                        alt="Syntax Error Video Game Party & Nightclub"
+                    />
+                </h1>
                 {featuredEvent && (
                     <>
                         <div className="bg-black bg-opacity-90 p-6 w-full flex flex-col justify-around items-center">
                             <div className="md:w-2/3 flex flex-col justify-around items-center text-center">
-                                <h2 className="text-white">Next party</h2>
-                                <h1 className="rainbow_text_animated leading-tight">{featuredEvent.eventName}</h1>
+                                <p className="text-white">Next party</p>
+                                <h2 className="rainbow_text_animated leading-tight text-[4vw]">{featuredEvent.eventName}</h2>
                                 <p className="hidden md:block text-sm md:text-xl text-left text-gray-500">
                                     {featuredEvent.eventDescription}
                                 </p>

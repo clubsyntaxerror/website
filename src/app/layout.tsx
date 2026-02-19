@@ -13,6 +13,7 @@ export const metadata = {
         canonical: "https://www.syntax-error.se",
     },
     openGraph: {
+        siteName: "Club Syntax Error",
         title: "Club Syntax Error - Stockholm's Video Game Nightclub",
         description:
             "Dance the night away to video game music and play brand-new or retro video games – all in our uniquely warm and accepting atmosphere.",
