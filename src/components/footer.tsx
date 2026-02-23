@@ -14,18 +14,24 @@ export default function Footer() {
                     info@syntax-error.se
                 </Link>{" "}
                 or message us on our{" "}
-                <Link
-                    href="https://www.facebook.com/SyntaxErrorSthlm/"
-                    target="_blank"
-                    className="smallbutton mr-2"
-                >
+                <Link href="https://www.facebook.com/SyntaxErrorSthlm/" target="_blank" className="smallbutton mr-2">
                     Facebook Page
                 </Link>{" "}
                 for questions, ideas, corporate and co-op events
             </p>
             <p className="text-gray-500 text-center mt-2">
-                <Link href="/about" className="smallbutton mr-2">About</Link>
-                <Link href="/faq" className="smallbutton">FAQ</Link>
+                <Link href="/about" className="smallbutton mr-2">
+                    About
+                </Link>
+                <Link href="/faq" className="smallbutton mr-2">
+                    FAQ
+                </Link>
+                <Link href="/rules" className="smallbutton mr-2">
+                    Rules
+                </Link>
+                <Link href="/privacy-policy-crewapp" className="smallbutton">
+                    Privacy Policy Crewapp
+                </Link>
             </p>
         </footer>
     );

@@ -7,7 +7,6 @@ import Videos from "../components/videos";
 import Photos from "../components/photos";
 import Crew from "../components/crew";
 import Artists from "../components/artists";
-import Rules from "../components/rules";
 import Links from "../components/links";
 import Sponsors from "../components/sponsors";
 import Footer from "../components/footer";
@@ -76,7 +75,6 @@ export default async function Home() {
                 <Links />
                 <Footer />
                 <Sponsors />
-                <Rules />
             </main>
         </>
     );

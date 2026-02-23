@@ -106,6 +106,7 @@ export default function Hero({ featuredEvent }: { featuredEvent: Event }) {
                     <nav className="flex gap-2 self-end">
                         <Link href="/about" className="navlink">About</Link>
                         <Link href="/faq" className="navlink">FAQ</Link>
+                        <Link href="/rules" className="navlink">Rules</Link>
                     </nav>
                 </div>
                 {featuredEvent && (
