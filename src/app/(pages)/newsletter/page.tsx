@@ -1,6 +1,6 @@
 import { Metadata } from "next";
-import Footer from "../../components/footer";
-import NewsletterForm from "../../components/NewsletterForm";
+import Footer from "../../../components/footer";
+import NewsletterForm from "../../../components/NewsletterForm";
 
 export const metadata: Metadata = {
     title: "Party Newsletter - Club Syntax Error",
