@@ -8,12 +8,12 @@ export default function Artists() {
                     This is a list of awesome artists that has played at our clubs or concerts in the past.
                 </p>
                 <p className="rainbow_text_animated">
-                    047, Algar, Bitvortex, Blastromen, Bossfight, Boy vs Bacteria, Brandon Walsh, Chipzel, Cyanide
-                    Dansen, Dual Core, Dubmood, Dunderpatrullen, DJ Diskmachine, FantomenK, Fastbom, FsFreak, Goto80,
-                    Hello World, Instant Remedy, Irving Force, Jeroen Tel, laamaa, Lizard King, Magnavolt, Maktone,
-                    Maskinpop, MegaNeko, Moogen, Ninjaspark, Nordloef, Panther Cat Animal, Powerplay, RoccoW, Rymdkraft,
-                    SabrePulse, Savlonic, Shirobon, Starchild, Tekmann, Thermostatic, Ultrasyd, USK, Wiklund, Zabutom,
-                    Zalza
+                    047, Algar, anti Lag, Bitvortex, Blastromen, Bossfight, Boy vs Bacteria, Brandon Walsh, Chipzel,
+                    Cyanide Dansen, Dual Core, Dubmood, Dunderpatrullen, DJ Diskmachine, FantomenK, Fastbom, FsFreak,
+                    Goto80, Hello World, Instant Remedy, Irving Force, Jeroen Tel, laamaa, Lizard King, Magnavolt,
+                    Maktone, Maskinpop, MegaNeko, Moogen, Ninjaspark, Nordloef, Panther Cat Animal, Powerplay, RoccoW,
+                    Rymdkraft, SabrePulse, Savlonic, Shirobon, Starchild, Tekmann, Thermostatic, Ultrasyd, USK, Wiklund,
+                    Zabutom, Zalza
                 </p>
             </section>
             <section className="p-6 w-full md:w-2/3">
