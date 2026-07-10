@@ -46,7 +46,7 @@ export default function Crew() {
             />
             <Category name="DJs" members="Ventura, Fastbom, Weyland, Ookamineko, MissStabby, Jor-el, Klein64" />
             <Category name="VJs" members="Weyland, Fastbom, MissStabby, Fetish23" />
-            <Category name="Board" members="Ventura (chairman), Weyland (treasurer), MissStabby, Jor-el, Fastbom" />
+            <Category name="Board" members="Ventura (chairman), Weyland (treasurer), MissStabby, Jor-el, Ookamineko" />
             <Category
                 name="Alumni"
                 members="Jon, Matti, Lindroth, Wezz, Daniel, Nik, Whiting, Borchers, McFly, Windefalk, MrTimpi, Hakushi, Velo, Zaz, A3M1N"
