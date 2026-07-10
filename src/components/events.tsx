@@ -176,10 +176,7 @@ export default function Events({ events }: { events: Event[] }) {
             </div>
             {events.length > 0 && (
                 <div className="w-full text-center mt-4">
-                    <Link
-                        className="button bg-white text-black"
-                        href="/newsletter"
-                    >
+                    <Link className="button bg-white text-black" href="/newsletter">
                         Party newsletter
                     </Link>
                 </div>

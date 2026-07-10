@@ -11,7 +11,9 @@ export default function NewsletterForm() {
         script.setAttribute("data-form", "1590aff0-0d78-11f1-81d3-41c78b47f365");
         script.async = true;
         container.appendChild(script);
-        return () => { script.remove(); };
+        return () => {
+            script.remove();
+        };
     }, []);
 
     return <div id="emailoctopus-form-container" className="flex flex-col items-center" />;

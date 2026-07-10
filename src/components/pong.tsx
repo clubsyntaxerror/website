@@ -1,6 +1,6 @@
 "use client";
 
-import './pong.css';
+import "./pong.css";
 
 export default function Pong() {
     return (

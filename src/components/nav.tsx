@@ -7,9 +7,15 @@ export default function Nav() {
                 <img src="/images/logo.png" alt="Club Syntax Error" className="h-10" />
             </Link>
             <nav className="flex gap-4">
-                <Link href="/about" className="navlink">About</Link>
-                <Link href="/faq" className="navlink">FAQ</Link>
-                <Link href="/rules" className="navlink">Rules</Link>
+                <Link href="/about" className="navlink">
+                    About
+                </Link>
+                <Link href="/faq" className="navlink">
+                    FAQ
+                </Link>
+                <Link href="/rules" className="navlink">
+                    Rules
+                </Link>
             </nav>
         </header>
     );

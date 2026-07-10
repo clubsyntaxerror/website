@@ -11,8 +11,7 @@ export const metadata: Metadata = {
     openGraph: {
         siteName: "Club Syntax Error",
         title: "FAQ – Club Syntax Error",
-        description:
-            "Answers to common questions about Club Syntax Error – Stockholm's monthly video game nightclub.",
+        description: "Answers to common questions about Club Syntax Error – Stockholm's monthly video game nightclub.",
         url: "https://www.syntax-error.se/faq",
         images: [
             {

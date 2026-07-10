@@ -43,13 +43,13 @@ export default function CodeOfConductPage() {
                 <h3>Be respectful</h3>
                 <div className="text-gray-500">
                     <p>
-                        Syntax Error is a place where everyone is welcome, regardless of gender, sexual
-                        orientation, ethnicity, religion or favorite Star Trek captain. The only thing that is
-                        not welcome is acting disrespectful against other guests, the venue staff or the crew.
+                        Syntax Error is a place where everyone is welcome, regardless of gender, sexual orientation,
+                        ethnicity, religion or favorite Star Trek captain. The only thing that is not welcome is acting
+                        disrespectful against other guests, the venue staff or the crew.
                     </p>
                     <p>
-                        This includes all forms of unsolicited touching, grabbing, inappropriate gestures or
-                        comments or &ldquo;jokes&rdquo; at the expense of others.
+                        This includes all forms of unsolicited touching, grabbing, inappropriate gestures or comments or
+                        &ldquo;jokes&rdquo; at the expense of others.
                     </p>
                 </div>
             </section>
@@ -59,8 +59,8 @@ export default function CodeOfConductPage() {
                 <div className="text-gray-500">
                     <p>
                         If someone asks to be left alone, respect that, move along and don&apos;t take it personally.
-                        Always make sure you have consent before touching or otherwise engaging with other
-                        guests. If you&apos;re unsure, just ask, and no means no.
+                        Always make sure you have consent before touching or otherwise engaging with other guests. If
+                        you&apos;re unsure, just ask, and no means no.
                     </p>
                 </div>
             </section>
@@ -69,10 +69,9 @@ export default function CodeOfConductPage() {
                 <h3>Reach out to our crew</h3>
                 <div className="text-gray-500">
                     <p>
-                        If someone is making you feel uneasy, if you need to talk to someone confidentially or
-                        if you just want to chat, grab the closest person wearing a red Syntax Error crew
-                        t-shirt. We in the crew are dedicated to making sure everyone has a good time during our
-                        events.
+                        If someone is making you feel uneasy, if you need to talk to someone confidentially or if you
+                        just want to chat, grab the closest person wearing a red Syntax Error crew t-shirt. We in the
+                        crew are dedicated to making sure everyone has a good time during our events.
                     </p>
                     <p>
                         You can also email us at{" "}
@@ -80,17 +79,17 @@ export default function CodeOfConductPage() {
                             info@syntax-error.se
                         </Link>{" "}
                         if you need to get in contact with us and don&apos;t feel like talking to a person directly.
-                        Talking in person is however the preferred way if we need to act on another guest that
-                        is behaving inappropriately so that we can intervene immediately.
+                        Talking in person is however the preferred way if we need to act on another guest that is
+                        behaving inappropriately so that we can intervene immediately.
                     </p>
                     <p>
-                        If you can&apos;t get behind these simple rules, please refrain from visiting our events. If
-                        you purposely do not comply with the rules during an event you WILL be ejected from the
-                        venue without question.
+                        If you can&apos;t get behind these simple rules, please refrain from visiting our events. If you
+                        purposely do not comply with the rules during an event you WILL be ejected from the venue
+                        without question.
                     </p>
                     <p>
-                        With that said, we in the Syntax Error crew hope that you will have a most awesome time
-                        at our events, and if you&apos;re not, please let us know.
+                        With that said, we in the Syntax Error crew hope that you will have a most awesome time at our
+                        events, and if you&apos;re not, please let us know.
                     </p>
                 </div>
             </section>

@@ -22,11 +22,7 @@ export default function Sponsors() {
                         title={sponsor.name}
                         className="text-white hover:opacity-70 transition-opacity"
                     >
-                        <img
-                            src={sponsor.logo}
-                            alt={sponsor.name}
-                            className="h-6 md:h-8 w-auto invert"
-                        />
+                        <img src={sponsor.logo} alt={sponsor.name} className="h-6 md:h-8 w-auto invert" />
                     </Link>
                 ))}
             </div>

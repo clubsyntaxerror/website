@@ -104,9 +104,15 @@ export default function Hero({ featuredEvent }: { featuredEvent: Event }) {
                         />
                     </h1>
                     <nav className="flex gap-2 self-end">
-                        <Link href="/about" className="navlink">About</Link>
-                        <Link href="/faq" className="navlink">FAQ</Link>
-                        <Link href="/rules" className="navlink">Rules</Link>
+                        <Link href="/about" className="navlink">
+                            About
+                        </Link>
+                        <Link href="/faq" className="navlink">
+                            FAQ
+                        </Link>
+                        <Link href="/rules" className="navlink">
+                            Rules
+                        </Link>
                     </nav>
                 </div>
                 {featuredEvent && (
@@ -114,7 +120,9 @@ export default function Hero({ featuredEvent }: { featuredEvent: Event }) {
                         <div className="bg-black bg-opacity-90 p-6 w-full flex flex-col justify-around items-center">
                             <div className="md:w-2/3 flex flex-col justify-around items-center text-center">
                                 <p className="text-white">Next party</p>
-                                <h2 className="rainbow_text_animated leading-tight text-[7vw] md:text-[4vw]">{featuredEvent.eventName}</h2>
+                                <h2 className="rainbow_text_animated leading-tight text-[7vw] md:text-[4vw]">
+                                    {featuredEvent.eventName}
+                                </h2>
                                 <p className="hidden md:block text-sm md:text-xl text-left text-gray-500">
                                     {featuredEvent.eventDescription}
                                 </p>
