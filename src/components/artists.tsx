@@ -11,9 +11,9 @@ export default function Artists() {
                     047, Algar, anti Lag, Bitvortex, Blastromen, Bossfight, Boy vs Bacteria, Brandon Walsh, Chipzel,
                     Cyanide Dansen, Dual Core, Dubmood, Dunderpatrullen, DJ Diskmachine, FantomenK, Fastbom, FsFreak,
                     Goto80, Hello World, Instant Remedy, Irving Force, Jeroen Tel, laamaa, Lizard King, Magnavolt,
-                    Maktone, Maskinpop, MegaNeko, Moogen, Ninjaspark, Nordloef, Panther Cat Animal, Powerplay, RoccoW,
-                    Rymdkraft, SabrePulse, Savlonic, Shirobon, Starchild, Tekmann, Thermostatic, Ultrasyd, USK, Wiklund,
-                    Zabutom, Zalza
+                    Maktone, Maskinpop, Master Boot Record, MegaNeko, Moogen, Ninjaspark, Nordloef, Panther Cat Animal,
+                    Powerplay, RoccoW, Rymdkraft, SabrePulse, Savlonic, Shirobon, Starchild, Tekmann, Thermostatic,
+                    Ultrasyd, USK, Wiklund, Zabutom, Zalza
                 </p>
             </section>
             <section className="p-6 w-full md:w-2/3">
