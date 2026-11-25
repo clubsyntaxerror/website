@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { DISCORD_URL, intro } from "../content/site";
 
 export default function About() {
     return (
@@ -6,19 +7,12 @@ export default function About() {
             <section className="w-full rainbow_bg_animated text-black flex flex-col md:items-center smallzigzag my-12 md:my-24">
                 <div className="p-6 md:py-12 md:w-2/3 md:text-xl">
                     <h2 className="text-black text-center mb-4">About us</h2>
-                    <p>
-                        Welcome to Stockholm's monthly Video Game Party & Nightclub! Dance the night away to video game
-                        music and play brand-new or retro video games – all in our uniquely warm and accepting
-                        atmosphere.
-                    </p>
-                    <p>
-                        Syntax Error is a party and a nightclub where you'll be in good company if you enjoy playing
-                        Street Fighter or Duck Hunt, dancing to video game music, Disney classics and C64 SIDs or simply
-                        hiding in the back room playing Magic or any of our other board games all night.
-                    </p>
+                    {intro.map((paragraph) => (
+                        <p key={paragraph}>{paragraph}</p>
+                    ))}
                 </div>
                 <div className="w-full text-center mt-0 mb-6 md:mb-12">
-                    <Link href="https://discord.gg/URhqp3x" target="_blank" className="button bg-black text-white">
+                    <Link href={DISCORD_URL} target="_blank" className="button bg-black text-white">
                         Join our Discord
                     </Link>
                 </div>

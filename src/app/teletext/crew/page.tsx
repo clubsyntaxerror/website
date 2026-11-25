@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { PAGES } from "../../../themes/teletext/directory";
 import { Button, DH, Gap, TeletextPage, TitleBar } from "../../../themes/teletext/ui";
+import { Photo } from "../../../themes/teletext/photos";
 import { MERCH_URL, SPOTIFY_URL, artists, crew } from "../../../content/site";
 
 export const metadata: Metadata = {
@@ -17,7 +18,7 @@ export default function CrewPage() {
             <TitleBar bg="green" color="black">
                 CREW & ARTISTS
             </TitleBar>
-            <Gap />
+            <Photo name="crew" />
             <p>
                 Syntax Error is run by the non-profit organization Svenska Spelmusikfrämjandet whose members organize
                 all our events together with volunteers.
@@ -32,6 +33,7 @@ export default function CrewPage() {
             <DH as="h2" color="magenta">
                 ARTISTS WHO PLAYED
             </DH>
+            <Photo name="artists" />
             <p>
                 {artists.map((name, i) => (
                     <span key={name} className={`fg-${cycle[i % cycle.length]}`}>

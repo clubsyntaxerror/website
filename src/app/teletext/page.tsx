@@ -5,7 +5,12 @@ import { Countdown, Ticker } from "../../themes/teletext/client";
 import { PAGES, getUpcomingEvents, price, shortDayMonth, shortWeekday } from "../../themes/teletext/directory";
 import { Button, DH, Gap, Leader, Rule, TeletextPage } from "../../themes/teletext/ui";
 import { eventSchema } from "../../content/eventSchema";
-import { socialProofs, sponsors, tagline } from "../../content/site";
+import { socialProofQuotes, sponsors, tagline } from "../../content/site";
+
+// English only, and no emoji: teletext had neither.
+const quotes = socialProofQuotes
+    .filter((quote) => !quote.sv)
+    .map((quote) => quote.text.replace(/\s*\p{Extended_Pictographic}/gu, ""));
 
 const index = [
     { ...PAGES.parties, label: "Party calendar", color: "green" },
@@ -99,7 +104,7 @@ export default async function TeletextHome() {
 
             <Rule color="magenta" />
             <h2 className="fg-yellow">WORD ON THE STREET</h2>
-            <Ticker items={socialProofs} />
+            <Ticker items={quotes} />
             <Gap />
             <p className="fg-white">
                 SPONSORED BY{" "}

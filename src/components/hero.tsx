@@ -6,6 +6,7 @@ import { useRef, useEffect, useState } from "react";
 import { useMediaQuery } from "./utils/hooks";
 import type { Event } from "../app/eventData";
 import Pong from "./pong";
+import { socialProofs } from "../content/site";
 
 function NoMotionSocialProofs({ data }: { data: string[] }) {
     const [index, setIndex] = useState(0);
@@ -26,17 +27,6 @@ export default function Hero({ featuredEvent }: { featuredEvent: Event }) {
         : featuredEvent.venueName === "H62"
           ? ", Hornsgatan 62, 118 21 Stockholm"
           : "";
-    const socialProofs = [
-        "Ranked as the #1 activity on Moderskeppet 2024!",
-        '"Syntax Error Stockholm is worth your time. It truly is something special. 🙂"',
-        '"The atmosphere is awesome and nerdy! Play games, listen to blip blop while drinking beers and socialising."',
-        '"Very good place! Amazing crowd and friendly crew and guards in door!"',
-        '"Riktigt kul och annorlunda ställe för den som tröttnat på den gamla vanliga "krogsvängen" och gillar att träffa lite annorlunda och färgstarka människor!"',
-        '"Party! Party! On! When the chip is pulsing this club is pumping!"',
-        '"Tight knit yet open community. Best mixture of different nerd/gamer/underground subcultures or crowds."',
-        '"Machokulturen lyser med sin frånvaro, och jag älskar´t!"',
-        '"The best club for anyone who likes video games, chiptunes, nerds, board games and friendly people."',
-    ];
 
     const bgRef = useRef<any>(null); // not sure why I need to do this, future todo
     const sectionRef = useRef<HTMLDivElement | null>(null);

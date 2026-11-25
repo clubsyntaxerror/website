@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { PAGES } from "../../../themes/teletext/directory";
 import { Button, DH, Gap, Rule, TeletextPage, TitleBar } from "../../../themes/teletext/ui";
+import { Photo } from "../../../themes/teletext/photos";
 import { aboutMetadata } from "../../../content/metadata";
 import { organizationSchema } from "../../../content/organization";
 import { DISCORD_URL, EMAIL, about, intro } from "../../../content/site";
@@ -17,7 +18,7 @@ export default function AboutPage() {
             <TitleBar bg="cyan" color="black">
                 ABOUT SYNTAX ERROR
             </TitleBar>
-            <Gap />
+            <Photo name="dancefloor" />
             {[...intro, ...about.more].map((p) => (
                 <p key={p}>{p}</p>
             ))}

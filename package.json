@@ -6,7 +6,8 @@
         "build": "next build",
         "start": "next start",
         "format": "prettier --check .",
-        "format:fix": "prettier --write ."
+        "format:fix": "prettier --write .",
+        "mosaics": "node scripts/build-mosaics.mjs"
     },
     "overrides": {
         "react-smooth-collapse": {

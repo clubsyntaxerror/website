@@ -4,6 +4,7 @@ import { useState, useId } from "react";
 import Link from "next/link";
 import { useMediaQuery } from "./utils/hooks";
 import Collapse from "./utils/Collapse";
+import { MERCH_URL, crew } from "../content/site";
 
 function Category({ name, members }: { name: string; members: string }) {
     return (
@@ -40,17 +41,9 @@ export default function Crew() {
 
     const inner = (
         <div className={`grid ${desktop ? "grid-cols-5" : "grid-cols-1"} gap-x-4`}>
-            <Category
-                name="Crew"
-                members="Ventura, Fastbom, Weyland, Ookamineko, MissStabby, Jor-el, Njursten, Toolsmonkey, Fetish23, Klein64"
-            />
-            <Category name="DJs" members="Ventura, Fastbom, Weyland, Ookamineko, MissStabby, Jor-el, Klein64" />
-            <Category name="VJs" members="Weyland, Fastbom, MissStabby, Fetish23" />
-            <Category name="Board" members="Ventura (chairman), Weyland (treasurer), MissStabby, Jor-el, Ookamineko" />
-            <Category
-                name="Alumni"
-                members="Jon, Matti, Lindroth, Wezz, Daniel, Nik, Whiting, Borchers, McFly, Windefalk, MrTimpi, Hakushi, Velo, Zaz, A3M1N"
-            />
+            {crew.map((category) => (
+                <Category key={category.name} name={category.name} members={category.members} />
+            ))}
         </div>
     );
 
@@ -65,7 +58,7 @@ export default function Crew() {
 
             {desktop !== false ? inner : <CrewCollapser>{inner}</CrewCollapser>}
             <div className="w-full text-center mt-4">
-                <Link href="https://shop.syntax-error.se" target="_blank" className="button bg-white text-black">
+                <Link href={MERCH_URL} target="_blank" className="button bg-white text-black">
                     Get our merch
                 </Link>
             </div>

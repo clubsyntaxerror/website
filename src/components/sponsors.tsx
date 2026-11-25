@@ -1,12 +1,5 @@
 import Link from "next/link";
-
-const sponsors = [
-    {
-        name: "Confetti Events",
-        url: "https://confetti.events",
-        logo: "/images/sponsors/confetti-events.svg",
-    },
-];
+import { sponsors } from "../content/site";
 
 export default function Sponsors() {
     return (

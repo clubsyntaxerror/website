@@ -1,6 +1,6 @@
 /**
- * Theme-agnostic copy used by the newer themes. The classic components still carry their own
- * inline copy; if you change text here, check src/components and src/app/(pages) too.
+ * Theme-agnostic copy shared by every theme: change it here and both the classic and the
+ * teletext site pick it up.
  */
 
 export const EMAIL = "info@syntax-error.se";
@@ -77,32 +77,82 @@ export const rules = {
     ],
 };
 
-export const socialProofs = [
-    "Ranked as the #1 activity on Moderskeppet 2024!",
-    '"Syntax Error Stockholm is worth your time. It truly is something special."',
-    '"The atmosphere is awesome and nerdy! Play games, listen to blip blop while drinking beers and socialising."',
-    '"Very good place! Amazing crowd and friendly crew and guards in door!"',
-    '"Party! Party! On! When the chip is pulsing this club is pumping!"',
-    '"Tight knit yet open community. Best mixture of different nerd/gamer/underground subcultures or crowds."',
-    '"The best club for anyone who likes video games, chiptunes, nerds, board games and friendly people."',
+/** Guest quotes. `sv` marks the Swedish ones, which the English-only themes skip. */
+export const socialProofQuotes: { text: string; sv?: true }[] = [
+    { text: "Ranked as the #1 activity on Moderskeppet 2024!" },
+    { text: '"Syntax Error Stockholm is worth your time. It truly is something special. 🙂"' },
+    {
+        text: '"The atmosphere is awesome and nerdy! Play games, listen to blip blop while drinking beers and socialising."',
+    },
+    { text: '"Very good place! Amazing crowd and friendly crew and guards in door!"' },
+    {
+        text: '"Riktigt kul och annorlunda ställe för den som tröttnat på den gamla vanliga "krogsvängen" och gillar att träffa lite annorlunda och färgstarka människor!"',
+        sv: true,
+    },
+    { text: '"Party! Party! On! When the chip is pulsing this club is pumping!"' },
+    {
+        text: '"Tight knit yet open community. Best mixture of different nerd/gamer/underground subcultures or crowds."',
+    },
+    { text: '"Machokulturen lyser med sin frånvaro, och jag älskar´t!"', sv: true },
+    {
+        text: '"The best club for anyone who likes video games, chiptunes, nerds, board games and friendly people."',
+    },
 ];
 
+export const socialProofs = socialProofQuotes.map((quote) => quote.text);
+
 export const portals = [
-    { href: DISCORD_URL, label: "Discord", text: "Join our Discord server" },
-    { href: MERCH_URL, label: "Merch", text: "Buy our merchandise" },
-    { href: "https://g.page/r/CVTC7Oz0rQTWEBM", label: "Google", text: "Review us on Google" },
-    { href: "https://www.facebook.com/clubsyntaxerror/", label: "Facebook", text: "Follow us on Facebook" },
-    { href: "https://www.instagram.com/clubsyntaxerror/", label: "Instagram", text: "Follow us on Instagram" },
-    { href: "https://tiktok.com/@clubsyntaxerror", label: "TikTok", text: "Follow us on TikTok" },
-    { href: "https://www.twitch.tv/clubsyntaxerror/videos/", label: "Twitch", text: "Watch us on Twitch" },
+    { href: DISCORD_URL, label: "Discord", icon: "/social/discord.svg", text: "Join our Discord server" },
+    { href: MERCH_URL, label: "Merch", icon: "/social/spreadshirt.svg", text: "Buy our merchandise" },
+    {
+        href: "https://g.page/r/CVTC7Oz0rQTWEBM",
+        label: "Google",
+        icon: "/social/google.svg",
+        text: "Review us on Google",
+    },
+    {
+        href: "https://www.facebook.com/clubsyntaxerror/",
+        label: "Facebook",
+        icon: "/social/facebook.svg",
+        text: "Follow us on Facebook",
+    },
+    {
+        href: "https://tiktok.com/@clubsyntaxerror",
+        label: "TikTok",
+        icon: "/social/tiktok.svg",
+        text: "Follow us on TikTok",
+    },
+    {
+        href: "https://www.instagram.com/clubsyntaxerror/",
+        label: "Instagram",
+        icon: "/social/instagram.svg",
+        text: "Follow us on Instagram",
+    },
+    {
+        href: "https://www.twitch.tv/clubsyntaxerror/videos/",
+        label: "Twitch",
+        icon: "/social/twitch.svg",
+        text: "Watch us on Twitch",
+    },
     {
         href: "https://www.youtube.com/channel/UCitAIsd8SDH4omDTLpf5upg",
         label: "YouTube",
+        icon: "/social/youtube.svg",
         text: "Watch us on YouTube",
     },
-    { href: "https://bsky.app/profile/clubsyntaxerror.bsky.social", label: "Bluesky", text: "Follow us on Bluesky" },
-    { href: "https://x.com/clubsyntaxerror", label: "X", text: "Follow us on X" },
-    { href: "https://github.com/clubsyntaxerror", label: "GitHub", text: "Code with us on GitHub" },
+    {
+        href: "https://bsky.app/profile/clubsyntaxerror.bsky.social",
+        label: "Bluesky",
+        icon: "/social/bluesky.svg",
+        text: "Follow us on Bluesky",
+    },
+    { href: "https://x.com/clubsyntaxerror", label: "X", icon: "/social/x.svg", text: "Follow us on X" },
+    {
+        href: "https://github.com/clubsyntaxerror",
+        label: "GitHub",
+        icon: "/social/github.svg",
+        text: "Code with us on GitHub",
+    },
 ];
 
 export const crew = [
@@ -170,4 +220,6 @@ export const artists = [
     "Zalza",
 ];
 
-export const sponsors = [{ name: "Confetti Events", url: "https://confetti.events" }];
+export const sponsors = [
+    { name: "Confetti Events", url: "https://confetti.events", logo: "/images/sponsors/confetti-events.svg" },
+];
