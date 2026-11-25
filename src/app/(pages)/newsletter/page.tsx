@@ -1,30 +1,9 @@
 import { Metadata } from "next";
+import { newsletterMetadata } from "../../../content/metadata";
 import Footer from "../../../components/footer";
 import NewsletterForm from "../../../components/NewsletterForm";
 
-export const metadata: Metadata = {
-    title: "Party Newsletter - Club Syntax Error",
-    description: "Sign up for the Club Syntax Error party newsletter and be the first to know about upcoming events.",
-    alternates: {
-        canonical: "https://www.syntax-error.se/newsletter",
-    },
-    openGraph: {
-        siteName: "Club Syntax Error",
-        title: "Party Newsletter - Club Syntax Error",
-        description:
-            "Sign up for the Club Syntax Error party newsletter and be the first to know about upcoming events.",
-        url: "https://www.syntax-error.se/newsletter",
-        images: [
-            {
-                url: "https://www.syntax-error.se/video-poster.jpg",
-                width: 1920,
-                height: 1080,
-            },
-        ],
-        locale: "en_US",
-        type: "website",
-    },
-};
+export const metadata: Metadata = newsletterMetadata;
 
 export default function NewsletterPage() {
     return (

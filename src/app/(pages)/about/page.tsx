@@ -1,53 +1,10 @@
 import { Metadata } from "next";
+import { aboutMetadata } from "../../../content/metadata";
+import { organizationSchema } from "../../../content/organization";
 import Link from "next/link";
 import Footer from "../../../components/footer";
 
-export const metadata: Metadata = {
-    title: "About – Club Syntax Error",
-    description:
-        "Learn about Club Syntax Error – Stockholm's monthly video game nightclub run by the non-profit Svenska Spelmusikfrämjandet since 2002. Find out how to get involved.",
-    alternates: {
-        canonical: "https://www.syntax-error.se/about",
-    },
-    openGraph: {
-        siteName: "Club Syntax Error",
-        title: "About – Club Syntax Error",
-        description:
-            "Learn about Club Syntax Error – Stockholm's monthly video game nightclub run by the non-profit Svenska Spelmusikfrämjandet since 2002.",
-        url: "https://www.syntax-error.se/about",
-        images: [
-            {
-                url: "https://www.syntax-error.se/video-poster.jpg",
-                width: 1920,
-                height: 1080,
-            },
-        ],
-        locale: "en_US",
-        type: "website",
-    },
-};
-
-const organizationSchema = {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    name: "Club Syntax Error",
-    alternateName: "Syntax Error",
-    url: "https://www.syntax-error.se",
-    logo: "https://www.syntax-error.se/images/logo.png",
-    description:
-        "Stockholm's monthly video game nightclub featuring gaming, board games, live music, and cosplay in a warm and accepting atmosphere. Run by the non-profit Svenska Spelmusikfrämjandet.",
-    sameAs: [
-        "https://www.facebook.com/clubsyntaxerror/",
-        "https://www.instagram.com/clubsyntaxerror/",
-        "https://tiktok.com/@clubsyntaxerror",
-        "https://www.twitch.tv/clubsyntaxerror/videos/",
-        "https://www.youtube.com/channel/UCitAIsd8SDH4omDTLpf5upg",
-        "https://bsky.app/profile/clubsyntaxerror.bsky.social",
-        "https://x.com/clubsyntaxerror",
-        "https://github.com/clubsyntaxerror",
-        "https://discord.gg/URhqp3x",
-    ],
-};
+export const metadata: Metadata = aboutMetadata;
 
 export default function AboutPage() {
     return (

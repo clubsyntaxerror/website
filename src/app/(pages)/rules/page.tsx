@@ -1,31 +1,9 @@
 import { Metadata } from "next";
+import { rulesMetadata } from "../../../content/metadata";
 import Link from "next/link";
 import Footer from "../../../components/footer";
 
-export const metadata: Metadata = {
-    title: "Rules – Club Syntax Error",
-    description:
-        "Club Syntax Error's Code of Conduct. Everyone is welcome at our events – read our guidelines for a safe and respectful experience for all guests.",
-    alternates: {
-        canonical: "https://www.syntax-error.se/rules",
-    },
-    openGraph: {
-        siteName: "Club Syntax Error",
-        title: "Rules – Club Syntax Error",
-        description:
-            "Club Syntax Error's Code of Conduct. Everyone is welcome at our events – read our guidelines for a safe and respectful experience for all guests.",
-        url: "https://www.syntax-error.se/rules",
-        images: [
-            {
-                url: "https://www.syntax-error.se/video-poster.jpg",
-                width: 1920,
-                height: 1080,
-            },
-        ],
-        locale: "en_US",
-        type: "website",
-    },
-};
+export const metadata: Metadata = rulesMetadata;
 
 export default function CodeOfConductPage() {
     return (
