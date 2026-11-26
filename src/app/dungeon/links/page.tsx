@@ -7,7 +7,7 @@ import { portals } from "../../../content/site";
 export const metadata: Metadata = {
     title: "Warp Zone – Club Syntax Error",
     description: "Find Club Syntax Error on Discord, YouTube, Twitch, Instagram and more.",
-    alternates: { canonical: "https://www.syntax-error.se/links" },
+    alternates: { canonical: "https://www.syntax-error.se/dungeon/links" },
 };
 
 const colors: ColorName[] = ["lightGreen", "cyan", "yellow", "lightRed"];

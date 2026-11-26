@@ -4,6 +4,7 @@ import { logoBanner } from "../../themes/adventure/banner";
 import { Boot, Countdown, Rumours } from "../../themes/adventure/client";
 import { HEX } from "../../themes/adventure/palette";
 import { Button, Facts, Heading, Room } from "../../themes/adventure/ui";
+import { ROOMS } from "../../themes/adventure/rooms";
 import { getQuests, nextQuest, price, shortDayMonth, shortWeekday } from "../../themes/adventure/world";
 import { eventSchema } from "../../content/eventSchema";
 import { socialProofQuotes, sponsors, tagline } from "../../content/site";
@@ -80,7 +81,7 @@ export default async function Entrance() {
                 <section>
                     <Heading color="lightGreen">NO QUESTS POSTED</Heading>
                     <p>New quests are announced by raven first.</p>
-                    <Button href="/newsletter">&gt; VISIT THE RAVEN ROOST</Button>
+                    <Button href={ROOMS.ravens.href}>&gt; VISIT THE RAVEN ROOST</Button>
                 </section>
             )}
 

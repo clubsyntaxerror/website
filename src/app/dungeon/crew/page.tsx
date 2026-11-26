@@ -7,7 +7,7 @@ import { MERCH_URL, SPOTIFY_URL, artists, crew } from "../../../content/site";
 export const metadata: Metadata = {
     title: "Crew & Artists – Club Syntax Error",
     description: "The volunteer crew behind Club Syntax Error and the artists who have played our clubs and concerts.",
-    alternates: { canonical: "https://www.syntax-error.se/crew" },
+    alternates: { canonical: "https://www.syntax-error.se/dungeon/crew" },
 };
 
 /** Every crew role gets an RPG class. */

@@ -1,18 +1,14 @@
 import { MetadataRoute } from "next";
-import { getConfiguredTheme } from "../themes/config";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-    const themePages: MetadataRoute.Sitemap =
-        getConfiguredTheme() === "adventure"
-            ? ["parties", "links", "crew"].map((page) => ({
-                  url: `https://www.syntax-error.se/${page}`,
-                  lastModified: new Date(),
-                  changeFrequency: page === "parties" ? "weekly" : "monthly",
-                  priority: page === "parties" ? 0.9 : 0.5,
-              }))
-            : [];
+    const dungeonPages: MetadataRoute.Sitemap = ["", "/parties", "/crew", "/links"].map((page) => ({
+        url: `https://www.syntax-error.se/dungeon${page}`,
+        lastModified: new Date(),
+        changeFrequency: page === "/parties" ? "weekly" : "monthly",
+        priority: 0.4,
+    }));
     return [
-        ...themePages,
+        ...dungeonPages,
         {
             url: "https://www.syntax-error.se",
             lastModified: new Date(),

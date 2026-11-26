@@ -1,13 +1,14 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Button, Room } from "../../../themes/adventure/ui";
+import { ROOMS } from "../../../themes/adventure/rooms";
 import { getQuests, price } from "../../../themes/adventure/world";
 import { eventSchema } from "../../../content/eventSchema";
 
 export const metadata: Metadata = {
     title: "Party Calendar – Club Syntax Error",
     description: "Upcoming Club Syntax Error parties in Stockholm: dates, venues, entry prices and tickets.",
-    alternates: { canonical: "https://www.syntax-error.se/parties" },
+    alternates: { canonical: "https://www.syntax-error.se/dungeon/parties" },
 };
 
 export default async function QuestBoard() {
@@ -43,7 +44,7 @@ export default async function QuestBoard() {
                 </ol>
             )}
             <p className="fg-lightBlue">Type READ and a number, or tap a scroll.</p>
-            <Button href="/newsletter" bg="grey" color="white">
+            <Button href={ROOMS.ravens.href} bg="grey" color="white">
                 &gt; NEVER MISS A QUEST: RAVEN ROOST
             </Button>
         </Room>

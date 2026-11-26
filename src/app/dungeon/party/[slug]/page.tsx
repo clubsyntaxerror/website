@@ -41,7 +41,7 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
     return {
         title: `${event.eventName} – ${event.longDate} – Club Syntax Error`,
         description: event.eventDescription,
-        alternates: { canonical: `https://www.syntax-error.se/party/${slug}` },
+        alternates: { canonical: `https://www.syntax-error.se/dungeon/party/${slug}` },
     };
 }
 

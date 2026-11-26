@@ -5,6 +5,10 @@ import type { ColorName } from "./palette";
  * the middle. Plain data, safe to import from both server and client components.
  */
 
+/** The dungeon lives under this sub-path; the rest of the site is the classic one. */
+export const BASE = "/dungeon";
+export const QUEST_PREFIX = `${BASE}/party/`;
+
 export type RoomId = "entrance" | "quests" | "oracle" | "guards" | "archive" | "guild" | "ravens" | "warp" | "dance";
 export type Direction = "north" | "south" | "east" | "west";
 
@@ -26,7 +30,7 @@ export const ROOMS: Record<RoomId, Room> = {
     entrance: {
         name: "The Entrance Hall",
         label: "ENTRANCE",
-        href: "/",
+        href: BASE,
         aliases: ["entrance", "hall", "entrance hall", "home", "index", "start", "lobby", "main"],
         wall: "lightBlue",
         features: "",
@@ -36,7 +40,7 @@ export const ROOMS: Record<RoomId, Room> = {
     quests: {
         name: "The Quest Board",
         label: "QUESTS",
-        href: "/parties",
+        href: `${BASE}/parties`,
         aliases: ["quests", "quest board", "board", "parties", "calendar", "events", "dates", "schedule"],
         wall: "green",
         features: "????",
@@ -46,7 +50,7 @@ export const ROOMS: Record<RoomId, Room> = {
     oracle: {
         name: "The Oracle",
         label: "ORACLE",
-        href: "/faq",
+        href: `${BASE}/faq`,
         aliases: ["oracle", "faq", "questions", "sage"],
         wall: "purple",
         features: "&",
@@ -56,7 +60,7 @@ export const ROOMS: Record<RoomId, Room> = {
     guards: {
         name: "The Guard Post",
         label: "GUARDS",
-        href: "/rules",
+        href: `${BASE}/rules`,
         aliases: ["guards", "guard", "guard post", "rules", "code", "code of conduct", "conduct", "bouncer"],
         wall: "red",
         features: "G",
@@ -66,7 +70,7 @@ export const ROOMS: Record<RoomId, Room> = {
     archive: {
         name: "The Archives",
         label: "ARCHIVES",
-        href: "/about",
+        href: `${BASE}/about`,
         aliases: ["archives", "archive", "about", "history", "library", "lore", "chronicles"],
         wall: "orange",
         features: "==",
@@ -76,7 +80,7 @@ export const ROOMS: Record<RoomId, Room> = {
     guild: {
         name: "The Guild Hall",
         label: "GUILD",
-        href: "/crew",
+        href: `${BASE}/crew`,
         aliases: ["guild", "guild hall", "crew", "artists", "djs", "members", "heroes"],
         wall: "yellow",
         features: "hhh",
@@ -86,7 +90,7 @@ export const ROOMS: Record<RoomId, Room> = {
     ravens: {
         name: "The Raven Roost",
         label: "RAVENS",
-        href: "/newsletter",
+        href: `${BASE}/newsletter`,
         aliases: ["ravens", "raven", "roost", "raven roost", "newsletter", "mail", "news", "subscribe"],
         wall: "grey",
         features: "vvv",
@@ -96,7 +100,7 @@ export const ROOMS: Record<RoomId, Room> = {
     warp: {
         name: "The Warp Zone",
         label: "WARP",
-        href: "/links",
+        href: `${BASE}/links`,
         aliases: ["warp", "warp zone", "links", "portals", "social", "socials", "discord", "youtube"],
         wall: "cyan",
         features: "^^",
@@ -106,7 +110,7 @@ export const ROOMS: Record<RoomId, Room> = {
     dance: {
         name: "The Dance Floor",
         label: "DANCE",
-        href: "/parties",
+        href: `${BASE}/parties`,
         aliases: ["dance floor", "dance", "dancefloor", "floor", "next", "next party", "next quest", "party"],
         wall: "lightRed",
         features: "*:*",
@@ -146,9 +150,9 @@ export function roomHref(id: RoomId, danceHref: string) {
     return id === "dance" ? danceHref : ROOMS[id].href;
 }
 
-/** Which room a public URL belongs to. Party pages are scrolls on the quest board, the next one is the dance floor. */
+/** Which room a URL belongs to. Party pages are scrolls on the quest board, the next one is the dance floor. */
 export function roomForPath(pathname: string, nextSlug?: string): RoomId {
-    if (pathname.startsWith("/party/")) return pathname === `/party/${nextSlug}` ? "dance" : "quests";
+    if (pathname.startsWith(QUEST_PREFIX)) return pathname === `${QUEST_PREFIX}${nextSlug}` ? "dance" : "quests";
     for (const id of Object.keys(ROOMS) as RoomId[]) if (id !== "dance" && ROOMS[id].href === pathname) return id;
     return "entrance";
 }

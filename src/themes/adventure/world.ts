@@ -1,6 +1,7 @@
 import { cache } from "react";
 import { getEvents, type Event } from "../../app/eventData";
 import type { QuestSummary, World } from "./client";
+import { QUEST_PREFIX, ROOMS } from "./rooms";
 
 /** Parties are "quests", numbered 1, 2, 3... in date order. */
 export const MAX_LISTED_QUESTS = 9;
@@ -23,7 +24,7 @@ export const getQuests = cache(async (): Promise<Quest[]> => {
         .slice(0, MAX_LISTED_QUESTS)
         .map((event, i) => {
             const slug = eventSlug(event);
-            return { ...event, number: i + 1, slug, href: `/party/${slug}` };
+            return { ...event, number: i + 1, slug, href: `${QUEST_PREFIX}${slug}` };
         });
 });
 
@@ -50,7 +51,7 @@ export const getWorld = cache(async (): Promise<World> => {
             }),
         ),
         nextSlug: next?.slug,
-        danceHref: next?.href ?? "/parties",
+        danceHref: next?.href ?? ROOMS.quests.href,
     };
 });
 

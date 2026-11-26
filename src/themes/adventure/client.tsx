@@ -13,7 +13,16 @@ import {
     type KeyboardEvent as ReactKeyboardEvent,
     type ReactNode,
 } from "react";
-import { ROOMS, YEAR_FOUNDED, exitsOf, roomForPath, roomHref, type Direction, type RoomId } from "./rooms";
+import {
+    QUEST_PREFIX,
+    ROOMS,
+    YEAR_FOUNDED,
+    exitsOf,
+    roomForPath,
+    roomHref,
+    type Direction,
+    type RoomId,
+} from "./rooms";
 
 export type QuestSummary = {
     number: number;
@@ -178,7 +187,7 @@ export function interpret(raw: string, room: RoomId, world: World, pathname: str
         case "buy":
         case "take":
         case "book": {
-            const slug = pathname.startsWith("/party/") ? pathname.slice("/party/".length) : world.nextSlug;
+            const slug = pathname.startsWith(QUEST_PREFIX) ? pathname.slice(QUEST_PREFIX.length) : world.nextSlug;
             const quest = world.quests.find((q) => q.slug === slug);
             if (!quest) return { lines: ["There is no quest to take right now."] };
             if (!quest.ticket)
@@ -337,7 +346,7 @@ export function Console() {
     };
 
     const next = world.quests.find((q) => q.slug === world.nextSlug);
-    const onQuest = pathname.startsWith("/party/");
+    const onQuest = pathname.startsWith(QUEST_PREFIX);
     const chips = [
         ...exitsOf(room).map((e) => ({
             label: `${e.direction[0].toUpperCase()}:${ROOMS[e.room].label}`,
