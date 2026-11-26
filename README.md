@@ -33,10 +33,12 @@ Icons for hero are 18x18px IOS 17 filled white from icons8.com
 The site can be fronted by a theme without touching the original ("classic") pages in `src/app/page.tsx` and `src/app/(pages)/`.
 `src/middleware.ts` rewrites the public URLs to `src/app/<theme>/…` for the active theme (see `src/themes/config.ts`).
 
-- Default theme: `teletext` (Text-TV style, 40 columns, page numbers, Fastext buttons).
+- Default theme: `adventure` (a C64 dungeon crawler: every page is a room on a map, with a command line at the bottom).
 - Switch everyone back to the old site: set `SITE_THEME=classic` (e.g. in Vercel) and redeploy.
-- Preview a theme in your own browser: add `?theme=classic` or `?theme=teletext` to any URL; `?theme=reset` clears it.
+- Preview a theme in your own browser: add `?theme=classic` or `?theme=adventure` to any URL; `?theme=reset` clears it.
 
-Teletext pages: 100 index, 200 parties (201+ each upcoming party, at `/party/YYYY-MM-DD`), 300 about, 400 FAQ, 500 rules, 600 newsletter, 700 links, 800 crew & artists.
-Party banners are generated from the events sheet; words like Halloween, Xmas, Pride, Release or Arcade in the name or description steer the art.
+Adventure rooms: entrance hall `/`, quest board `/parties` (each upcoming party at `/party/YYYY-MM-DD`), oracle `/faq`, guard post `/rules`, archives `/about`, guild hall `/crew`, raven roost `/newsletter`, warp zone `/links`; the dance floor is the next party.
+Type HELP on the site for the commands (N/S/E/W, GO ORACLE, QUESTS, READ 1, TICKET, ASK AGE LIMIT, ...).
+Party banners are generated from the events sheet; words like Adventure, Halloween, Xmas, Pride, Release or Arcade in the name or description steer the art.
+Photos are converted to C64 colours by `npm run photos` (see `scripts/build-photos.mjs`); the output in `public/adventure/` is committed.
 Shared copy lives in `src/content/`.

@@ -10,10 +10,10 @@
  *   ?theme=classic       (query string)            -> sticky preview via cookie
  *   ?theme=reset                                   -> drop the preview cookie
  */
-export const THEMES = ["teletext", "classic"] as const;
+export const THEMES = ["adventure", "classic"] as const;
 export type Theme = (typeof THEMES)[number];
 
-export const DEFAULT_THEME: Theme = "teletext";
+export const DEFAULT_THEME: Theme = "adventure";
 export const THEME_COOKIE = "site-theme";
 
 export function parseTheme(value: string | null | undefined): Theme | undefined {
@@ -26,7 +26,7 @@ export function getConfiguredTheme(): Theme {
 
 /** Public paths a theme renders itself. Anything not listed falls through to the classic routes. */
 export const THEME_ROUTES: Record<Exclude<Theme, "classic">, RegExp[]> = {
-    teletext: [/^\/$/, /^\/(about|faq|rules|newsletter|parties|links|crew)$/, /^\/party\/[\w-]+$/],
+    adventure: [/^\/$/, /^\/(about|faq|rules|newsletter|parties|links|crew)$/, /^\/party\/[\w-]+$/],
 };
 
 /** Paths that only exist in a non-classic theme; classic visitors are sent home instead of a 404. */

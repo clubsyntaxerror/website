@@ -1,6 +1,6 @@
 /**
  * Theme-agnostic copy shared by every theme: change it here and both the classic and the
- * teletext site pick it up.
+ * adventure site pick it up.
  */
 
 export const EMAIL = "info@syntax-error.se";

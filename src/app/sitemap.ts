@@ -3,7 +3,7 @@ import { getConfiguredTheme } from "../themes/config";
 
 export default function sitemap(): MetadataRoute.Sitemap {
     const themePages: MetadataRoute.Sitemap =
-        getConfiguredTheme() === "teletext"
+        getConfiguredTheme() === "adventure"
             ? ["parties", "links", "crew"].map((page) => ({
                   url: `https://www.syntax-error.se/${page}`,
                   lastModified: new Date(),

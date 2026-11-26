@@ -1,0 +1,583 @@
+/*
+ * Adventure theme: a C64 dungeon crawler.
+ * Light blue border, blue screen, an 8x8 pixel font and the sixteen C64 colours.
+ * Phones get ~28 columns of text; the map and art always span 40.
+ */
+
+.adv {
+    --c-black: #000000;
+    --c-white: #ffffff;
+    --c-red: #813338;
+    --c-cyan: #75cec8;
+    --c-purple: #8e3c97;
+    --c-green: #56ac4d;
+    --c-blue: #2e2c9b;
+    --c-yellow: #edf171;
+    --c-orange: #8e5029;
+    --c-brown: #553800;
+    --c-lightRed: #c46c71;
+    --c-darkGrey: #4a4a4a;
+    --c-grey: #7b7b7b;
+    --c-lightGreen: #a9ff9f;
+    --c-lightBlue: #706deb;
+    --c-lightGrey: #b2b2b2;
+
+    --fs: clamp(11px, calc((100vw - 40px) / 28), 16px);
+    --border: 8px;
+
+    min-height: 100dvh;
+    padding: var(--border);
+    background: var(--c-lightBlue);
+    color: var(--c-lightGrey);
+    font-family: var(--font-adventure), monospace;
+    font-size: var(--fs);
+    line-height: 1.75;
+    -webkit-font-smoothing: none;
+    font-smooth: never;
+    text-rendering: optimizeSpeed;
+}
+
+html:has(.adv),
+body:has(.adv) {
+    background: var(--c-lightBlue);
+    /* The global overflow-x: hidden would break position: sticky for the console. */
+    overflow-x: clip;
+}
+
+.adv :where(h1, h2, h3, p, ul, ol, dl, dd, figure) {
+    margin: 0;
+    padding: 0;
+    font-size: inherit;
+    font-weight: inherit;
+    line-height: inherit;
+    letter-spacing: normal;
+    text-transform: none;
+}
+
+.adv :where(ul, ol) {
+    list-style: none;
+}
+
+.adv :where(a) {
+    color: var(--c-lightGreen);
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 3px;
+}
+
+.adv :where(a:hover) {
+    background: var(--c-lightGreen);
+    color: var(--c-blue);
+    text-decoration: none;
+}
+
+.adv :focus-visible {
+    outline: 3px solid var(--c-yellow);
+    outline-offset: 2px;
+}
+
+.adv ::selection {
+    background: var(--c-lightBlue);
+    color: var(--c-white);
+}
+
+/* Colours */
+.adv .fg-black {
+    color: var(--c-black);
+}
+.adv .fg-white {
+    color: var(--c-white);
+}
+.adv .fg-red {
+    color: var(--c-red);
+}
+.adv .fg-cyan {
+    color: var(--c-cyan);
+}
+.adv .fg-purple {
+    color: var(--c-purple);
+}
+.adv .fg-green {
+    color: var(--c-green);
+}
+.adv .fg-blue {
+    color: var(--c-blue);
+}
+.adv .fg-yellow {
+    color: var(--c-yellow);
+}
+.adv .fg-orange {
+    color: var(--c-orange);
+}
+.adv .fg-brown {
+    color: var(--c-brown);
+}
+.adv .fg-lightRed {
+    color: var(--c-lightRed);
+}
+.adv .fg-darkGrey {
+    color: var(--c-darkGrey);
+}
+.adv .fg-grey {
+    color: var(--c-grey);
+}
+.adv .fg-lightGreen {
+    color: var(--c-lightGreen);
+}
+.adv .fg-lightBlue {
+    color: var(--c-lightBlue);
+}
+.adv .fg-lightGrey {
+    color: var(--c-lightGrey);
+}
+.adv .bg-black {
+    background: var(--c-black);
+}
+.adv .bg-white {
+    background: var(--c-white);
+}
+.adv .bg-red {
+    background: var(--c-red);
+}
+.adv .bg-cyan {
+    background: var(--c-cyan);
+}
+.adv .bg-purple {
+    background: var(--c-purple);
+}
+.adv .bg-green {
+    background: var(--c-green);
+}
+.adv .bg-blue {
+    background: var(--c-blue);
+}
+.adv .bg-yellow {
+    background: var(--c-yellow);
+}
+.adv .bg-orange {
+    background: var(--c-orange);
+}
+.adv .bg-brown {
+    background: var(--c-brown);
+}
+.adv .bg-lightRed {
+    background: var(--c-lightRed);
+}
+.adv .bg-darkGrey {
+    background: var(--c-darkGrey);
+}
+.adv .bg-grey {
+    background: var(--c-grey);
+}
+.adv .bg-lightGreen {
+    background: var(--c-lightGreen);
+}
+.adv .bg-lightBlue {
+    background: var(--c-lightBlue);
+}
+.adv .bg-lightGrey {
+    background: var(--c-lightGrey);
+}
+
+/* The screen */
+.adv-screen {
+    position: relative;
+    max-width: calc(42 * var(--fs) + 2em);
+    min-height: calc(100dvh - 2 * var(--border));
+    margin: 0 auto;
+    padding: 1em 1em 0;
+    background: var(--c-blue);
+    display: flex;
+    flex-direction: column;
+}
+
+.adv-screen > * + * {
+    margin-top: 1.5em;
+}
+
+.adv-screen > #adv-top + * {
+    margin-top: 0;
+}
+
+.adv-sr {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+}
+
+.adv-title {
+    background: var(--c-lightBlue);
+    color: var(--c-white);
+    padding: 0.25em 0.5em;
+    line-height: 1.5;
+}
+
+.adv-heading {
+    line-height: 1.5;
+}
+
+.adv-heading::before {
+    content: "* ";
+}
+
+.adv-desc {
+    color: var(--c-white);
+}
+
+.adv-main {
+    flex: 1;
+}
+
+.adv-main > * + * {
+    margin-top: 1.5em;
+}
+
+.adv-main p + p {
+    margin-top: 1em;
+}
+
+/* Block graphics and photos */
+.adv-art {
+    display: block;
+    width: 100%;
+    height: auto;
+    shape-rendering: crispEdges;
+}
+
+.adv-photo {
+    display: block;
+    width: 100%;
+    height: auto;
+    image-rendering: pixelated;
+}
+
+/* The map: 40 square character cells across, whatever the width. */
+.adv-map {
+    position: relative;
+    container-type: inline-size;
+    font-size: 2.5cqw;
+    line-height: 1;
+    user-select: none;
+}
+
+.adv-map-row {
+    display: flex;
+    height: 2.5cqw;
+}
+
+.adv-map-row > span {
+    width: 2.5cqw;
+    text-align: center;
+}
+
+.adv-map-room {
+    position: absolute;
+    display: block;
+}
+
+.adv .adv-map-room:hover {
+    background: none;
+    box-shadow: inset 0 0 0 2px var(--c-white);
+}
+
+.adv-exits ul {
+    margin-top: 0.5em;
+}
+
+.adv-exits a {
+    text-decoration: none;
+}
+
+.adv-footer {
+    color: var(--c-lightBlue);
+    padding-bottom: 1em;
+}
+
+.adv-footer a {
+    color: var(--c-lightBlue);
+}
+
+/* Buttons and facts */
+.adv .adv-btn {
+    display: block;
+    padding: 0.75em 1em;
+    text-align: center;
+    text-decoration: none;
+    line-height: 1.5;
+}
+
+.adv .adv-btn:hover {
+    filter: brightness(1.15);
+}
+
+.adv .adv-btn + .adv-btn {
+    margin-top: 0.75em;
+}
+
+.adv-facts > div {
+    display: grid;
+    grid-template-columns: 7em 1fr;
+    gap: 0 1em;
+}
+
+.adv-facts > div + div {
+    margin-top: 0.5em;
+}
+
+.adv-facts dd {
+    color: var(--c-white);
+}
+
+/* Quest list and FAQ scrolls */
+.adv-quests li + li {
+    margin-top: 1em;
+}
+
+.adv-quests a {
+    display: grid;
+    grid-template-columns: 2.5em 1fr;
+    text-decoration: none;
+    color: var(--c-white);
+}
+
+.adv-quests a:hover .adv-quest-name {
+    text-decoration: underline;
+}
+
+.adv-scroll + .adv-scroll {
+    margin-top: 1em;
+}
+
+.adv-scroll summary {
+    display: grid;
+    grid-template-columns: 3.5em 1fr;
+    cursor: pointer;
+    color: var(--c-white);
+    list-style: none;
+}
+
+.adv-scroll summary::-webkit-details-marker {
+    display: none;
+}
+
+.adv-scroll[open] summary {
+    color: var(--c-yellow);
+}
+
+.adv-scroll-answer {
+    margin: 0.75em 0 0 3.5em;
+    padding-left: 1em;
+    border-left: 4px solid var(--c-purple);
+}
+
+.adv-oracle {
+    padding: 0.5em 1em;
+    border: 4px solid var(--c-purple);
+}
+
+.adv-rumour {
+    color: var(--c-white);
+    min-height: 7em;
+}
+
+.adv-cols {
+    columns: 2;
+    column-gap: 2em;
+}
+
+/* Console: the command line pinned to the bottom of the screen */
+.adv-console {
+    position: sticky;
+    bottom: 0;
+    margin-left: -1em;
+    margin-right: -1em;
+    padding: 0.5em 1em calc(0.5em + env(safe-area-inset-bottom));
+    background: var(--c-blue);
+    border-top: 4px solid var(--c-lightBlue);
+    z-index: 10;
+}
+
+.adv-status {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 0 1em;
+    font-size: 0.85em;
+    line-height: 1.6;
+}
+
+.adv-log {
+    max-height: calc(5 * 1.6em);
+    overflow-y: auto;
+    margin-top: 0.25em;
+    line-height: 1.6;
+    color: var(--c-white);
+    overscroll-behavior: contain;
+}
+
+.adv-prompt {
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+    margin-top: 0.25em;
+    color: var(--c-white);
+}
+
+.adv .adv-prompt input {
+    flex: 1;
+    min-width: 0;
+    padding: 0.4em 0;
+    border: 0;
+    border-bottom: 3px solid var(--c-lightBlue);
+    border-radius: 0;
+    background: transparent;
+    color: var(--c-white);
+    font: inherit;
+    /* 16px or more stops iOS zooming in on focus. */
+    font-size: max(16px, 1em);
+    caret-color: var(--c-lightBlue);
+    outline: none;
+}
+
+.adv .adv-prompt input:focus {
+    border-bottom-color: var(--c-white);
+}
+
+.adv .adv-prompt input::placeholder {
+    color: var(--c-lightBlue);
+    opacity: 1;
+}
+
+.adv-chips {
+    display: flex;
+    gap: 0.5em;
+    margin-top: 0.5em;
+    overflow-x: auto;
+    scrollbar-width: none;
+}
+
+.adv-chips button {
+    flex: none;
+    padding: 0.5em 0.6em;
+    border: 0;
+    border-radius: 0;
+    background: var(--c-lightBlue);
+    color: var(--c-white);
+    font: inherit;
+    font-size: 0.85em;
+    cursor: pointer;
+}
+
+.adv-chips button:hover {
+    background: var(--c-white);
+    color: var(--c-blue);
+}
+
+/* Boot screen */
+.adv-boot {
+    position: fixed;
+    inset: 0;
+    z-index: 50;
+    padding: calc(var(--border) + 1em);
+    background: var(--c-blue);
+    box-shadow: inset 0 0 0 var(--border) var(--c-lightBlue);
+    color: var(--c-lightBlue);
+    font-size: min(var(--fs), calc((100vw - 2 * var(--border) - 2em) / 40));
+    line-height: 1.6;
+    white-space: pre;
+}
+
+.adv-cursor {
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    background: var(--c-lightBlue);
+    animation: adv-blink 1s steps(1) infinite;
+}
+
+.adv-blink {
+    animation: adv-blink 1s steps(1) infinite;
+}
+
+@keyframes adv-blink {
+    50% {
+        opacity: 0;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .adv-blink,
+    .adv-cursor {
+        animation: none;
+    }
+}
+
+/* Newsletter form from EmailOctopus, pulled into the C64 look as far as it lets us */
+.adv-newsletter,
+.adv-newsletter * {
+    font-family: var(--font-adventure), monospace !important;
+    font-size: var(--fs) !important;
+    line-height: 1.75 !important;
+    letter-spacing: normal !important;
+    color: var(--c-white) !important;
+    background: transparent !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+}
+
+.adv-newsletter input {
+    border: 0 !important;
+    border-bottom: 3px solid var(--c-lightBlue) !important;
+    width: 100% !important;
+    padding: 0.4em 0 !important;
+    font-size: max(16px, var(--fs)) !important;
+}
+
+.adv-newsletter button,
+.adv-newsletter [type="submit"] {
+    background: var(--c-lightGreen) !important;
+    color: var(--c-black) !important;
+    border: 0 !important;
+    width: 100% !important;
+    padding: 0.75em 1em !important;
+    margin-top: 1em !important;
+}
+
+/* Desktop: a proper C64 border around a 40 column screen */
+@media (min-width: 900px) {
+    .adv {
+        --fs: 16px;
+        --border: clamp(24px, 6vh, 64px);
+    }
+
+    .adv-screen {
+        max-width: calc(40 * var(--fs) + 4em);
+        padding: 2em 2em 0;
+    }
+
+    .adv-console {
+        margin-left: -2em;
+        margin-right: -2em;
+        padding-left: 2em;
+        padding-right: 2em;
+    }
+
+    .adv-chips {
+        flex-wrap: wrap;
+    }
+}
+
+.adv-portals li + li {
+    margin-top: 0.75em;
+}
+
+.adv-portals a {
+    text-decoration: none;
+}
+
+.adv-tome + .adv-tome {
+    margin-top: 1em;
+}
